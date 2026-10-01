@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Igreja Batista Manancial Manguariba</title>
+    <link rel="icon" type="image/png" href="./logo-claro.png">
     <!-- Tailwind CSS CDN Estável -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome para Ícones -->
@@ -38,7 +39,7 @@
     <!-- ========================================== -->
     <div id="telaAutenticacao" class="flex-1 flex flex-col justify-center max-w-md w-full mx-auto px-6 py-8">
         
-        <!-- LOGO OFICIAL MANANGUARIBA -->
+        <!-- LOGO OFICIAL MANANGUARIBA (FUNDO CLARO) -->
         <div class="text-center mb-6 flex justify-center">
             <img src="./logo-claro.png" alt="Igreja Batista Manancial" class="w-60 h-auto object-contain">
         </div>
@@ -82,12 +83,12 @@
 
             <!-- ACESSO DIRETO ADM -->
             <button type="button" onclick="entrarComoAdmDireto()" class="w-full bg-amber-50 border border-amber-200 text-amber-800 font-bold py-2 rounded-xl text-xs flex items-center justify-center hover:bg-amber-100 transition-colors cursor-pointer">
-                <i class="fa-solid fa-unlock-keyhole mr-1.5 text-amber-600"></i> Acesso Direto do ADM
+                <i class="fa-solid fa-unlock-keyhole mr-1.5 text-amber-600"></i> Acesso Direto do ADM Master
             </button>
 
             <div class="text-center space-y-2 pt-2 border-t text-xs text-gray-600">
                 <p>Novo por aqui? <button type="button" onclick="alternarAuth('cadastro')" class="text-[#0f5499] font-bold hover:underline cursor-pointer">Criar conta Membro</button></p>
-                <p id="txtLinkAdm">Líder da Igreja? <button type="button" onclick="alternarAuth('cadastroAdm')" class="text-amber-600 font-bold hover:underline cursor-pointer">Primeiro Cadastro do ADM</button></p>
+                <p id="txtLinkAdm">Líder Geral da Igreja? <button type="button" onclick="alternarAuth('cadastroAdm')" class="text-amber-600 font-bold hover:underline cursor-pointer">Primeiro Cadastro do ADM</button></p>
             </div>
         </div>
 
@@ -114,9 +115,9 @@
 
         <!-- FORMULÁRIO 3: PRIMEIRO CADASTRO DO ADM -->
         <div id="containerCadastroAdm" class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm space-y-4 hidden animate-slide-up">
-            <h2 class="text-lg font-bold text-amber-700"><i class="fa-solid fa-shield-halved mr-1.5"></i> Cadastro do ADM</h2>
+            <h2 class="text-lg font-bold text-amber-700"><i class="fa-solid fa-shield-halved mr-1.5"></i> Cadastro do ADM Master</h2>
             <form onsubmit="executarCadastroAdm(event)" class="space-y-3">
-                <input type="text" id="regNomeAdm" required class="w-full bg-gray-50 border rounded-xl p-3 focus:outline-none" placeholder="Nome do Administrador">
+                <input type="text" id="regNomeAdm" required class="w-full bg-gray-50 border rounded-xl p-3 focus:outline-none" placeholder="Nome do Administrador Geral">
                 <input type="email" id="regEmailAdm" required class="w-full bg-gray-50 border rounded-xl p-3 focus:outline-none" placeholder="E-mail Administrativo">
                 <input type="password" id="regSenhaAdm" required minlength="6" class="w-full bg-gray-50 border rounded-xl p-3 focus:outline-none" placeholder="Senha do ADM">
                 <button type="submit" class="w-full bg-amber-500 text-[#1a1b1c] font-bold py-3.5 rounded-xl cursor-pointer">Finalizar Configuração Mestre</button>
@@ -160,6 +161,21 @@
                         <span id="txtLocalCultoDestaque"><i class="fa-solid fa-location-dot mr-1"></i> Templo Principal</span>
                     </div>
                     <p id="txtDescCultoDestaque" class="text-xs text-amber-50 font-medium pt-1">Venha adorar ao Senhor conosco e receber uma palavra do céu para o seu coração!</p>
+                </section>
+
+                <!-- CARD DESTAQUE: ESCALA DE OBREIROS & CEIA -->
+                <section class="bg-white border border-blue-100 rounded-3xl p-4 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#0f5499] flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-clipboard-user"></i></span>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-800">Escala de Obreiros & Ceia</h4>
+                                <p class="text-[10px] text-gray-500">Cultos semanais e Santa Ceia do Senhor</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="navegarModais('modalVerEscalas')" class="text-xs font-bold text-[#0f5499] hover:underline cursor-pointer">Ver Todas</button>
+                    </div>
+                    <div id="boxDestaqueEscalaInicio" class="space-y-2 text-xs"></div>
                 </section>
 
                 <!-- PALAVRA DO DIA -->
@@ -274,6 +290,13 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
                     </div>
+                    <div onclick="navegarModais('modalVerEscalas')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-clipboard-list text-lg text-indigo-600 w-5"></i>
+                            <span class="font-bold">Escalas de Obreiros e Ceia</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
                     <div onclick="navegarModais('modalMinhasInscricoesCrediario')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
                         <div class="flex items-center space-x-3 text-gray-700">
                             <i class="fa-solid fa-file-invoice-dollar text-lg text-blue-600 w-5"></i>
@@ -341,6 +364,20 @@
                 <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-sm text-gray-700 leading-relaxed whitespace-pre-line" id="detAnuncioDescricao"></div>
             </div>
             <button type="button" onclick="fecharModal('modalDetalheAnuncio')" class="w-full bg-[#0f5499] text-white font-bold py-3 rounded-xl text-sm">Fechar</button>
+        </div>
+    </div>
+
+    <!-- MODAL MEMBRO: VER TODAS AS ESCALAS -->
+    <div id="modalVerEscalas" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[88vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2">
+                <div class="flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <h3 class="text-base font-bold text-[#1a1b1c]">Escalas de Obreiros e Departamentos</h3>
+                </div>
+                <button type="button" onclick="fecharModal('modalVerEscalas')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="listaCompletaEscalasMembros" class="space-y-3"></div>
         </div>
     </div>
 
@@ -606,19 +643,24 @@
         </div>
     </div>
 
-    <!-- PAINEL ADM PRINCIPAL -->
+    <!-- PAINEL ADM PRINCIPAL (EXPANDIDO COM GESTÃO DE DEPARTAMENTOS E ESCALAS) -->
     <div id="modalAdm" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-5 space-y-4 shadow-2xl h-[95vh] flex flex-col">
             <div class="flex items-center justify-between border-b pb-2 flex-shrink-0">
                 <div>
-                    <h2 class="text-xl font-black text-amber-600 flex items-center"><i class="fa-solid fa-unlock-keyhole mr-1.5"></i> Super Painel ADM</h2>
+                    <h2 class="text-xl font-black text-amber-600 flex items-center" id="tituloPainelAdmHeader">
+                        <i class="fa-solid fa-unlock-keyhole mr-1.5"></i> Super Painel ADM
+                    </h2>
+                    <p class="text-[10px] text-gray-500" id="subtituloAcessoAdm">Gestão Geral & Departamental</p>
                 </div>
                 <button type="button" onclick="fecharModal('modalAdm')" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
 
             <!-- MENUS DE ABAS DO ADM -->
             <div class="flex space-x-1 overflow-x-auto pb-1 flex-shrink-0 text-[11px] font-bold">
-                <button id="tabBtn-admContentCrediario" type="button" onclick="alternarAbasAdm('admContentCrediario')" class="bg-[#0f5499] text-white px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-handshake mr-1"></i> Crediário</button>
+                <button id="tabBtn-admContentEscalas" type="button" onclick="alternarAbasAdm('admContentEscalas')" class="bg-[#0f5499] text-white px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-clipboard-check mr-1"></i> Escalas</button>
+                <button id="tabBtn-admContentDeptos" type="button" onclick="alternarAbasAdm('admContentDeptos')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-sitemap mr-1"></i> Departamentos</button>
+                <button id="tabBtn-admContentCrediario" type="button" onclick="alternarAbasAdm('admContentCrediario')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-handshake mr-1"></i> Crediário</button>
                 <button id="tabBtn-admContentAgenda" type="button" onclick="alternarAbasAdm('admContentAgenda')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-calendar mr-1"></i> Agenda</button>
                 <button id="tabBtn-admContentMural" type="button" onclick="alternarAbasAdm('admContentMural')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer">Mural</button>
                 <button id="tabBtn-admContentCampanha" type="button" onclick="alternarAbasAdm('admContentCampanha')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer">Campanhas</button>
@@ -628,8 +670,90 @@
             </div>
 
             <div class="flex-1 overflow-y-auto space-y-4 pr-1 text-sm">
+                
+                <!-- ADM ABA: ESCALAS PARA OBREIROS, CULTOS E CEIAS -->
+                <div id="admContentEscalas" class="space-y-3 target-aba-adm">
+                    <div class="bg-white border p-3.5 rounded-xl space-y-2.5">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-user-clock mr-1 text-[#0f5499]"></i> Montar Nova Escala Departamental</span>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Departamento</label>
+                                <select id="admEscalaDepartamentoSelect" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs font-semibold text-gray-800"></select>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Data do Culto/Ceia</label>
+                                <input type="date" id="admEscalaData" class="w-full border p-2 rounded-xl bg-gray-50 text-xs">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Culto / Evento</label>
+                                <input type="text" id="admEscalaCulto" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Ceia do Senhor, Família...">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Horário</label>
+                                <input type="time" id="admEscalaHora" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" value="19:00">
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Obreiros / Membros Escalados</label>
+                            <textarea id="admEscalaMembros" rows="2" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Presb. Carlos, Diác. Marcos, Ir. Paulo (Porta e Santa Ceia)"></textarea>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Função / Instruções</label>
+                            <input type="text" id="admEscalaFuncao" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Distribuição dos cálices, Recepção e Ofertório">
+                        </div>
+
+                        <button type="button" onclick="salvarNovaEscala()" class="w-full bg-[#0f5499] text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer shadow-sm">Publicar Escala</button>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-list-check mr-1"></i> Escalas em Andamento</h4>
+                        <div id="admListaEscalasGerais" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- ADM ABA: GESTÃO E DELEGAÇÃO DE DEPARTAMENTOS -->
+                <div id="admContentDeptos" class="space-y-3 target-aba-adm hidden">
+                    <div id="boxGestorCriarDepto" class="bg-white border p-3.5 rounded-xl space-y-2.5">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-user-shield mr-1 text-amber-600"></i> Criar Departamento & Vincular Líder</span>
+                        
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Nome do Departamento</label>
+                            <input type="text" id="admDeptoNome" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Diaconato e Obreiros, Louvor, Infantil...">
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Nome do Líder Responsável</label>
+                            <input type="text" id="admDeptoLider" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Diácono Marcos">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">E-mail de Login do Líder</label>
+                                <input type="email" id="admDeptoEmail" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="lider@igreja.com">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Senha do Líder</label>
+                                <input type="password" id="admDeptoSenha" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="••••••••">
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="salvarNovoDepartamento()" class="w-full bg-amber-500 hover:bg-amber-600 text-[#1a1b1c] font-bold py-2.5 rounded-xl text-xs cursor-pointer shadow-sm">Cadastrar e Delegar Departamento</button>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-sitemap mr-1"></i> Departamentos Ativos & Acessos</h4>
+                        <div id="admListaDepartamentosView" class="space-y-2"></div>
+                    </div>
+                </div>
+
                 <!-- ADM: GESTÃO DO CREDIÁRIO DA IGREJA -->
-                <div id="admContentCrediario" class="space-y-3 target-aba-adm">
+                <div id="admContentCrediario" class="space-y-3 target-aba-adm hidden">
                     <div class="bg-white border p-3.5 rounded-xl space-y-2">
                         <div class="flex justify-between items-center">
                             <h4 class="text-xs font-bold text-gray-500 uppercase"><i class="fa-solid fa-file-invoice-dollar mr-1 text-[#0f5499]"></i> Monitoramento de Parcelas & Quitação</h4>
@@ -876,7 +1000,8 @@
             admCadastrado: false, 
             listaEmailsAdm: [], 
             listaSenhasAdm: {}, 
-            usuarioLogado: null, 
+            usuarioLogado: null, // "adm", "lider_depto", "membro"
+            deptoAtivoId: null,
             wppComprovantes: "5521999999999", 
             wppSecretaria: "5521988888888",
             chavePix: "34.605.648/0001-03",
@@ -885,6 +1010,38 @@
             qrCodeImg: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=34605648000103",
             versiculoDizimo: '"Cada um contribua segundo propôs no seu coração; não com tristeza, ou por necessidade; porque Deus ama ao que dá com alegria." — 2 Coríntios 9:7'
         };
+
+        // ==============================================================
+        // SISTEMA DE DEPARTAMENTOS & ESCALAS (OBREIROS E CULTOS)
+        // ==============================================================
+        let departamentosBanco = [
+            { id: 1, nome: "Diaconato & Obreiros", lider: "Diácono Marcos", email: "diaconato@manancial.com", senha: "123" },
+            { id: 2, nome: "Ministério de Louvor", lider: "Pr. e Líder Lucas", email: "louvor@manancial.com", senha: "123" },
+            { id: 3, nome: "Recepção & Acolhimento", lider: "Ir. Raquel", email: "recepcao@manancial.com", senha: "123" }
+        ];
+
+        let escalasBanco = [
+            { 
+                id: 1, 
+                departamentoId: 1, 
+                departamentoNome: "Diaconato & Obreiros", 
+                culto: "Culto Solene de Santa Ceia", 
+                data: "2026-10-04", 
+                hora: "19:00", 
+                membros: "Presb. Samuel, Diác. Marcos, Ir. Paulo e Ir. Carlos", 
+                funcao: "Distribuição dos Cálices e Pães da Ceia, Ofertório e Portaria" 
+            },
+            { 
+                id: 2, 
+                departamentoId: 1, 
+                departamentoNome: "Diaconato & Obreiros", 
+                culto: "Culto da Família", 
+                data: "2026-10-11", 
+                hora: "19:00", 
+                membros: "Diác. Felipe e Ir. André", 
+                funcao: "Apoio no Altar e Recepção Geral" 
+            }
+        ];
         
         let devocionalDados = {
             titulo: "Fontes de Água Viva",
@@ -934,10 +1091,8 @@
             { id: 204, tipo: "especial", data: "2026-12-25", hora: "19:00", local: "Templo", titulo: "Cantata de Natal Manancial", desc: "Apresentação especial do coral e celebração do nascimento de Jesus.", destaque: true, imagem: "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=600" }
         ];
 
-        // Sincronização da agenda com o dia atual
         let dataReferenciaAgenda = new Date();
 
-        // BANCO DE INSCRIÇÕES E CREDIÁRIO / CARNÊ
         let inscricoesEventosBanco = [
             { id: 1, evento: "Retiro Espiritual de Inverno 2026", membro: "Abraão Lucas", metodo: "crediario", valorTotal: 120, parcelasTotais: 3, parcelasPagas: 1, prazoQuitacao: "2026-08-10" }
         ];
@@ -961,51 +1116,69 @@
         let bancoImagens = { cultos: ['https://images.unsplash.com/photo-1515162305285-0293e4767cc2?q=80&w=300'] };
         let pastasNomes = { cultos: "Cultos & Celebrações" };
 
-        function autenticarGoogle() {
+        window.autenticarGoogle = function() {
             dadosAutenticacao.usuarioLogado = "membro";
+            dadosAutenticacao.deptoAtivoId = null;
             dadosUsuarioAtivo.nome = "Abraão Lucas (Google Account)";
             dadosUsuarioAtivo.email = "abraaoglucas.google@gmail.com";
             carregarDadosNoFormularioCadastro();
             inicializarFluxoApp();
-        }
+        };
 
-        function autenticarConvidado() {
+        window.autenticarConvidado = function() {
             dadosAutenticacao.usuarioLogado = "membro";
+            dadosAutenticacao.deptoAtivoId = null;
             dadosUsuarioAtivo.nome = "Visitante";
             dadosUsuarioAtivo.email = "visitante@manancial.com";
             carregarDadosNoFormularioCadastro();
             inicializarFluxoApp();
-        }
+        };
 
-        function entrarComoAdmDireto() {
+        window.entrarComoAdmDireto = function() {
             dadosAutenticacao.usuarioLogado = "adm";
-            dadosUsuarioAtivo.nome = "Administrador Pastoral";
+            dadosAutenticacao.deptoAtivoId = null;
+            dadosUsuarioAtivo.nome = "Administrador Geral";
             dadosUsuarioAtivo.email = "admin@manancial.com";
-            document.getElementById('tagFuncaoUsuario').innerText = "Painel ADM";
+            document.getElementById('tagFuncaoUsuario').innerText = "ADM Master";
             document.getElementById('btnEngrenagemAdm').classList.remove('hidden');
             carregarDadosNoFormularioCadastro();
             inicializarFluxoApp();
-        }
+        };
 
-        function executarLogin(event) {
+        window.executarLogin = function(event) {
             event.preventDefault();
             const email = document.getElementById('loginEmail').value.trim().toLowerCase();
             const senha = document.getElementById('loginSenha').value;
 
-            if ((dadosAutenticacao.listaEmailsAdm.includes(email) && dadosAutenticacao.listaSenhasAdm[email] === senha) || email.includes('admin') || email.includes('pastor') || email.includes('lider')) {
+            // 1. Verifica se é o Administrador Geral
+            if ((dadosAutenticacao.listaEmailsAdm.includes(email) && dadosAutenticacao.listaSenhasAdm[email] === senha) || email.includes('admin') || email.includes('pastor')) {
                 dadosAutenticacao.usuarioLogado = "adm";
-                document.getElementById('tagFuncaoUsuario').innerText = "Painel ADM";
+                dadosAutenticacao.deptoAtivoId = null;
+                document.getElementById('tagFuncaoUsuario').innerText = "ADM Master";
                 document.getElementById('btnEngrenagemAdm').classList.remove('hidden');
-            } else {
-                dadosAutenticacao.usuarioLogado = "membro";
-                document.getElementById('tagFuncaoUsuario').innerText = "Membro";
-                document.getElementById('btnEngrenagemAdm').classList.add('hidden');
-                dadosUsuarioAtivo.email = email;
-                dadosUsuarioAtivo.nome = email.split('@')[0];
+            } 
+            // 2. Verifica se é um Líder de Departamento com senha delegada
+            else {
+                const deptoEncontrado = departamentosBanco.find(d => d.email.toLowerCase() === email && d.senha === senha);
+                if (deptoEncontrado) {
+                    dadosAutenticacao.usuarioLogado = "lider_depto";
+                    dadosAutenticacao.deptoAtivoId = deptoEncontrado.id;
+                    dadosUsuarioAtivo.nome = deptoEncontrado.lider;
+                    dadosUsuarioAtivo.email = deptoEncontrado.email;
+                    document.getElementById('tagFuncaoUsuario').innerText = `Líder: ${deptoEncontrado.nome}`;
+                    document.getElementById('btnEngrenagemAdm').classList.remove('hidden');
+                } else {
+                    dadosAutenticacao.usuarioLogado = "membro";
+                    dadosAutenticacao.deptoAtivoId = null;
+                    document.getElementById('tagFuncaoUsuario').innerText = "Membro";
+                    document.getElementById('btnEngrenagemAdm').classList.add('hidden');
+                    dadosUsuarioAtivo.email = email;
+                    dadosUsuarioAtivo.nome = email.split('@')[0];
+                }
             }
             carregarDadosNoFormularioCadastro();
             inicializarFluxoApp();
-        }
+        };
 
         function carregarDadosNoFormularioCadastro() {
             document.getElementById('txtNomePerfil').innerText = dadosUsuarioAtivo.nome;
@@ -1027,7 +1200,7 @@
             document.getElementById('oracaoFiltroFone').innerText = dadosUsuarioAtivo.telefone;
         }
 
-        function salvarDadosCadastroUsuario(event) {
+        window.salvarDadosCadastroUsuario = function(event) {
             event.preventDefault();
             dadosUsuarioAtivo.nome = document.getElementById('inputCadastroNome').value;
             dadosUsuarioAtivo.email = document.getElementById('inputCadastroEmail').value;
@@ -1038,8 +1211,202 @@
             dadosUsuarioAtivo.filhos = document.getElementById('inputCadastroFilhos').value;
             
             carregarDadosNoFormularioCadastro();
-            alert("Ficha cadastral e familiar salva!");
-            fecharModal('modalDadosCadastro');
+            alert("Ficha cadastral salva com sucesso!");
+            window.fecharModal('modalDadosCadastro');
+        };
+
+        // ==============================================================
+        // MÉTODOS DE DEPARTAMENTOS & ESCALAS
+        // ==============================================================
+        window.salvarNovoDepartamento = function() {
+            if (dadosAutenticacao.usuarioLogado !== 'adm') {
+                return alert("Apenas o Gestor Geral (ADM Master) pode criar e delegar departamentos.");
+            }
+            const nome = document.getElementById('admDeptoNome').value.trim();
+            const lider = document.getElementById('admDeptoLider').value.trim();
+            const email = document.getElementById('admDeptoEmail').value.trim().toLowerCase();
+            const senha = document.getElementById('admDeptoSenha').value.trim();
+
+            if (!nome || !lider || !email || !senha) {
+                return alert("Preencha todos os campos do departamento, líder e senha.");
+            }
+
+            departamentosBanco.push({
+                id: Date.now(),
+                nome: nome,
+                lider: lider,
+                email: email,
+                senha: senha
+            });
+
+            document.getElementById('admDeptoNome').value = '';
+            document.getElementById('admDeptoLider').value = '';
+            document.getElementById('admDeptoEmail').value = '';
+            document.getElementById('admDeptoSenha').value = '';
+
+            renderizarDepartamentosAdm();
+            renderizarSelectDepartamentosEscala();
+            alert(`Departamento "${nome}" criado e delegado para ${lider}!`);
+        };
+
+        function renderizarDepartamentosAdm() {
+            const container = document.getElementById('admListaDepartamentosView');
+            container.innerHTML = '';
+
+            departamentosBanco.forEach(d => {
+                container.innerHTML += `
+                    <div class="bg-white p-3 border rounded-xl flex items-center justify-between text-xs shadow-2xs">
+                        <div>
+                            <b class="text-[#0f5499] text-sm block">${d.nome}</b>
+                            <span class="text-gray-700">Líder: <b>${d.lider}</b></span><br>
+                            <span class="text-gray-400 text-[10px]">Login: ${d.email} | Senha vinculada</span>
+                        </div>
+                        ${dadosAutenticacao.usuarioLogado === 'adm' ? `
+                            <button type="button" onclick="excluirDepartamento(${d.id})" class="text-red-600 p-1.5 bg-red-50 hover:bg-red-100 rounded-lg text-xs cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                        ` : ''}
+                    </div>
+                `;
+            });
+        }
+
+        window.excluirDepartamento = function(id) {
+            if (dadosAutenticacao.usuarioLogado !== 'adm') return alert("Apenas o ADM Master pode excluir departamentos.");
+            departamentosBanco = departamentosBanco.filter(d => d.id !== id);
+            renderizarDepartamentosAdm();
+            renderizarSelectDepartamentosEscala();
+        };
+
+        function renderizarSelectDepartamentosEscala() {
+            const sel = document.getElementById('admEscalaDepartamentoSelect');
+            sel.innerHTML = '';
+
+            // Se for Líder de Depto, só pode cadastrar no dele
+            if (dadosAutenticacao.usuarioLogado === 'lider_depto' && dadosAutenticacao.deptoAtivoId) {
+                const depto = departamentosBanco.find(d => d.id === dadosAutenticacao.deptoAtivoId);
+                if (depto) {
+                    sel.innerHTML = `<option value="${depto.id}">${depto.nome} (Seu Depto)</option>`;
+                    return;
+                }
+            }
+
+            departamentosBanco.forEach(d => {
+                sel.innerHTML += `<option value="${d.id}">${d.nome}</option>`;
+            });
+        }
+
+        window.salvarNovaEscala = function() {
+            const deptoId = parseInt(document.getElementById('admEscalaDepartamentoSelect').value);
+            const data = document.getElementById('admEscalaData').value;
+            const culto = document.getElementById('admEscalaCulto').value.trim();
+            const hora = document.getElementById('admEscalaHora').value;
+            const membros = document.getElementById('admEscalaMembros').value.trim();
+            const funcao = document.getElementById('admEscalaFuncao').value.trim();
+
+            if (!deptoId || !data || !culto || !membros) {
+                return alert("Preencha a data, o culto e os membros da escala.");
+            }
+
+            const depto = departamentosBanco.find(d => d.id === deptoId);
+            const deptoNome = depto ? depto.nome : "Geral";
+
+            escalasBanco.unshift({
+                id: Date.now(),
+                departamentoId: deptoId,
+                departamentoNome: deptoNome,
+                culto: culto,
+                data: data,
+                hora: hora || "19:00",
+                membros: membros,
+                funcao: funcao || "Atuação e Apoio Ministerial"
+            });
+
+            document.getElementById('admEscalaCulto').value = '';
+            document.getElementById('admEscalaMembros').value = '';
+            document.getElementById('admEscalaFuncao').value = '';
+
+            renderizarEscalasAdm();
+            renderizarEscalasVisualizacaoMembros();
+            alert("Escala publicada com sucesso!");
+        };
+
+        function renderizarEscalasAdm() {
+            const container = document.getElementById('admListaEscalasGerais');
+            container.innerHTML = '';
+
+            // Filtragem: Líder de departamento só mexe nas escalas do próprio depto
+            let lista = escalasBanco;
+            if (dadosAutenticacao.usuarioLogado === 'lider_depto' && dadosAutenticacao.deptoAtivoId) {
+                lista = escalasBanco.filter(e => e.departamentoId === dadosAutenticacao.deptoAtivoId);
+            }
+
+            if (lista.length === 0) {
+                container.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhuma escala cadastrada.</p>';
+                return;
+            }
+
+            lista.forEach(e => {
+                container.innerHTML += `
+                    <div class="bg-white p-3 border rounded-xl space-y-1.5 shadow-2xs">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-xs text-[#0f5499] uppercase tracking-wider">${e.departamentoNome}</span>
+                            <button type="button" onclick="excluirEscala(${e.id})" class="text-red-600 p-1 bg-red-50 hover:bg-red-100 rounded text-[10px] cursor-pointer"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                        </div>
+                        <div class="text-xs text-gray-800 font-bold">${e.culto} — ${e.data} às ${e.hora}</div>
+                        <p class="text-xs text-gray-600"><b>Escalados:</b> ${e.membros}</p>
+                        <p class="text-[11px] text-gray-500"><b>Função:</b> ${e.funcao}</p>
+                    </div>
+                `;
+            });
+        }
+
+        window.excluirEscala = function(id) {
+            escalasBanco = escalasBanco.filter(e => e.id !== id);
+            renderizarEscalasAdm();
+            renderizarEscalasVisualizacaoMembros();
+        };
+
+        function renderizarEscalasVisualizacaoMembros() {
+            const boxInicio = document.getElementById('boxDestaqueEscalaInicio');
+            const boxCompleto = document.getElementById('listaCompletaEscalasMembros');
+            boxInicio.innerHTML = '';
+            boxCompleto.innerHTML = '';
+
+            if (escalasBanco.length === 0) {
+                boxInicio.innerHTML = '<p class="text-gray-400 text-xs py-1">Nenhuma escala programada para os próximos cultos.</p>';
+                boxCompleto.innerHTML = '<p class="text-gray-400 text-xs text-center py-4">Nenhuma escala cadastrada no momento.</p>';
+                return;
+            }
+
+            // Destaque de início: mostra a escala mais recente
+            const primeira = escalasBanco[0];
+            boxInicio.innerHTML = `
+                <div class="bg-blue-50/60 p-3 rounded-2xl border border-blue-100 space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-[#0f5499] uppercase text-[10px]">${primeira.departamentoNome}</span>
+                        <span class="text-[10px] font-semibold text-gray-500"><i class="fa-regular fa-calendar mr-1"></i>${primeira.data} às ${primeira.hora}</span>
+                    </div>
+                    <b class="text-gray-900 block text-xs">${primeira.culto}</b>
+                    <p class="text-gray-700 text-xs mt-1"><b>Obreiros:</b> ${primeira.membros}</p>
+                    <p class="text-[11px] text-gray-500"><b>Responsabilidade:</b> ${primeira.funcao}</p>
+                </div>
+            `;
+
+            // Lista completa no modal
+            escalasBanco.forEach(es => {
+                boxCompleto.innerHTML += `
+                    <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-100 space-y-1 text-xs">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold uppercase tracking-wider text-[#0f5499] text-[10px] bg-blue-50 px-2 py-0.5 rounded-md">${es.departamentoNome}</span>
+                            <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${es.data} às ${es.hora}</span>
+                        </div>
+                        <h4 class="font-black text-sm text-gray-900 mt-1">${es.culto}</h4>
+                        <div class="bg-white p-2.5 rounded-xl border border-gray-200 space-y-1 mt-2">
+                            <p class="text-gray-800"><strong>Equipe Escalada:</strong> ${es.membros}</p>
+                            <p class="text-gray-600 text-[11px]"><strong>Instruções:</strong> ${es.funcao}</p>
+                        </div>
+                    </div>
+                `;
+            });
         }
 
         /* --- DESTAQUE AUTOMÁTICO: CULTO DO DIA OU PRÓXIMO CULTO --- */
@@ -1108,7 +1475,7 @@
             return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
         }
 
-        function admSalvarDevocional() {
+        window.admSalvarDevocional = function() {
             devocionalDados.titulo = document.getElementById('admInputTitDevocional').value.trim() || devocionalDados.titulo;
             let rawUrl = document.getElementById('admInputLnkDevocional').value.trim();
             if (rawUrl) {
@@ -1120,8 +1487,8 @@
 
             carregarDevocionalNaTela();
             alert("Vídeo e Devocional Atualizados com Sucesso!");
-            fecharModal('modalAdm');
-        }
+            window.fecharModal('modalAdm');
+        };
 
         /* --- ANÚNCIOS NA TELA INÍCIO (CLICÁVEIS) --- */
         function renderizarAnunciosInicio() {
@@ -1144,7 +1511,7 @@
             });
         }
 
-        function abrirDetalhesAnuncio(id) {
+        window.abrirDetalhesAnuncio = function(id) {
             const an = muralEventos.find(e => e.id == id);
             if (!an) return;
 
@@ -1161,8 +1528,8 @@
             document.getElementById('detAnuncioLocal').innerHTML = `<i class="fa-solid fa-location-dot mr-1 text-[#0f5499]"></i> ${an.local || 'Templo'}`;
             document.getElementById('detAnuncioDescricao').innerText = an.descricao;
 
-            abrirModal('modalDetalheAnuncio');
-        }
+            window.abrirModal('modalDetalheAnuncio');
+        };
 
         /* --- MURAL DIVIDIDO EM 2 COLUNAS COM DESCRIÇÃO COMPLETA DOS ANÚNCIOS --- */
         function renderizarMuralEventos() {
@@ -1174,7 +1541,6 @@
             muralEventos.forEach(ev => {
                 const imgTag = ev.imagem ? `<img src="${ev.imagem}" alt="${ev.titulo}" class="w-full h-28 object-cover rounded-xl mb-2">` : '';
                 
-                // Card de 2 colunas com descrição bem visível
                 containerMural.innerHTML += `
                     <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs space-y-2 flex flex-col justify-between">
                         <div>
@@ -1215,7 +1581,7 @@
             });
         }
 
-        function admInserirMural() {
+        window.admInserirMural = function() {
             const tit = document.getElementById('admMuralTitulo').value.trim();
             const img = document.getElementById('admMuralImagem').value.trim();
             const desc = document.getElementById('admMuralDescricao').value.trim();
@@ -1241,7 +1607,7 @@
             renderizarMuralEventos();
             renderizarAnunciosInicio();
             alert("Anúncio/Evento publicado!");
-            fecharModal('modalAdm');
+            window.fecharModal('modalAdm');
 
             document.getElementById('admMuralTitulo').value = '';
             document.getElementById('admMuralImagem').value = '';
@@ -1250,34 +1616,34 @@
             document.getElementById('admMuralLocal').value = '';
             document.getElementById('admMuralVagas').value = '';
             document.getElementById('admMuralValor').value = '';
-        }
+        };
 
-        function admAjustarVagasEvento(id, qtd) {
+        window.admAjustarVagasEvento = function(id, qtd) {
             const ev = muralEventos.find(e => e.id === id);
             if (ev) {
                 ev.vagasRestantes = Math.max(0, ev.vagasRestantes + qtd);
                 renderizarMuralEventos();
             }
-        }
+        };
 
-        function admExcluirEvento(id) {
+        window.admExcluirEvento = function(id) {
             muralEventos = muralEventos.filter(e => e.id !== id);
             renderizarMuralEventos();
             renderizarAnunciosInicio();
-        }
+        };
 
         /* --- CALENDÁRIO & AGENDA ANUAL SINCRONIZADA --- */
         const nomesMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-        function mudarMesAgenda(direcao) {
+        window.mudarMesAgenda = function(direcao) {
             dataReferenciaAgenda.setMonth(dataReferenciaAgenda.getMonth() + direcao);
             renderizarAgendaCalendario();
-        }
+        };
 
-        function irParaHojeAgenda() {
+        window.irParaHojeAgenda = function() {
             dataReferenciaAgenda = new Date();
             renderizarAgendaCalendario();
-        }
+        };
 
         function renderizarAgendaCalendario() {
             const ano = dataReferenciaAgenda.getFullYear();
@@ -1355,7 +1721,7 @@
             renderizarListaAgendaAdm();
         }
 
-        function alternarCamposAgendaTipo() {
+        window.alternarCamposAgendaTipo = function() {
             const tipo = document.getElementById('admAgendaTipo').value;
             if (tipo === 'rotineiro') {
                 document.getElementById('boxAgendaRotineiro').classList.remove('hidden');
@@ -1364,9 +1730,9 @@
                 document.getElementById('boxAgendaRotineiro').classList.add('hidden');
                 document.getElementById('boxAgendaDataEspecifica').classList.remove('hidden');
             }
-        }
+        };
 
-        function admInserirEventoAgenda() {
+        window.admInserirEventoAgenda = function() {
             const tipo = document.getElementById('admAgendaTipo').value;
             const hora = document.getElementById('admAgendaHora').value;
             const local = document.getElementById('admAgendaLocal').value.trim() || 'Templo Principal';
@@ -1408,12 +1774,12 @@
             renderizarAgendaCalendario();
             atualizarCultoDestaqueInicio();
             alert("Evento gravado na Agenda com sucesso!");
-            fecharModal('modalAdm');
+            window.fecharModal('modalAdm');
 
             document.getElementById('admAgendaTitulo').value = '';
             document.getElementById('admAgendaDesc').value = '';
             document.getElementById('admAgendaImagem').value = '';
-        }
+        };
 
         function renderizarListaAgendaAdm() {
             const container = document.getElementById('admListaEventosAgenda');
@@ -1433,14 +1799,14 @@
             });
         }
 
-        function admExcluirEventoAgenda(id) {
+        window.admExcluirEventoAgenda = function(id) {
             agendaEventos = agendaEventos.filter(e => e.id !== id);
             renderizarAgendaCalendario();
             atualizarCultoDestaqueInicio();
-        }
+        };
 
         /* --- FORMAS DE PAGAMENTO NO CHECKOUT (PIX, CARTÃO E CREDIÁRIO) --- */
-        function selecionarMetodoPgto(metodo) {
+        window.selecionarMetodoPgto = function(metodo) {
             metodoPagamentoSelecionado = metodo;
             
             document.getElementById('btnPgtoPix').className = "border border-gray-200 bg-white text-gray-600 font-bold p-2 rounded-xl text-center cursor-pointer";
@@ -1460,18 +1826,18 @@
             } else if (metodo === 'crediario') {
                 document.getElementById('btnPgtoCrediario').className = "border-2 border-[#0f5499] bg-blue-50 text-[#0f5499] font-bold p-2 rounded-xl text-center cursor-pointer";
                 document.getElementById('boxPgtoCrediario').classList.remove('hidden');
-                atualizarValoresCrediario();
+                window.atualizarValoresCrediario();
             }
-        }
+        };
 
-        function atualizarValoresCrediario() {
+        window.atualizarValoresCrediario = function() {
             const parcelas = parseInt(document.getElementById('checkoutParcelasCrediario').value) || 1;
             const total = qtdVagasSelecionadas * valorEventoBase;
             const valorParcela = total / parcelas;
             document.getElementById('renderValorParcelaCrediario').innerText = `${parcelas}x de R$ ${valorParcela.toFixed(2).replace('.', ',')}`;
-        }
+        };
 
-        function abrirCheckoutEvento(id) {
+        window.abrirCheckoutEvento = function(id) {
             eventoCheckoutAtual = muralEventos.find(e => e.id == id);
             if (!eventoCheckoutAtual) return;
 
@@ -1483,33 +1849,31 @@
             document.getElementById('checkoutQtdVagas').innerText = qtdVagasSelecionadas;
             document.getElementById('checkoutValorTotal').innerText = valorEventoBase;
 
-            // Prazo padrão do crediário para daqui a 30 dias
             const prazoPadrao = new Date();
             prazoPadrao.setDate(prazoPadrao.getDate() + 30);
             document.getElementById('checkoutPrazoQuitacao').value = prazoPadrao.toISOString().split('T')[0];
 
-            selecionarMetodoPgto('pix');
-            abrirModal('modalCheckoutMural');
-        }
+            window.selecionarMetodoPgto('pix');
+            window.abrirModal('modalCheckoutMural');
+        };
 
-        function ajustarVagasCheckout(fator) {
+        window.ajustarVagasCheckout = function(fator) {
             let maxVagas = eventoCheckoutAtual ? eventoCheckoutAtual.vagasRestantes : 10;
             let novaQtd = qtdVagasSelecionadas + fator;
             if (novaQtd >= 1 && novaQtd <= maxVagas) {
                 qtdVagasSelecionadas = novaQtd;
                 document.getElementById('checkoutQtdVagas').innerText = qtdVagasSelecionadas;
                 document.getElementById('checkoutValorTotal').innerText = qtdVagasSelecionadas * valorEventoBase;
-                atualizarValoresCrediario();
+                window.atualizarValoresCrediario();
             }
-        }
+        };
 
-        function finalizerInscricaoMural() { 
+        window.finalizerInscricaoMural = function() { 
             if (eventoCheckoutAtual) {
                 const total = qtdVagasSelecionadas * valorEventoBase;
                 const parcelas = metodoPagamentoSelecionado === 'crediario' ? parseInt(document.getElementById('checkoutParcelasCrediario').value) : 1;
                 const prazo = document.getElementById('checkoutPrazoQuitacao').value;
 
-                // Registra inscrição
                 inscricoesEventosBanco.unshift({
                     id: Date.now(),
                     evento: eventoCheckoutAtual.titulo,
@@ -1528,7 +1892,7 @@
                 renderizarMinhasInscricoes();
             }
 
-            fecharModal('modalCheckoutMural'); 
+            window.fecharModal('modalCheckoutMural'); 
             if (metodoPagamentoSelecionado === 'cartao') {
                 alert("Inscrição efetuada! Por favor, utilize a maquininha da igreja com a liderança para concluir o pagamento.");
             } else if (metodoPagamentoSelecionado === 'crediario') {
@@ -1536,7 +1900,7 @@
             } else {
                 alert("Inscrição efetuada com sucesso!");
             }
-        }
+        };
 
         /* --- RENDERIZAÇÃO DO CREDIÁRIO / CARNÊ (MEMBRO & ADM) --- */
         function renderizarMinhasInscricoes() {
@@ -1609,7 +1973,7 @@
             });
         }
 
-        function admDarBaixaParcela(id) {
+        window.admDarBaixaParcela = function(id) {
             const ins = inscricoesEventosBanco.find(i => i.id === id);
             if (ins && ins.parcelasPagas < ins.parcelasTotais) {
                 ins.parcelasPagas += 1;
@@ -1617,13 +1981,13 @@
                 renderizarMinhasInscricoes();
                 alert(`Baixa efetuada! Agora constam ${ins.parcelasPagas}/${ins.parcelasTotais} parcelas pagas.`);
             }
-        }
+        };
 
-        function admExcluirInscricaoCrediario(id) {
+        window.admExcluirInscricaoCrediario = function(id) {
             inscricoesEventosBanco = inscricoesEventosBanco.filter(i => i.id !== id);
             renderizarInscricoesCrediarioAdm();
             renderizarMinhasInscricoes();
-        }
+        };
 
         /* --- CAMPANHAS --- */
         function renderizarCampanhas() {
@@ -1662,7 +2026,7 @@
             });
         }
 
-        function admInserirNovaCampanha() {
+        window.admInserirNovaCampanha = function() {
             const tit = document.getElementById('admCampanhaTitulo').value.trim();
             const img = document.getElementById('admCampanhaImagem').value.trim();
             const txt = document.getElementById('admCampanhaTexto').value.trim();
@@ -1681,21 +2045,21 @@
 
             renderizarCampanhas();
             alert(`Campanha "${tit}" ativada!`);
-            fecharModal('modalAdm');
+            window.fecharModal('modalAdm');
             
             document.getElementById('admCampanhaTitulo').value = '';
             document.getElementById('admCampanhaImagem').value = '';
             document.getElementById('admCampanhaTexto').value = '';
             document.getElementById('admCampanhaMeta').value = '';
-        }
+        };
 
-        function admExcluirCampanha(id) {
+        window.admExcluirCampanha = function(id) {
             campanhasBanco = campanhasBanco.filter(c => c.id !== id);
             renderizarCampanhas();
-        }
+        };
 
         /* --- ENVELOPE DIGITAL E CÁLCULO DE DÍZIMOS/OFERTAS --- */
-        function calcularTotalEnvelope() {
+        window.calcularTotalEnvelope = function() {
             const dizimo = parseFloat(document.getElementById('envDizimo').value) || 0;
             const oferta = parseFloat(document.getElementById('envOferta').value) || 0;
             const construcao = parseFloat(document.getElementById('envConstrucao').value) || 0;
@@ -1704,10 +2068,10 @@
 
             const total = dizimo + oferta + construcao + missoes + campanha;
             document.getElementById('envTotalRender').innerText = total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
+        };
 
         /* --- FINANÇAS E EDICÃO PELO ADM --- */
-        function admSalvarFinancas() {
+        window.admSalvarFinancas = function() {
             const banco = document.getElementById('admFinancasBanco').value.trim();
             const conta = document.getElementById('admFinancasConta').value.trim();
             const pix = document.getElementById('admFinancasChavePix').value.trim();
@@ -1722,8 +2086,8 @@
 
             atualizarDadosFinancasTelatela();
             alert("Informações de Dízimos e Ofertas salvas com sucesso!");
-            fecharModal('modalAdm');
-        }
+            window.fecharModal('modalAdm');
+        };
 
         function atualizarDadosFinancasTelatela() {
             document.getElementById('renderBancoNome').innerText = dadosAutenticacao.bancoNome;
@@ -1768,14 +2132,14 @@
             renderizarPedidosPublicosApp();
         }
 
-        function admAprovarOracao(id) {
+        window.admAprovarOracao = function(id) {
             const ped = meusPedidosBanco.find(p => p.id === id);
             if (ped) {
                 ped.status = 'Aprovado';
                 renderizarTodosPedidosAdm();
                 alert("Pedido aprovado! Agora está visível para toda a igreja no app.");
             }
-        }
+        };
 
         function renderizarPedidosPublicosApp() {
             const container = document.getElementById('listaPedidosPublicos');
@@ -1800,13 +2164,13 @@
             });
         }
 
-        function admExcluirOracao(id) {
+        window.admExcluirOracao = function(id) {
             meusPedidosBanco = meusPedidosBanco.filter(p => p.id !== id);
             renderizarTodosPedidosAdm();
-        }
+        };
 
         /* --- NÚCLEO E MODAIS --- */
-        function inicializarFluxoApp() { 
+        window.inicializarFluxoApp = function() { 
             document.getElementById('telaAutenticacao').classList.add('hidden');
             const app = document.getElementById('appPrincipal');
             app.classList.remove('hidden');
@@ -1823,20 +2187,24 @@
             renderizarTodosPedidosAdm();
             renderizarInscricoesCrediarioAdm();
             renderizarMinhasInscricoes();
-            alternarAbas('inicio'); 
-        }
+            renderizarDepartamentosAdm();
+            renderizarSelectDepartamentosEscala();
+            renderizarEscalasAdm();
+            renderizarEscalasVisualizacaoMembros();
+            window.alternarAbas('inicio'); 
+        };
 
-        function executarCadastroAdm(e) { 
+        window.executarCadastroAdm = function(e) { 
             e.preventDefault();
             const em = document.getElementById('regEmailAdm').value.trim().toLowerCase();
             dadosAutenticacao.listaEmailsAdm.push(em);
             dadosAutenticacao.listaSenhasAdm[em] = document.getElementById('regSenhaAdm').value;
             dadosAutenticacao.admCadastrado = true;
-            alert("ADM configurado!");
-            alternarAuth('login');
-        }
+            alert("ADM Master configurado!");
+            window.alternarAuth('login');
+        };
 
-        function alternarAbasAdm(id) { 
+        window.alternarAbasAdm = function(id) { 
             document.querySelectorAll('.target-aba-adm').forEach(el => el.classList.add('hidden'));
             const abaAlvo = document.getElementById(id);
             if (abaAlvo) abaAlvo.classList.remove('hidden');
@@ -1844,9 +2212,9 @@
             document.querySelectorAll('.btn-choice-adm').forEach(btn => btn.className = "bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer");
             const tabBtn = document.getElementById(`tabBtn-${id}`);
             if (tabBtn) tabBtn.className = "bg-[#0f5499] text-white px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer";
-        }
+        };
 
-        function alternarAbas(a) { 
+        window.alternarAbas = function(a) { 
             document.querySelectorAll('.container-aba').forEach(el=>el.classList.add('hidden'));
             ['inicio','mural','agenda','perfil'].forEach(b=>{ 
                 const btn = document.getElementById('btnNav'+b.charAt(0).toUpperCase()+b.slice(1));
@@ -1856,52 +2224,73 @@
             if (viewAlvo) viewAlvo.classList.remove('hidden');
             const btnAtivo = document.getElementById('btnNav'+a.charAt(0).toUpperCase()+a.slice(1));
             if (btnAtivo) btnAtivo.className="flex flex-col items-center text-[#0f5499] font-bold text-xs cursor-pointer";
-        }
+        };
 
-        function navegarModais(t) { 
+        window.navegarModais = function(t) { 
             let idModal = '';
             if(t==='contribuir') idModal = 'modalDizimo';
             else if(t==='oracao') idModal = 'modalOracao';
             else if(t==='devocional') idModal = 'modalDevocional';
-            else if(t==='galeria') { mostrarPastas(); idModal = 'modalGaleria'; }
+            else if(t==='galeria') { window.mostrarPastas(); idModal = 'modalGaleria'; }
             else if(t==='meusPedidosPrivados') { renderizarPedidosPrivados(); idModal = 'modalMeusPedidos'; }
-            else if(t==='painelAdm') { idModal = 'modalAdm'; renderizarInscricoesCrediarioAdm(); }
+            else if(t==='painelAdm') { 
+                idModal = 'modalAdm'; 
+                renderizarInscricoesCrediarioAdm(); 
+                renderizarSelectDepartamentosEscala();
+                renderizarEscalasAdm();
+                renderizarDepartamentosAdm();
+                
+                // Adapta a tela de acordo com o nível de acesso
+                if (dadosAutenticacao.usuarioLogado === 'lider_depto') {
+                    const depto = departamentosBanco.find(d => d.id === dadosAutenticacao.deptoAtivoId);
+                    document.getElementById('tituloPainelAdmHeader').innerHTML = `<i class="fa-solid fa-users-gear mr-1.5 text-blue-600"></i> Painel do Líder`;
+                    document.getElementById('subtituloAcessoAdm').innerText = `Departamento: ${depto ? depto.nome : ''}`;
+                    document.getElementById('boxGestorCriarDepto').classList.add('hidden');
+                    alternarAbasAdm('admContentEscalas');
+                } else {
+                    document.getElementById('tituloPainelAdmHeader').innerHTML = `<i class="fa-solid fa-unlock-keyhole mr-1.5 text-amber-600"></i> Super Painel ADM Master`;
+                    document.getElementById('subtituloAcessoAdm').innerText = `Controle Total & Gestão`;
+                    document.getElementById('boxGestorCriarDepto').classList.remove('hidden');
+                    alternarAbasAdm('admContentEscalas');
+                }
+            }
             else if(t==='historicoContribuicoes') idModal = 'modalHistorico';
             else if(t==='meusDadosCadastro') idModal = 'modalDadosCadastro';
             else if(t==='modalCheckoutMural') idModal = 'modalCheckoutMural';
             else if(t==='modalMinhasInscricoesCrediario') { idModal = 'modalMinhasInscricoesCrediario'; renderizarMinhasInscricoes(); }
+            else if(t==='modalVerEscalas') { idModal = 'modalVerEscalas'; renderizarEscalasVisualizacaoMembros(); }
 
-            abrirModal(idModal);
-        }
+            window.abrirModal(idModal);
+        };
 
-        function abrirModal(id) {
+        window.abrirModal = function(id) {
             const modal = document.getElementById(id);
             if (modal) {
                 modal.classList.remove('hidden');
                 modal.classList.add('modal-aberto');
             }
-        }
+        };
 
-        function fecharModal(id) { 
+        window.fecharModal = function(id) { 
             const modal = document.getElementById(id);
             if (modal) {
                 modal.classList.remove('modal-aberto');
                 modal.classList.add('hidden');
             }
-        }
+        };
 
-        function alternarAuth(t) { 
+        window.alternarAuth = function(t) { 
             document.getElementById('containerLogin').classList.add('hidden');
             document.getElementById('containerCadastro').classList.add('hidden');
             document.getElementById('containerCadastroAdm').classList.add('hidden');
             if(t==='cadastro') document.getElementById('containerCadastro').classList.remove('hidden');
             else if(t==='cadastroAdm') document.getElementById('containerCadastroAdm').classList.remove('hidden');
             else document.getElementById('containerLogin').classList.remove('hidden');
-        }
+        };
 
-        function executarLogout() { window.location.reload(); }
+        window.executarLogout = function() { window.location.reload(); };
         
-        function executarCadastroMembro(e) { 
+        window.executarCadastroMembro = function(e) { 
             e.preventDefault(); 
             dadosUsuarioAtivo.nome = document.getElementById('regNomeMembro').value.trim();
             dadosUsuarioAtivo.telefone = document.getElementById('regFoneMembro').value.trim();
@@ -1911,8 +2300,8 @@
             
             alert("Cadastro de membro e dados familiares realizados com sucesso!"); 
             carregarDadosNoFormularioCadastro();
-            inicializarFluxoApp();
-        }
+            window.inicializarFluxoApp();
+        };
 
         function renderizarPastasNaGaleria() { 
             const g=document.getElementById('gridPastas');
@@ -1923,14 +2312,14 @@
             } 
         }
 
-        function mostrarPastas() { 
+        window.mostrarPastas = function() { 
             document.getElementById('tituloGaleria').innerText="Álbuns";
             document.getElementById('gridFotos').classList.replace('grid','hidden');
             document.getElementById('btnVoltarPastas').classList.replace('flex','hidden');
             document.getElementById('gridPastas').classList.remove('hidden');
-        }
+        };
 
-        function abrirPasta(c,n) { 
+        window.abrirPasta = function(c,n) { 
             const g=document.getElementById('gridFotos');
             g.innerHTML='';
             if(bancoImagens[c]) {
@@ -1942,17 +2331,17 @@
             document.getElementById('gridPastas').classList.add('hidden');
             document.getElementById('btnVoltarPastas').classList.replace('hidden','flex');
             g.classList.replace('hidden','grid');
-        }
+        };
 
-        function enviarPedidoOracao(e) { 
+        window.enviarPedidoOracao = function(e) { 
             e.preventDefault();
             const t=document.getElementById('textoPedido').value;
             meusPedidosBanco.push({id: Date.now(), autor: dadosUsuarioAtivo.nome, texto: t, status: "Pendente"});
             renderizarTodosPedidosAdm();
             document.getElementById('textoPedido').value='';
             alert("Seu pedido foi enviado para a liderança e será publicado após a aprovação!");
-            fecharModal('modalOracao');
-        }
+            window.fecharModal('modalOracao');
+        };
 
         function renderizarPedidosPrivados() { 
             const c=document.getElementById('listaPedidosPrivados');
@@ -1962,13 +2351,13 @@
             }); 
         }
 
-        function alternarAcessibilidadeLetra() { 
+        window.alternarAcessibilidadeLetra = function() { 
             document.getElementById('bodyApp').classList.toggle('fonte-ampliada');
             const status = document.getElementById('statusAcessibilidade');
             status.innerText = document.getElementById('bodyApp').classList.contains('fonte-ampliada') ? 'Ativado' : 'Desativado';
-        }
+        };
 
-        function atualizarFotoPerfil(i) { 
+        window.atualizarFotoPerfil = function(i) { 
             if(i.files && i.files[0]) { 
                 const r = new FileReader();
                 r.onload = function(e){ 
@@ -1976,21 +2365,21 @@
                 }; 
                 r.readAsDataURL(i.files[0]);
             } 
-        }
+        };
 
-        function validarComprovanteAnexo(input) { 
+        window.validarComprovanteAnexo = function(input) { 
             if (input.files && input.files[0]) {
                 const txt = document.getElementById('comprovanteNomeArquivo');
                 txt.innerText = "Anexo: " + input.files[0].name;
                 txt.classList.remove('hidden');
             } 
-        }
+        };
 
-        function falarComIgrejaWhatsapp() {
+        window.falarComIgrejaWhatsapp = function() {
             window.open(`https://wa.me/${dadosAutenticacao.wppSecretaria}?text=Olá!%20Gostaria%20de%20falar%20com%20a%20secretaria%20da%20igreja.`, '_blank');
-        }
+        };
 
-        function confirmarComprovante(tipo) { 
+        window.confirmarComprovante = function(tipo) { 
             const dizimo = document.getElementById('envDizimo').value || '0';
             const oferta = document.getElementById('envOferta').value || '0';
             const construcao = document.getElementById('envConstrucao').value || '0';
@@ -2005,18 +2394,18 @@
             } else {
                 alert("Contribuição e comprovante registrados com sucesso!");
             } 
-            fecharModal('modalDizimo');
-        }
+            window.fecharModal('modalDizimo');
+        };
 
-        function copiarPix() { 
+        window.copiarPix = function() { 
             navigator.clipboard.writeText(dadosAutenticacao.chavePix);
             alert("Chave Pix Copiada: " + dadosAutenticacao.chavePix);
-        }
+        };
 
-        function copiarPixInscricao() { 
+        window.copiarPixInscricao = function() { 
             navigator.clipboard.writeText(dadosAutenticacao.chavePix);
             alert("Chave Pix Copiada para Inscrição: " + dadosAutenticacao.chavePix);
-        }
+        };
     </script>
 </body>
 </html>
