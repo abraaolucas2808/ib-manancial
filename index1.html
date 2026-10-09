@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja Batista Manancial Manguariba</title>
+    <link rel="icon" type="image/png" href="./logo-claro.png">
+    <!-- Tailwind CSS CDN Estável -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==============================================================
+           SISTEMA DE ESCALA GLOBAL DE FONTE COM VARIÁVEL CSS
+           Sobrescreve as classes utilitárias do Tailwind para ampliação real
+           ============================================================== */
+        :root {
+            --font-scale: 1;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.3s ease-out forwards;
+        }
+
+        .modal-aberto {
+            display: flex !important;
+        }
+
+        /* Aplicação proporcional sobre todas as classes utilitárias tipográficas */
+        #bodyApp {
+            font-size: calc(16px * var(--font-scale)) !important;
+        }
+
+        #bodyApp .text-\[9px\] { font-size: calc(9px * var(--font-scale)) !important; line-height: 1.35 !important; }
+        #bodyApp .text-\[10px\] { font-size: calc(10px * var(--font-scale)) !important; line-height: 1.35 !important; }
+        #bodyApp .text-\[11px\] { font-size: calc(11px * var(--font-scale)) !important; line-height: 1.4 !important; }
+        #bodyApp .text-xs { font-size: calc(12px * var(--font-scale)) !important; line-height: 1.45 !important; }
+        #bodyApp .text-sm { font-size: calc(14px * var(--font-scale)) !important; line-height: 1.5 !important; }
+        #bodyApp .text-base { font-size: calc(16px * var(--font-scale)) !important; line-height: 1.55 !important; }
+        #bodyApp .text-lg { font-size: calc(18px * var(--font-scale)) !important; line-height: 1.5 !important; }
+        #bodyApp .text-xl { font-size: calc(20px * var(--font-scale)) !important; line-height: 1.45 !important; }
+        #bodyApp .text-2xl { font-size: calc(24px * var(--font-scale)) !important; line-height: 1.35 !important; }
+        #bodyApp .text-3xl { font-size: calc(30px * var(--font-scale)) !important; line-height: 1.3 !important; }
+        #bodyApp .text-4xl { font-size: calc(36px * var(--font-scale)) !important; line-height: 1.25 !important; }
+
+        /* Elementos fundamentais e conteúdos dinâmicos */
+        #bodyApp p, 
+        #bodyApp span, 
+        #bodyApp label, 
+        #bodyApp li, 
+        #bodyApp strong, 
+        #bodyApp b, 
+        #bodyApp em, 
+        #bodyApp i:not(.fa-solid):not(.fa-brands):not(.fa-regular),
+        #bodyApp blockquote,
+        #bodyApp input, 
+        #bodyApp textarea, 
+        #bodyApp select {
+            font-size: inherit;
+        }
+
+        /* Adaptação inteligente de caixas e textos longos nas escalas ampliadas */
+        .escala-alta .line-clamp-2,
+        .escala-alta .line-clamp-3 {
+            -webkit-line-clamp: unset !important;
+            display: block !important;
+            overflow: visible !important;
+        }
+
+        .escala-alta .h-28,
+        .escala-alta .h-32,
+        .escala-alta .h-36 {
+            height: auto !important;
+            max-height: 160px;
+        }
+    </style>
+</head>
+<body id="bodyApp" class="bg-gray-50 text-[#242526] font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- ========================================== -->
+    <!-- TELA 0: AUTENTICAÇÃO E CADASTRO ADM       -->
+    <!-- ========================================== -->
+    <div id="telaAutenticacao" class="flex-1 flex flex-col justify-center max-w-md w-full mx-auto px-6 py-8">
+        
+        <!-- LOGO OFICIAL MANANGUARIBA -->
+        <div class="text-center mb-6 flex justify-center">
+            <img src="./logo-claro.png" alt="Igreja Batista Manancial" class="w-60 h-auto object-contain">
+        </div>
+
+        <!-- FORMULÁRIO 1: LOGIN GERAL -->
+        <div id="containerLogin" class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm space-y-4">
+            <h2 class="text-lg font-bold text-[#1a1b1c]">Entrar no Aplicativo</h2>
+            <form onsubmit="executarLogin(event)" class="space-y-3">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 uppercase">E-mail</label>
+                    <input type="email" id="loginEmail" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-base focus:outline-none" placeholder="seuemail@provedor.com">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 uppercase">Senha</label>
+                    <input type="password" id="loginSenha" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-base focus:outline-none" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full bg-[#0f5499] hover:bg-[#0b427a] text-white font-bold py-3.5 rounded-xl shadow-sm transition-colors cursor-pointer">Entrar</button>
+            </form>
+
+            <div class="relative flex py-2 items-center">
+                <div class="flex-grow border-t border-gray-200"></div>
+                <span class="flex-shrink mx-4 text-gray-400 text-xs uppercase font-bold">ou</span>
+                <div class="flex-grow border-t border-gray-200"></div>
+            </div>
+
+            <!-- BOTÃO GOOGLE -->
+            <button type="button" onclick="autenticarGoogle()" class="w-full bg-white border border-gray-200 text-gray-700 font-bold py-3 rounded-xl text-sm shadow-sm flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer">
+                <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                Entrar com o Google
+            </button>
+
+            <!-- ACESSO CONVIDADO -->
+            <button type="button" onclick="autenticarConvidado()" class="w-full bg-gray-100 border border-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer">
+                <i class="fa-solid fa-user-check mr-2"></i> Entrar como Visitante
+            </button>
+
+            <!-- ACESSO DIRETO ADM -->
+            <button type="button" onclick="entrarComoAdmDireto()" class="w-full bg-amber-50 border border-amber-200 text-amber-800 font-bold py-2 rounded-xl text-xs flex items-center justify-center hover:bg-amber-100 transition-colors cursor-pointer">
+                <i class="fa-solid fa-unlock-keyhole mr-1.5 text-amber-600"></i> Acesso Direto do ADM Master
+            </button>
+
+            <div class="text-center space-y-2 pt-2 border-t text-xs text-gray-600">
+                <p>Novo por aqui? <button type="button" onclick="alternarAuth('cadastro')" class="text-[#0f5499] font-bold hover:underline cursor-pointer">Criar conta Membro</button></p>
+                <p id="txtLinkAdm">Líder Geral da Igreja? <button type="button" onclick="alternarAuth('cadastroAdm')" class="text-amber-600 font-bold hover:underline cursor-pointer">Primeiro Cadastro do ADM</button></p>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO 2: CADASTRO MEMBRO -->
+        <div id="containerCadastro" class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm space-y-4 hidden animate-slide-up">
+            <h2 class="text-lg font-bold text-[#1a1b1c]">Criar Conta de Membro</h2>
+            <form onsubmit="executarCadastroMembro(event)" class="space-y-3">
+                <input type="text" id="regNomeMembro" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none text-sm" placeholder="Seu Nome Completo">
+                <input type="tel" id="regFoneMembro" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none text-sm" placeholder="WhatsApp / Telefone">
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-500 uppercase">Data de Aniversário (Lembrete Mensal)</label>
+                    <input type="date" id="regAniversarioMembro" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none text-sm">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-500 uppercase">Filhos (Informação de Família)</label>
+                    <input type="text" id="regFilhosMembro" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none text-sm" placeholder="Possui filhos? Nomes e idades...">
+                </div>
+                <input type="email" id="regEmailMembro" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none text-sm" placeholder="E-mail">
+                <input type="password" id="regSenhaMembro" required minlength="6" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none text-sm" placeholder="Senha (mínimo 6 dígitos)">
+                <button type="submit" class="w-full bg-[#3b9cd7] text-white font-bold py-3.5 rounded-xl cursor-pointer">Cadastrar e Entrar</button>
+            </form>
+            <p class="text-center text-xs text-gray-600"><button type="button" onclick="alternarAuth('login')" class="text-[#0f5499] font-bold cursor-pointer">Voltar para Login</button></p>
+        </div>
+
+        <!-- FORMULÁRIO 3: PRIMEIRO CADASTRO DO ADM -->
+        <div id="containerCadastroAdm" class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm space-y-4 hidden animate-slide-up">
+            <h2 class="text-lg font-bold text-amber-700"><i class="fa-solid fa-shield-halved mr-1.5"></i> Cadastro do ADM Master</h2>
+            <form onsubmit="executarCadastroAdm(event)" class="space-y-3">
+                <input type="text" id="regNomeAdm" required class="w-full bg-gray-50 border rounded-xl p-3 focus:outline-none" placeholder="Nome do Administrador Geral">
+                <input type="email" id="regEmailAdm" required class="w-full bg-gray-50 border rounded-xl p-3 focus:outline-none" placeholder="E-mail Administrativo">
+                <input type="password" id="regSenhaAdm" required minlength="6" class="w-full bg-gray-50 border rounded-xl p-3 focus:outline-none" placeholder="Senha do ADM">
+                <button type="submit" class="w-full bg-amber-500 text-[#1a1b1c] font-bold py-3.5 rounded-xl cursor-pointer">Finalizar Configuração Mestre</button>
+            </form>
+            <p class="text-center text-xs text-gray-600"><button type="button" onclick="alternarAuth('login')" class="text-gray-500 font-bold cursor-pointer">Cancelar</button></p>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- INTERFACE APLICATIVO PRINCIPAL            -->
+    <!-- ========================================== -->
+    <div id="appPrincipal" class="hidden flex-col min-h-screen">
+        <!-- HEADER SUPERIOR FIXO PERMANENTE (NÃO SOME DURANTE A ROLAGEM) -->
+        <header class="bg-[#0f5499] text-white shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
+            <div class="max-w-md mx-auto px-3 py-2 space-y-2">
+                <!-- Linha 1: Marca, Status do Usuário e Atalhos de Administração -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <img src="./logo-branco.png" alt="Manancial" class="h-8 w-auto object-contain">
+                        <span id="tagFuncaoUsuario" class="text-[9px] text-blue-100 bg-blue-900/70 border border-blue-400/30 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">Membro</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <button id="btnEngrenagemAdm" type="button" onclick="navegarModais('painelAdm')" title="Painel de Administração" class="hidden p-1.5 text-blue-100 hover:text-white bg-white/10 hover:bg-white/20 rounded-lg cursor-pointer transition-colors">
+                            <i class="fa-solid fa-gear text-sm"></i>
+                        </button>
+                        <button type="button" onclick="executarLogout()" title="Sair do App" class="p-1.5 text-blue-100 hover:text-white bg-white/10 hover:bg-white/20 rounded-lg cursor-pointer transition-colors">
+                            <i class="fa-solid fa-right-from-bracket text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Linha 2: Barra Fixa e Dedicada de Controle de Tamanho da Letra (+ e -) -->
+                <div class="flex items-center justify-between bg-black/20 border border-white/20 rounded-2xl px-2.5 py-1.5 shadow-inner">
+                    <div class="flex items-center space-x-1.5 text-blue-100">
+                        <i class="fa-solid fa-text-height text-xs text-amber-300"></i>
+                        <span class="text-[11px] font-bold tracking-tight">Tamanho da Letra:</span>
+                    </div>
+
+                    <div class="flex items-center space-x-1">
+                        <!-- Botão de Diminuir (-) -->
+                        <button type="button" onclick="ajustarTamanhoFonte(-1)" class="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/30 text-white font-black flex items-center justify-center active:scale-90 transition-all cursor-pointer shadow-sm" title="Diminuir o tamanho das letras">
+                            <i class="fa-solid fa-minus text-xs"></i>
+                        </button>
+
+                        <!-- Indicador visual em tempo real e botão de reset -->
+                        <button type="button" onclick="redefinirTamanhoFonte()" id="btnResetFonteHeader" class="px-2.5 h-8 rounded-xl bg-blue-950/80 border border-amber-300/40 text-amber-300 font-black text-xs flex items-center justify-center space-x-1 hover:border-amber-300 active:scale-95 transition-all cursor-pointer shadow-sm" title="Toque para voltar ao tamanho padrão (100%)">
+                            <span id="badgeNivelFonteHeader">100%</span>
+                            <i class="fa-solid fa-rotate-left text-[9px] opacity-75"></i>
+                        </button>
+
+                        <!-- Botão de Aumentar (+) em destaque -->
+                        <button type="button" onclick="ajustarTamanhoFonte(1)" class="w-8 h-8 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 font-black flex items-center justify-center active:scale-90 transition-all cursor-pointer shadow-sm" title="Aumentar o tamanho das letras">
+                            <i class="fa-solid fa-plus text-xs font-bold"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-md w-full mx-auto flex-1 flex flex-col pb-20">
+            <!-- ABA 1: INÍCIO -->
+            <main id="viewInicio" class="px-4 py-6 space-y-5 container-aba">
+                
+                <!-- CULTO DO DIA OU PRÓXIMO CULTO EM DESTAQUE NO TOPO -->
+                <section class="bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-3xl p-5 shadow-md space-y-2 relative overflow-hidden">
+                    <div class="flex items-center justify-between">
+                        <span id="tagTipoCultoDestaque" class="text-[10px] font-black uppercase tracking-widest bg-white/20 px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-fire mr-1"></i> Programação Oficial</span>
+                        <i class="fa-solid fa-church text-xl opacity-80"></i>
+                    </div>
+                    <h3 id="txtTituloCultoDestaque" class="text-xl font-black leading-tight">Culto de Adoração & Família</h3>
+                    <div class="flex items-center space-x-3 text-xs font-semibold text-amber-100">
+                        <span id="txtDiaHoraCultoDestaque"><i class="fa-regular fa-clock mr-1"></i> Hoje às 19:30h</span>
+                        <span id="txtLocalCultoDestaque"><i class="fa-solid fa-location-dot mr-1"></i> Templo Principal</span>
+                    </div>
+                    <p id="txtDescCultoDestaque" class="text-xs text-amber-50 font-medium pt-1">Venha adorar ao Senhor conosco e receber uma palavra do céu para o seu coração!</p>
+                </section>
+
+                <!-- CARD DESTAQUE: ESCALA DE OBREIROS & CEIA -->
+                <section class="bg-white border border-blue-100 rounded-3xl p-4 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#0f5499] flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-clipboard-user"></i></span>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-800">Escala de Obreiros & Ceia</h4>
+                                <p class="text-[10px] text-gray-500">Cultos semanais e Santa Ceia do Senhor</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="navegarModais('modalVerEscalas')" class="text-xs font-bold text-[#0f5499] hover:underline cursor-pointer">Ver Todas</button>
+                    </div>
+                    <div id="boxDestaqueEscalaInicio" class="space-y-2 text-xs"></div>
+                </section>
+
+                <!-- PALAVRA DO DIA -->
+                <section class="bg-[#1a1b1c] text-white rounded-2xl p-5 shadow-md border-l-4 border-amber-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <span id="tituloDevocionalInicio" class="text-[11px] font-bold uppercase tracking-widest text-[#3b9cd7]">Palavra do Dia</span>
+                        <i class="fa-solid fa-book-bible text-amber-500/80"></i>
+                    </div>
+                    <p id="textoDevocionalInicio" class="text-lg font-medium italic text-gray-100">"Quem crer em mim, como diz a Escritura, do seu interior fluirão rios de água viva."</p>
+                    <p id="refDevocionalInicio" class="text-right text-xs mt-2 text-gray-400">— João 7:38</p>
+                </section>
+
+                <!-- VITRINE DO MENU (PEDIDOS, DÍZIMOS, GALERIA, DEVOCIONAIS) -->
+                <section class="grid grid-cols-2 gap-4">
+                    <button type="button" onclick="navegarModais('oracao')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
+                        <div class="w-14 h-14 bg-blue-50 text-[#0f5499] rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-hands-praying text-2xl"></i></div>
+                        <span class="font-bold text-sm block">Pedidos de Oração</span>
+                    </button>
+                    <button type="button" onclick="navegarModais('contribuir')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
+                        <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-heart text-2xl"></i></div>
+                        <span class="font-bold text-sm block">Dízimos e Ofertas</span>
+                    </button>
+                    <button type="button" onclick="navegarModais('galeria')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
+                        <div class="w-14 h-14 bg-sky-50 text-[#3b9cd7] rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-images text-2xl"></i></div>
+                        <span class="font-bold text-sm block">Galeria de Fotos</span>
+                    </button>
+                    <button type="button" onclick="navegarModais('devocional')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
+                        <div class="w-14 h-14 bg-gray-50 text-gray-700 rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-book-open text-2xl"></i></div>
+                        <span class="font-bold text-sm block">Devocionais</span>
+                    </button>
+                </section>
+
+                <!-- ANÚNCIOS COM FOTOS (NA PARTE DE BAIXO APÓS O MENU) -->
+                <section class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-bullhorn mr-1 text-[#0f5499]"></i> Anúncios & Destaques</h4>
+                        <span class="text-[10px] text-gray-400">Toque para ver detalhes</span>
+                    </div>
+                    <div id="listaAnunciosInicio" class="space-y-3"></div>
+                </section>
+
+                <!-- EXIBIÇÃO DE CAMPANHAS ATIVAS -->
+                <section class="space-y-2">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Campanhas e Alvos Ativos</h4>
+                    <div id="listaCampanhasMembrosView" class="space-y-3"></div>
+                </section>
+            </main>
+
+            <!-- ABA 2: MURAL DIVIDIDO EM 2 COLUNAS COM DESCRIÇÃO -->
+            <section id="viewMural" class="px-4 py-6 space-y-4 hidden container-aba">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-2xl font-black text-[#1a1b1c]">Mural da Igreja</h2>
+                        <p class="text-xs text-gray-500">Eventos, anúncios e atividades da comunidade</p>
+                    </div>
+                    <span class="text-xs bg-blue-50 text-[#0f5499] px-2.5 py-1 rounded-xl font-bold">2 Colunas</span>
+                </div>
+                
+                <!-- GRID DE 2 COLUNAS DO MURAL -->
+                <div id="listaAvisosMural" class="grid grid-cols-2 gap-3"></div>
+            </section>
+
+            <!-- ABA 3: AGENDA / CALENDÁRIO COM DIA ATUAL SINCRONIZADO -->
+            <section id="viewAgenda" class="px-4 py-6 space-y-5 hidden container-aba">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-black text-[#1a1b1c]">Agenda & Calendário</h2>
+                        <p class="text-xs text-gray-500" id="subtituloAgendaHoje">Hoje</p>
+                    </div>
+                    <button type="button" onclick="irParaHojeAgenda()" class="px-3 py-1 bg-[#0f5499] text-white rounded-xl text-xs font-bold shadow-sm cursor-pointer">Hoje</button>
+                </div>
+
+                <!-- SELETOR DE MÊS -->
+                <div class="bg-white border p-3 rounded-2xl shadow-sm space-y-2">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Calendário da Igreja</span>
+                    <div class="flex items-center justify-between">
+                        <button type="button" onclick="mudarMesAgenda(-1)" class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 font-bold cursor-pointer"><i class="fa-solid fa-chevron-left"></i></button>
+                        <span id="txtMesAnoAgenda" class="font-bold text-sm text-[#0f5499] uppercase"></span>
+                        <button type="button" onclick="mudarMesAgenda(1)" class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 font-bold cursor-pointer"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- DIAS DA SEMANA: PROGRAMAÇÃO ROTINEIRA FIXA -->
+                <div class="space-y-2">
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-repeat text-blue-600 mr-1"></i> Programação Semanal Rotineira</h3>
+                    <div id="listaEventosRotineiros" class="grid grid-cols-1 gap-2"></div>
+                </div>
+
+                <!-- EVENTOS DO MÊS / ESPECIAIS COM DESTAQUE -->
+                <div class="space-y-2">
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-star text-amber-500 mr-1"></i> Eventos e Datas do Mês</h3>
+                    <div id="listaEventosAgendaMes" class="space-y-3"></div>
+                </div>
+            </section>
+
+            <!-- ABA 4: PERFIL -->
+            <section id="viewPerfil" class="px-4 py-6 space-y-6 hidden container-aba">
+                <div class="bg-white border rounded-3xl p-6 text-center shadow-sm space-y-3">
+                    <input type="file" id="uploadFotoPerfil" accept="image/*" class="hidden" onchange="atualizarFotoPerfil(this)">
+                    <div onclick="document.getElementById('uploadFotoPerfil').click()" class="relative w-24 h-24 mx-auto cursor-pointer rounded-full border overflow-hidden bg-gray-100 flex items-center justify-center text-4xl" id="avatarPreview">
+                        <i class="fa-solid fa-camera text-gray-400"></i>
+                    </div>
+                    <h3 id="txtNomePerfil" class="text-xl font-black text-[#1a1b1c]">Nome Usuário</h3>
+                    <p id="txtAniversarioPerfil" class="text-xs text-amber-600 font-bold"><i class="fa-solid fa-cake-candles mr-1"></i> Aniversário: Não informado</p>
+                </div>
+
+                <!-- PAINEL COMPLETO DE ACESSIBILIDADE DE FONTE NO PERFIL -->
+                <div class="bg-blue-50/80 border border-blue-200 rounded-3xl p-5 shadow-sm space-y-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#0f5499] text-white flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-black uppercase tracking-wider text-gray-900">Acessibilidade: Tamanho da Letra</h4>
+                            <p class="text-[11px] text-gray-600">Aumente para ler com facilidade todos os textos</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-blue-100 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-600">Nível Atual:</span>
+                            <span id="badgeNivelFontePerfil" class="text-xs font-black text-[#0f5499] bg-blue-50 px-3 py-1 rounded-xl border border-blue-100 select-none">Padrão (100%)</span>
+                        </div>
+
+                        <!-- Barra de progresso visual -->
+                        <div class="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+                            <div id="barraProgressoFonte" class="bg-[#0f5499] h-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+
+                        <!-- Botões grandes e intuitivos de + e - -->
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <button type="button" onclick="ajustarTamanhoFonte(-1)" class="w-full py-3 bg-gray-100 hover:bg-gray-200 active:scale-95 text-gray-800 font-black rounded-xl text-sm flex items-center justify-center space-x-2 transition-all cursor-pointer shadow-xs">
+                                <i class="fa-solid fa-minus text-xs"></i>
+                                <span>Diminuir Letra</span>
+                            </button>
+                            <button type="button" onclick="ajustarTamanhoFonte(1)" class="w-full py-3 bg-[#0f5499] hover:bg-[#0b427a] active:scale-95 text-white font-black rounded-xl text-sm flex items-center justify-center space-x-2 transition-all cursor-pointer shadow-xs">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                                <span>Aumentar Letra</span>
+                            </button>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-1 border-t border-gray-100">
+                            <button type="button" onclick="redefinirTamanhoFonte()" class="text-xs font-bold text-[#0f5499] hover:underline cursor-pointer">
+                                <i class="fa-solid fa-arrow-rotate-left mr-1"></i> Redefinir para 100%
+                            </button>
+                            <span id="avisoMaximoFonte" class="text-[10px] font-black text-amber-600 hidden"><i class="fa-solid fa-circle-check mr-1"></i>Tamanho Máximo!</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white border rounded-2xl overflow-hidden shadow-sm text-sm">
+                    <div onclick="navegarModais('meusDadosCadastro')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-address-card text-lg text-emerald-600 w-5"></i>
+                            <span class="font-bold">Meus Dados & Ficha Familiar</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
+                    <div onclick="navegarModais('modalVerEscalas')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-clipboard-list text-lg text-indigo-600 w-5"></i>
+                            <span class="font-bold">Escalas de Obreiros e Ceia</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
+                    <div onclick="navegarModais('modalMinhasInscricoesCrediario')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-file-invoice-dollar text-lg text-blue-600 w-5"></i>
+                            <span class="font-bold">Minhas Inscrições & Carnê da Igreja</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
+                    <div onclick="navegarModais('historicoContribuicoes')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-receipt text-lg text-amber-500 w-5"></i>
+                            <span class="font-bold">Minhas Contribuições</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
+                    <div onclick="navegarModais('meusPedidosPrivados')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-heart-pulse text-lg text-blue-500 w-5"></i>
+                            <span class="font-bold">Meus Pedidos de Oração</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
+                    <div onclick="falarComIgrejaWhatsapp()" class="p-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-brands fa-whatsapp text-lg text-emerald-500 w-5"></i>
+                            <span class="font-bold">Falar com a Secretaria (WhatsApp)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- RODAPÉ FIXO -->
+        <footer class="bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 z-50">
+            <div class="max-w-md mx-auto flex justify-around py-2.5">
+                <button id="btnNavInicio" type="button" onclick="alternarAbas('inicio')" class="flex flex-col items-center text-[#0f5499] font-bold text-xs cursor-pointer"><i class="fa-solid fa-house text-xl mb-0.5"></i><span>Início</span></button>
+                <button id="btnNavMural" type="button" onclick="alternarAbas('mural')" class="flex flex-col items-center text-gray-400 text-xs cursor-pointer"><i class="fa-solid fa-layer-group text-xl mb-0.5"></i><span>Mural</span></button>
+                <button id="btnNavAgenda" type="button" onclick="alternarAbas('agenda')" class="flex flex-col items-center text-gray-400 text-xs cursor-pointer"><i class="fa-solid fa-calendar-days text-xl mb-0.5"></i><span>Agenda</span></button>
+                <button id="btnNavPerfil" type="button" onclick="alternarAbas('perfil')" class="flex flex-col items-center text-gray-400 text-xs cursor-pointer"><i class="fa-solid fa-circle-user text-xl mb-0.5"></i><span>Perfil</span></button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL DETALHES DO ANÚNCIO (CLICAR NO INÍCIO) -->
+    <div id="modalDetalheAnuncio" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#0f5499]" id="detAnuncioCategoria">Anúncio da Igreja</span>
+                <button type="button" onclick="fecharModal('modalDetalheAnuncio')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <img id="detAnuncioImagem" src="" class="w-full h-52 object-cover rounded-2xl shadow-sm hidden" alt="Banner">
+            <div class="space-y-2">
+                <h3 id="detAnuncioTitulo" class="text-xl font-black text-gray-900 leading-tight"></h3>
+                <div class="flex items-center space-x-3 text-xs text-gray-500 font-medium">
+                    <span id="detAnuncioData"><i class="fa-solid fa-calendar mr-1 text-[#0f5499]"></i> </span>
+                    <span id="detAnuncioLocal"><i class="fa-solid fa-location-dot mr-1 text-[#0f5499]"></i> </span>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-sm text-gray-700 leading-relaxed whitespace-pre-line" id="detAnuncioDescricao"></div>
+            </div>
+            <button type="button" onclick="fecharModal('modalDetalheAnuncio')" class="w-full bg-[#0f5499] text-white font-bold py-3 rounded-xl text-sm cursor-pointer">Fechar</button>
+        </div>
+    </div>
+
+    <!-- MODAL MEMBRO: VER TODAS AS ESCALAS -->
+    <div id="modalVerEscalas" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[88vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2">
+                <div class="flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <h3 class="text-base font-bold text-[#1a1b1c]">Escalas de Obreiros e Departamentos</h3>
+                </div>
+                <button type="button" onclick="fecharModal('modalVerEscalas')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="listaCompletaEscalasMembros" class="space-y-3"></div>
+        </div>
+    </div>
+
+    <!-- MODAL DO PERFIL: MEUS DADOS E FICHA FAMILIAR -->
+    <div id="modalDadosCadastro" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-users text-xl"></i></div>
+                    <div>
+                        <h2 class="text-lg font-bold text-[#1a1b1c]">Ficha do Membro & Família</h2>
+                        <p class="text-[11px] text-gray-500">Mantenha os dados familiares atualizados</p>
+                    </div>
+                </div>
+                <button type="button" onclick="fecharModal('modalDadosCadastro')" class="w-10 h-10 bg-gray-100 text-gray-500 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            
+            <form onsubmit="salvarDadosCadastroUsuario(event)" class="space-y-3.5 text-xs">
+                <div class="space-y-1">
+                    <label class="font-bold text-gray-500 uppercase">Nome Completo</label>
+                    <input type="text" id="inputCadastroNome" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="space-y-1">
+                        <label class="font-bold text-gray-500 uppercase">Data de Aniversário</label>
+                        <input type="date" id="inputCadastroAniversario" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-sm focus:outline-none">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-bold text-gray-500 uppercase">WhatsApp</label>
+                        <input type="tel" id="inputCadastroTelefone" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-sm focus:outline-none" placeholder="(21) 99999-9999">
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <label class="font-bold text-gray-500 uppercase">E-mail</label>
+                    <input type="email" id="inputCadastroEmail" required class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none">
+                </div>
+                <div class="space-y-1">
+                    <label class="font-bold text-gray-500 uppercase">Ministério / Cargo</label>
+                    <input type="text" id="inputCadastroMinisterio" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none" placeholder="Ex: Louvor, Recepção, Diaconato">
+                </div>
+                
+                <!-- FICHA DE FAMÍLIA E FILHOS -->
+                <div class="p-3.5 bg-blue-50/50 border border-blue-100 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-[#0f5499] uppercase text-[11px]"><i class="fa-solid fa-child-reaching mr-1"></i> Ficha Familiar & Filhos</h4>
+                    <div class="space-y-1">
+                        <label class="font-bold text-gray-500 uppercase text-[10px]">Cônjuge (Se casado)</label>
+                        <input type="text" id="inputCadastroConjuge" class="w-full bg-white border border-gray-200 rounded-xl p-2 text-xs focus:outline-none" placeholder="Nome do cônjuge">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-bold text-gray-500 uppercase text-[10px]">Filhos (Nomes e Idades)</label>
+                        <textarea id="inputCadastroFilhos" rows="2" class="w-full bg-white border border-gray-200 rounded-xl p-2 text-xs focus:outline-none" placeholder="Ex: Lucas (8 anos), Samuel (3 anos)..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-[#0f5499] text-white font-bold py-3.5 rounded-xl text-sm shadow-sm cursor-pointer">Salvar Ficha Cadastral</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE INSCRICAO (FICHA + PGTO COM PIX, CARTÃO E CREDIÁRIO) -->
+    <div id="modalCheckoutMural" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[94vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2">
+                <div class="flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-blue-50 text-[#0f5499] rounded-full flex items-center justify-center"><i class="fa-solid fa-file-signature"></i></div>
+                    <h3 id="checkoutNomeEvento" class="text-base font-bold text-[#1a1b1c]">Ficha de Inscrição</h3>
+                </div>
+                <button type="button" onclick="fecharModal('modalCheckoutMural')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="space-y-3 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-id-card mr-1"></i> Dados do Inscrito</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="bg-white p-2 border rounded-lg"><span class="text-gray-400 block">Nome:</span> <strong id="chkFichaNome" class="text-[#1a1b1c]">-</strong></div>
+                    <div class="bg-white p-2 border rounded-lg"><span class="text-gray-400 block">Contato:</span> <strong id="chkFichaFone" class="text-[#1a1b1c]">-</strong></div>
+                </div>
+                <input type="text" id="chkFichaExtra" class="w-full bg-white border border-gray-200 rounded-lg p-2 text-xs focus:outline-none text-gray-800" placeholder="Observação médica ou restrição se houver...">
+            </div>
+
+            <div class="bg-gray-50 p-3.5 rounded-xl border border-gray-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-gray-500 uppercase">Quantidade de Vagas:</span>
+                <div class="flex items-center space-x-3">
+                    <button type="button" onclick="ajustarVagasCheckout(-1)" class="w-8 h-8 bg-gray-200 rounded-lg font-bold flex items-center justify-center text-base cursor-pointer">-</button>
+                    <span id="checkoutQtdVagas" class="text-lg font-black text-[#1a1b1c]">1</span>
+                    <button type="button" onclick="ajustarVagasCheckout(1)" class="w-8 h-8 bg-gray-200 rounded-lg font-bold flex items-center justify-center text-lg cursor-pointer">+</button>
+                </div>
+            </div>
+
+            <!-- FORMA DE PAGAMENTO SELECIONÁVEL -->
+            <div class="space-y-2 border-t pt-3">
+                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Escolha a Forma de Pagamento</h4>
+                <div class="grid grid-cols-3 gap-1.5 text-xs">
+                    <button type="button" id="btnPgtoPix" onclick="selecionarMetodoPgto('pix')" class="border-2 border-[#0f5499] bg-blue-50 text-[#0f5499] font-bold p-2 rounded-xl text-center cursor-pointer"><i class="fa-solid fa-pix block text-base mb-1"></i> Pix</button>
+                    <button type="button" id="btnPgtoCartao" onclick="selecionarMetodoPgto('cartao')" class="border border-gray-200 bg-white text-gray-600 font-bold p-2 rounded-xl text-center cursor-pointer"><i class="fa-solid fa-credit-card block text-base mb-1"></i> Cartão</button>
+                    <button type="button" id="btnPgtoCrediario" onclick="selecionarMetodoPgto('crediario')" class="border border-gray-200 bg-white text-gray-600 font-bold p-2 rounded-xl text-center cursor-pointer"><i class="fa-solid fa-receipt block text-base mb-1"></i> Crediário</button>
+                </div>
+
+                <!-- BOX 1: PAGAMENTO PIX -->
+                <div id="boxPgtoPix" class="space-y-2">
+                    <div class="bg-white border rounded-xl p-3 flex justify-between items-center text-xs">
+                        <span class="font-bold text-gray-700">Chave Pix:</span>
+                        <p id="chavePixEvento" class="font-bold font-mono text-emerald-600 select-all">34.605.648/0001-03</p>
+                    </div>
+                    <button type="button" id="btnCopiarPixEvento" onclick="copiarPixInscricao()" class="w-full bg-amber-500 text-[#1a1b1c] font-bold py-2.5 rounded-xl text-xs flex items-center justify-center shadow-sm cursor-pointer"><i class="fa-solid fa-copy mr-1"></i> Copiar Chave Pix de Inscrição</button>
+                </div>
+
+                <!-- BOX 2: PAGAMENTO CARTÃO (COMUNICAR MAQUININHA) -->
+                <div id="boxPgtoCartao" class="hidden p-3.5 bg-amber-50 border border-amber-200 rounded-2xl text-xs text-amber-900 space-y-1.5">
+                    <div class="flex items-center space-x-2 font-bold text-amber-800">
+                        <i class="fa-solid fa-triangle-exclamation text-base"></i>
+                        <span>Pagamento na Maquininha da Igreja</span>
+                    </div>
+                    <p class="leading-relaxed">Para pagar no cartão de crédito ou débito, <strong>solicite a maquininha da igreja</strong> na secretaria ou com a liderança no final do culto.</p>
+                </div>
+
+                <!-- BOX 3: PAGAMENTO CREDIÁRIO / CARNÊ DA IGREJA -->
+                <div id="boxPgtoCrediario" class="hidden p-3.5 bg-blue-50 border border-blue-200 rounded-2xl text-xs text-blue-900 space-y-2">
+                    <div class="flex items-center space-x-2 font-bold text-[#0f5499]">
+                        <i class="fa-solid fa-handshake text-base"></i>
+                        <span>Crediário da Igreja (Parcelamento Fraterno)</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="text-[10px] font-bold text-gray-500 uppercase block mb-1">Nº de Parcelas</label>
+                            <select id="checkoutParcelasCrediario" onchange="atualizarValoresCrediario()" class="w-full bg-white border border-gray-200 rounded-lg p-2 font-bold text-gray-800">
+                                <option value="1">1x (À vista na data)</option>
+                                <option value="2">2x mensais</option>
+                                <option value="3">3x mensais</option>
+                                <option value="4">4x mensais</option>
+                                <option value="5">5x mensais</option>
+                                <option value="6">6x mensais</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-gray-500 uppercase block mb-1">Prazo de Quitação</label>
+                            <input type="date" id="checkoutPrazoQuitacao" class="w-full bg-white border border-gray-200 rounded-lg p-1.5 text-xs font-bold text-gray-800">
+                        </div>
+                    </div>
+                    <div class="bg-white p-2.5 rounded-xl border border-blue-100 flex justify-between items-center text-xs">
+                        <span>Valor de cada parcela:</span>
+                        <b class="text-[#0f5499]" id="renderValorParcelaCrediario">R$ 0,00</b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center px-1 border-t pt-3">
+                <span class="text-xs text-gray-400 font-bold uppercase">Total a Pagar:</span>
+                <span class="text-2xl font-black text-emerald-600">R$ <span id="checkoutValorTotal">00</span>,00</span>
+            </div>
+            <button type="button" onclick="finalizerInscricaoMural()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl text-base shadow-sm cursor-pointer">Finalizar Inscrição</button>
+        </div>
+    </div>
+
+    <!-- MODAL MINHAS INSCRIÇÕES & CARNÊ CREDIÁRIO -->
+    <div id="modalMinhasInscricoesCrediario" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-blue-50 text-[#0f5499] rounded-full flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <h2 class="text-lg font-bold text-[#1a1b1c]">Minhas Inscrições & Carnê</h2>
+                </div>
+                <button type="button" onclick="fecharModal('modalMinhasInscricoesCrediario')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="listaMinhasInscricoes" class="space-y-2.5 text-xs"></div>
+        </div>
+    </div>
+
+    <!-- MODAL DE DÍZIMOS E OFERTAS -->
+    <div id="modalDizimo" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2">
+                <div class="flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-heart text-lg"></i></div>
+                    <h2 class="text-lg font-black text-[#1a1b1c]">Dízimos & Ofertas</h2>
+                </div>
+                <button type="button" onclick="fecharModal('modalDizimo')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- VERSÍCULO INSPIRACIONAL -->
+            <blockquote id="renderVersiculoDizimo" class="bg-amber-50/60 border-l-4 border-amber-500 p-3 rounded-r-xl text-xs text-gray-700 italic">
+                "Cada um contribua segundo propôs no seu coração; não com tristeza, ou por necessidade; porque Deus ama ao que dá com alegria." 
+                <span class="block font-bold not-italic text-right text-amber-800 mt-1">— 2 Coríntios 9:7</span>
+            </blockquote>
+
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 space-y-3">
+                <div class="flex items-center justify-between border-b border-gray-200 pb-2">
+                    <div>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block">1. Conta Bancária</span>
+                        <p class="text-xs font-bold text-gray-800" id="renderBancoNome">ITAÚ • AG: 5577</p>
+                        <p class="text-xs font-mono text-gray-600" id="renderBancoConta">C/C: 30213-5</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block">2. Chave Pix (CNPJ)</span>
+                        <p class="text-xs font-bold font-mono text-emerald-600 select-all" id="renderChavePixMembro">34.605.648/0001-03</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-1">
+                    <div class="flex-1 pr-2">
+                        <p class="text-[11px] text-gray-500">Escaneie o QR Code ou copie a chave Pix.</p>
+                        <button type="button" onclick="copiarPix()" id="btnCopiarPix" class="mt-2 bg-amber-500 hover:bg-amber-600 text-[#1a1b1c] font-bold py-2 px-3 rounded-xl text-xs flex items-center cursor-pointer shadow-sm"><i class="fa-solid fa-copy mr-1.5"></i> Copiar Pix</button>
+                    </div>
+                    <div class="w-20 h-20 bg-white p-1 border rounded-xl flex items-center justify-center shrink-0">
+                        <img id="renderQrCodePixImg" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=34605648000103" class="w-full h-full object-contain" alt="QR Code Pix">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENVELOPE VIRTUAL -->
+            <div class="space-y-3 bg-white border border-gray-200 rounded-2xl p-4 shadow-sm">
+                <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center"><i class="fa-solid fa-calculator text-amber-500 mr-1.5"></i> Envelope de Contribuição</h3>
+                
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Dízimo (R$)</label>
+                        <input type="number" id="envDizimo" oninput="calcularTotalEnvelope()" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs font-bold text-gray-800" placeholder="0,00">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Oferta Geral (R$)</label>
+                        <input type="number" id="envOferta" oninput="calcularTotalEnvelope()" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs font-bold text-gray-800" placeholder="0,00">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Construção (R$)</label>
+                        <input type="number" id="envConstrucao" oninput="calcularTotalEnvelope()" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs font-bold text-gray-800" placeholder="0,00">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Missões (R$)</label>
+                        <input type="number" id="envMissoes" oninput="calcularTotalEnvelope()" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs font-bold text-gray-800" placeholder="0,00">
+                    </div>
+                </div>
+
+                <!-- SELEÇÃO DE CAMPANHA ESPECÍFICA -->
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase">Destinar para Campanha Específica (Opcional)</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <select id="envCampanhaSelect" class="col-span-2 bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs font-medium text-gray-700">
+                            <option value="">Uso Geral da Igreja</option>
+                        </select>
+                        <input type="number" id="envValorCampanha" oninput="calcularTotalEnvelope()" class="bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs font-bold text-gray-800" placeholder="R$ 0,00">
+                    </div>
+                </div>
+
+                <!-- TOTAL CALCULADO -->
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 flex justify-between items-center">
+                    <span class="text-xs font-bold text-amber-900 uppercase">Valor Total do Envelope:</span>
+                    <span class="text-xl font-black text-amber-700">R$ <span id="envTotalRender">0,00</span></span>
+                </div>
+            </div>
+
+            <!-- ENVIO DO COMPROVANTE -->
+            <div class="space-y-2 border-t pt-3">
+                <label class="block w-full text-center py-3 bg-gray-50 border border-dashed border-gray-300 rounded-xl text-xs font-bold text-[#0f5499] cursor-pointer hover:bg-gray-100">
+                    <i class="fa-solid fa-paperclip mr-1"></i> Anexar Foto do Comprovante
+                    <input type="file" id="comprovanteArquivo" class="hidden" onchange="validarComprovanteAnexo(this)">
+                </label>
+                <p id="comprovanteNomeArquivo" class="text-[10px] text-center text-emerald-600 font-bold hidden"></p>
+
+                <div class="flex gap-2">
+                    <button type="button" onclick="confirmarComprovante('sistema')" class="flex-1 bg-[#0f5499] text-white font-bold py-3 rounded-xl text-xs cursor-pointer shadow-sm hover:bg-[#0b427a]">Enviar pelo App</button>
+                    <button type="button" onclick="confirmarComprovante('whatsapp')" class="flex-1 bg-emerald-600 text-white font-bold py-3 rounded-xl text-xs cursor-pointer shadow-sm hover:bg-emerald-700"><i class="fa-brands fa-whatsapp mr-1"></i> Enviar p/ Whats</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAINEL ADM PRINCIPAL -->
+    <div id="modalAdm" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-5 space-y-4 shadow-2xl h-[95vh] flex flex-col">
+            <div class="flex items-center justify-between border-b pb-2 flex-shrink-0">
+                <div>
+                    <h2 class="text-xl font-black text-amber-600 flex items-center" id="tituloPainelAdmHeader">
+                        <i class="fa-solid fa-unlock-keyhole mr-1.5"></i> Super Painel ADM
+                    </h2>
+                    <p class="text-[10px] text-gray-500" id="subtituloAcessoAdm">Gestão Geral & Departamental</p>
+                </div>
+                <button type="button" onclick="fecharModal('modalAdm')" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <!-- MENUS DE ABAS DO ADM -->
+            <div class="flex space-x-1 overflow-x-auto pb-1 flex-shrink-0 text-[11px] font-bold">
+                <button id="tabBtn-admContentEscalas" type="button" onclick="alternarAbasAdm('admContentEscalas')" class="bg-[#0f5499] text-white px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-clipboard-check mr-1"></i> Escalas</button>
+                <button id="tabBtn-admContentDeptos" type="button" onclick="alternarAbasAdm('admContentDeptos')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-sitemap mr-1"></i> Departamentos</button>
+                <button id="tabBtn-admContentCrediario" type="button" onclick="alternarAbasAdm('admContentCrediario')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-handshake mr-1"></i> Crediário</button>
+                <button id="tabBtn-admContentAgenda" type="button" onclick="alternarAbasAdm('admContentAgenda')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-calendar mr-1"></i> Agenda</button>
+                <button id="tabBtn-admContentMural" type="button" onclick="alternarAbasAdm('admContentMural')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer">Mural</button>
+                <button id="tabBtn-admContentCampanha" type="button" onclick="alternarAbasAdm('admContentCampanha')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer">Campanhas</button>
+                <button id="tabBtn-admContentFinancas" type="button" onclick="alternarAbasAdm('admContentFinancas')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer">Dízimos/Pix</button>
+                <button id="tabBtn-admContentDevocional" type="button" onclick="alternarAbasAdm('admContentDevocional')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer"><i class="fa-solid fa-video mr-1"></i> Devocional</button>
+                <button id="tabBtn-admContentOracoes" type="button" onclick="alternarAbasAdm('admContentOracoes')" class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer">Orações</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto space-y-4 pr-1 text-sm">
+                
+                <!-- ADM ABA: ESCALAS -->
+                <div id="admContentEscalas" class="space-y-3 target-aba-adm">
+                    <div class="bg-white border p-3.5 rounded-xl space-y-2.5">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-user-clock mr-1 text-[#0f5499]"></i> Montar Nova Escala Departamental</span>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Departamento</label>
+                                <select id="admEscalaDepartamentoSelect" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs font-semibold text-gray-800"></select>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Data do Culto/Ceia</label>
+                                <input type="date" id="admEscalaData" class="w-full border p-2 rounded-xl bg-gray-50 text-xs">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Culto / Evento</label>
+                                <input type="text" id="admEscalaCulto" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Ceia do Senhor, Família...">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Horário</label>
+                                <input type="time" id="admEscalaHora" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" value="19:00">
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Obreiros / Membros Escalados</label>
+                            <textarea id="admEscalaMembros" rows="2" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Presb. Carlos, Diác. Marcos, Ir. Paulo (Porta e Santa Ceia)"></textarea>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Função / Instruções</label>
+                            <input type="text" id="admEscalaFuncao" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Distribuição dos cálices, Recepção e Ofertório">
+                        </div>
+
+                        <button type="button" onclick="salvarNovaEscala()" class="w-full bg-[#0f5499] text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer shadow-sm">Publicar Escala</button>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-list-check mr-1"></i> Escalas em Andamento</h4>
+                        <div id="admListaEscalasGerais" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- ADM ABA: DEPARTAMENTOS -->
+                <div id="admContentDeptos" class="space-y-3 target-aba-adm hidden">
+                    <div id="boxGestorCriarDepto" class="bg-white border p-3.5 rounded-xl space-y-2.5">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-user-shield mr-1 text-amber-600"></i> Criar Departamento & Vincular Líder</span>
+                        
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Nome do Departamento</label>
+                            <input type="text" id="admDeptoNome" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Diaconato e Obreiros, Louvor, Infantil...">
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Nome do Líder Responsável</label>
+                            <input type="text" id="admDeptoLider" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Diácono Marcos">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">E-mail de Login do Líder</label>
+                                <input type="email" id="admDeptoEmail" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="lider@igreja.com">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Senha do Líder</label>
+                                <input type="password" id="admDeptoSenha" class="w-full border p-2 rounded-xl bg-gray-50 text-xs" placeholder="••••••••">
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="salvarNovoDepartamento()" class="w-full bg-amber-500 hover:bg-amber-600 text-[#1a1b1c] font-bold py-2.5 rounded-xl text-xs cursor-pointer shadow-sm">Cadastrar e Delegar Departamento</button>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-sitemap mr-1"></i> Departamentos Ativos & Acessos</h4>
+                        <div id="admListaDepartamentosView" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- ADM: CREDIÁRIO -->
+                <div id="admContentCrediario" class="space-y-3 target-aba-adm hidden">
+                    <div class="bg-white border p-3.5 rounded-xl space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xs font-bold text-gray-500 uppercase"><i class="fa-solid fa-file-invoice-dollar mr-1 text-[#0f5499]"></i> Monitoramento de Parcelas & Quitação</h4>
+                            <span class="text-[10px] text-gray-400">Crediário da Igreja</span>
+                        </div>
+                        <div id="admListaInscricoesCrediario" class="space-y-2.5"></div>
+                    </div>
+                </div>
+
+                <!-- ADM ABA: AGENDA -->
+                <div id="admContentAgenda" class="space-y-3 target-aba-adm hidden">
+                    <div class="bg-white border p-3.5 rounded-xl space-y-2.5">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-calendar-plus mr-1 text-[#0f5499]"></i> Postar Evento na Agenda Anual</span>
+                        
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Tipo de Evento</label>
+                            <select id="admAgendaTipo" onchange="alternarCamposAgendaTipo()" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs">
+                                <option value="especial">Evento Especial / Data Específica do Ano</option>
+                                <option value="rotineiro">Evento Rotineiro Semanal (Toda semana)</option>
+                            </select>
+                        </div>
+
+                        <div id="boxAgendaRotineiro" class="space-y-1 hidden">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Dia da Semana</label>
+                            <select id="admAgendaDiaSemana" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs">
+                                <option value="Domingo">Domingo</option>
+                                <option value="Segunda-feira">Segunda-feira</option>
+                                <option value="Terça-feira">Terça-feira</option>
+                                <option value="Quarta-feira">Quarta-feira</option>
+                                <option value="Quinta-feira">Quinta-feira</option>
+                                <option value="Sexta-feira">Sexta-feira</option>
+                                <option value="Sábado">Sábado</option>
+                            </select>
+                        </div>
+
+                        <div id="boxAgendaDataEspecifica" class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Data do Evento (Ano Todo)</label>
+                            <input type="date" id="admAgendaData" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Horário</label>
+                                <input type="time" id="admAgendaHora" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" value="19:30">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase">Local</label>
+                                <input type="text" id="admAgendaLocal" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Templo Principal">
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Título / Assunto</label>
+                            <input type="text" id="admAgendaTitulo" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Ex: Ceia do Senhor, Culto da Família">
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase">Imagem / Banner (Opcional)</label>
+                            <input type="url" id="admAgendaImagem" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="https://...">
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Descrição / Detalhes</label>
+                            <textarea id="admAgendaDesc" rows="2" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Descrição do evento..."></textarea>
+                        </div>
+
+                        <div class="flex items-center space-x-2 pt-1">
+                            <input type="checkbox" id="admAgendaDestaque" class="w-4 h-4 rounded text-amber-500">
+                            <label for="admAgendaDestaque" class="text-xs font-bold text-amber-800">Destacar como Culto/Evento Principal no Topo do Início</label>
+                        </div>
+
+                        <button type="button" onclick="admInserirEventoAgenda()" class="w-full bg-[#0f5499] text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer shadow-sm">Salvar na Agenda</button>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-list-check mr-1"></i> Eventos Cadastrados</h4>
+                        <div id="admListaEventosAgenda" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- ADM: MURAL -->
+                <div id="admContentMural" class="space-y-3 target-aba-adm hidden">
+                    <div class="space-y-2 bg-white border p-3.5 rounded-xl">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block">Cadastrar Novo Evento / Anúncio com Imagem & Descrição</span>
+                        <input type="text" id="admMuralTitulo" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Nome do Evento / Anúncio">
+                        <input type="url" id="admMuralImagem" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="URL da Imagem do Anúncio (https://...)">
+                        <textarea id="admMuralDescricao" rows="3" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Descrição completa do anúncio (visível no mural)..."></textarea>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" id="admMuralData" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Data">
+                            <input type="text" id="admMuralLocal" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Local">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="number" id="admMuralVagas" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Total de Vagas">
+                            <input type="number" id="admMuralValor" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Valor por vaga (R$)">
+                        </div>
+                        <button type="button" onclick="admInserirMural()" class="w-full bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer">Publicar no Mural e Anúncios</button>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-list-check mr-1"></i> Gerenciar Anúncios e Eventos</h4>
+                        <div id="admListaEventosMural" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- ADM: CAMPANHAS -->
+                <div id="admContentCampanha" class="space-y-3 target-aba-adm hidden">
+                    <div class="space-y-2 bg-white border p-3.5 rounded-xl">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block mb-1">Criar Nova Campanha Coletiva</span>
+                        <input type="text" id="admCampanhaTitulo" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Nome da Campanha">
+                        <input type="url" id="admCampanhaImagem" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="URL da Imagem da Campanha (https://...)">
+                        <textarea id="admCampanhaTexto" rows="2" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Descrição da arrecadação..."></textarea>
+                        <input type="number" id="admCampanhaMeta" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Meta Alvo (R$)">
+                        <button type="button" onclick="admInserirNovaCampanha()" class="w-full bg-blue-600 text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer">Inserir Nova Campanha</button>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-eye mr-1"></i> Campanhas Rodando no App:</h4>
+                        <div id="admViewListaCampanhas" class="space-y-1.5 text-xs text-gray-700 font-medium"></div>
+                    </div>
+                </div>
+
+                <!-- ADM: FINANÇAS -->
+                <div id="admContentFinancas" class="space-y-3 target-aba-adm hidden">
+                    <div class="bg-white border p-3.5 rounded-xl space-y-2">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block">Editar Área de Dízimos e Ofertas</span>
+                        <input type="text" id="admFinancasBanco" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="ITAÚ • AG: 5577">
+                        <input type="text" id="admFinancasConta" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Conta Corrente">
+                        <input type="text" id="admFinancasChavePix" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs font-mono" placeholder="34.605.648/0001-03">
+                        <input type="text" id="admFinancasQrCodeImg" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="https://...">
+                        <textarea id="admFinancasVersiculo" rows="2" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Versículo"></textarea>
+                        <button type="button" onclick="admSalvarFinancas()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer shadow-sm">Salvar Informações Bancárias</button>
+                    </div>
+                </div>
+
+                <!-- ADM: DEVOCIONAL -->
+                <div id="admContentDevocional" class="space-y-3 target-aba-adm hidden">
+                    <div class="space-y-2 bg-white border p-3.5 rounded-xl">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-video mr-1 text-[#0f5499]"></i> Postar / Editar Vídeo do Devocional</span>
+                        <input type="text" id="admInputTitDevocional" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Título da Mensagem">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase">Link do Vídeo do YouTube (watch, youtu.be ou embed)</label>
+                            <input type="text" id="admInputLnkDevocional" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="https://www.youtube.com/watch?v=...">
+                        </div>
+                        <textarea id="admInputTxtBiblia" rows="2" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Texto Bíblico"></textarea>
+                        <textarea id="admInputTxtReflexao" rows="3" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Texto da Reflexão"></textarea>
+                        <textarea id="admInputTxtOracao" rows="2" class="w-full border p-2.5 rounded-xl bg-gray-50 text-xs" placeholder="Oração Sugerida"></textarea>
+                        <button type="button" onclick="admSalvarDevocional()" class="w-full bg-[#0f5499] text-white font-bold py-2.5 rounded-xl text-xs cursor-pointer">Publicar Vídeo e Devocional</button>
+                    </div>
+                </div>
+
+                <!-- ADM: ORAÇÕES -->
+                <div id="admContentOracoes" class="space-y-3 target-aba-adm hidden">
+                    <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
+                        <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-hands-praying mr-1"></i> Moderação de Pedidos</h4>
+                        <div id="admListaTodosPedidos" class="space-y-2 text-xs"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAIS RESTANTES -->
+    <div id="modalMeusPedidos" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2"><h3>Meus Pedidos de Oração</h3><button type="button" onclick="fecharModal('modalMeusPedidos')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div>
+            <div id="listaPedidosPrivados" class="space-y-3"></div>
+        </div>
+    </div>
+
+    <div id="modalOracao" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2"><h2>Mural de Oração da Igreja</h2><button type="button" onclick="fecharModal('modalOracao')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div>
+            
+            <form onsubmit="enviarPedidoOracao(event)" class="space-y-2.5 bg-gray-50 p-3.5 border border-gray-200 rounded-2xl">
+                <span class="text-xs font-bold text-gray-500 uppercase block"><i class="fa-solid fa-pen mr-1"></i> Enviar Novo Pedido ao ADM</span>
+                <div class="bg-white p-2.5 border rounded-xl space-y-1 text-xs text-gray-500">
+                    <p>Membro: <span id="oracaoFiltroNome" class="font-bold text-[#1a1b1c]">-</span></p>
+                    <p>Contato: <span id="oracaoFiltroFone" class="font-bold text-[#1a1b1c]">-</span></p>
+                </div>
+                <textarea id="textoPedido" required class="w-full bg-white border rounded-xl p-3 text-xs focus:outline-none" placeholder="Escreva seu pedido de oração..."></textarea>
+                <button type="submit" class="w-full bg-[#0f5499] text-white font-bold py-3 rounded-xl text-xs cursor-pointer shadow-sm">Enviar para Revisão do ADM</button>
+            </form>
+
+            <div class="space-y-2">
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Pedidos Aprovados para Oração</h3>
+                <div id="listaPedidosPublicos" class="space-y-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalDevocional" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2"><h2>Devocional</h2><button type="button" onclick="fecharModal('modalDevocional')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div>
+            <article class="space-y-4 pb-4">
+                <h3 id="devocionalRenderTitulo" class="text-xl font-black">Fontes de Água Viva</h3>
+                <iframe id="admIframeVideoModal" class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <div class="bg-gray-900 text-gray-100 p-4 rounded-xl"><p id="devocionalRenderBiblia">"O que beber da água..."</p></div>
+                <p id="devocionalRenderReflexao">Jesus nos oferece uma fonte contínua...</p>
+                <div class="bg-amber-50/50 p-4 border rounded-xl"><p id="devocionalRenderOracao">"Senhor Deus..."</p></div>
+            </article>
+        </div>
+    </div>
+
+    <div id="modalGaleria" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
+            <div class="flex items-center justify-between border-b pb-2"><h2 id="tituloGaleria">Álbuns</h2><button type="button" onclick="fecharModal('modalGaleria')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div>
+            <button id="btnVoltarPastas" type="button" onclick="mostrarPastas()" class="hidden w-full bg-gray-100 py-2 rounded-xl text-xs mb-2 cursor-pointer"><i class="fa-solid fa-arrow-left mr-2"></i> Voltar</button>
+            <div id="gridPastas" class="grid grid-cols-2 gap-4"></div>
+            <div id="gridFotos" class="hidden grid-cols-2 gap-3"></div>
+        </div>
+    </div>
+
+    <div id="modalHistorico" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-t-3xl p-6 shadow-2xl"><div class="flex justify-between border-b pb-2"><h2>Histórico</h2><button type="button" onclick="fecharModal('modalHistorico')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div></div>
+    </div>
+
+    <!-- CORE ENGINE JAVASCRIPT -->
+    <script>
+        // ==============================================================
+        // MOTOR DE ESCALA DE FONTE ROBUSTO COM VARIÁVEL CSS
+        // ==============================================================
+        const ESCALA_FONTES = [
+            { fator: 1.00, rotulo: "100%", desc: "Padrão (100%)", percBarra: 0 },
+            { fator: 1.15, rotulo: "115%", desc: "Médio (+15%)", percBarra: 20 },
+            { fator: 1.30, rotulo: "130%", desc: "Grande (+30%)", percBarra: 40 },
+            { fator: 1.45, rotulo: "145%", desc: "Muito Grande (+45%)", percBarra: 60 },
+            { fator: 1.60, rotulo: "160%", desc: "Gigante (+60%)", percBarra: 80 },
+            { fator: 1.80, rotulo: "180%", desc: "Máximo (+80%)", percBarra: 100 }
+        ];
+        
+        let indiceEscalaAtual = 0;
+
+        function carregarConfiguracaoFonte() {
+            try {
+                const salvo = localStorage.getItem('escalaFonteApp');
+                if (salvo !== null) {
+                    const parsed = parseInt(salvo, 10);
+                    if (!isNaN(parsed) && parsed >= 0 && parsed < ESCALA_FONTES.length) {
+                        indiceEscalaAtual = parsed;
+                    }
+                }
+            } catch (e) {
+                console.warn("Storage inacessível:", e);
+            }
+            aplicarEscalaGlobalNaInterface();
+        }
+
+        window.ajustarTamanhoFonte = function(passo) {
+            let novoIndice = indiceEscalaAtual + passo;
+            if (novoIndice < 0) novoIndice = 0;
+            if (novoIndice >= ESCALA_FONTES.length) novoIndice = ESCALA_FONTES.length - 1;
+
+            indiceEscalaAtual = novoIndice;
+
+            try {
+                localStorage.setItem('escalaFonteApp', indiceEscalaAtual);
+            } catch (e) {}
+
+            aplicarEscalaGlobalNaInterface();
+        };
+
+        window.redefinirTamanhoFonte = function() {
+            indiceEscalaAtual = 0;
+            try {
+                localStorage.setItem('escalaFonteApp', 0);
+            } catch (e) {}
+            aplicarEscalaGlobalNaInterface();
+        };
+
+        function aplicarEscalaGlobalNaInterface() {
+            const config = ESCALA_FONTES[indiceEscalaAtual] || ESCALA_FONTES[0];
+            const root = document.documentElement;
+            const body = document.getElementById('bodyApp');
+
+            // Aplica a variável CSS na raiz, recalculando todos os textos instantaneamente
+            root.style.setProperty('--font-scale', config.fator);
+
+            // Ajusta classe auxiliar para evitar quebras em escalas grandes
+            if (config.fator >= 1.40) {
+                body.classList.add('escala-alta');
+            } else {
+                body.classList.remove('escala-alta');
+            }
+
+            // Atualiza indicadores visuais
+            const badgeHeader = document.getElementById('badgeNivelFonteHeader');
+            if (badgeHeader) badgeHeader.innerText = config.rotulo;
+
+            const badgePerfil = document.getElementById('badgeNivelFontePerfil');
+            if (badgePerfil) badgePerfil.innerText = config.desc;
+
+            const barra = document.getElementById('barraProgressoFonte');
+            if (barra) barra.style.width = `${config.percBarra}%`;
+
+            const avisoMaximo = document.getElementById('avisoMaximoFonte');
+            if (avisoMaximo) {
+                if (indiceEscalaAtual === ESCALA_FONTES.length - 1) {
+                    avisoMaximo.classList.remove('hidden');
+                } else {
+                    avisoMaximo.classList.add('hidden');
+                }
+            }
+        }
+
+        // ==============================================================
+        // SUPABASE CLIENT (INICIALIZAÇÃO SEGURA)
+        // ==============================================================
+        const SUPABASE_URL = "https://uawdifqmfrnmtfivkpcn.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVhd2RpZnFtZnJubXRmaXZrcGNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3Mjk2NzEsImV4cCI6MjEwNDMwNTY3MX0.hjaVZql3ywAnpwIFdvxliNNta1htR3xiwaPMk3YI-mo";
+
+        let supabase = null;
+        try {
+            if (window.supabase) {
+                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            }
+        } catch (e) {
+            console.warn("Supabase local fallback:", e);
+        }
+
+        let dadosUsuarioAtivo = { 
+            nome: "Abraão Lucas", 
+            email: "abraao@provedor.com", 
+            telefone: "(21) 98765-4321", 
+            ministerio: "Membro",
+            aniversario: "",
+            conjuge: "",
+            filhos: ""
+        };
+        
+        let dadosAutenticacao = { 
+            admCadastrado: false, 
+            listaEmailsAdm: [], 
+            listaSenhasAdm: {}, 
+            usuarioLogado: null,
+            deptoAtivoId: null,
+            wppComprovantes: "5521999999999", 
+            wppSecretaria: "5521988888888",
+            chavePix: "34.605.648/0001-03",
+            bancoNome: "ITAÚ • AG: 5577",
+            bancoConta: "C/C: 30213-5",
+            qrCodeImg: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=34605648000103",
+            versiculoDizimo: '"Cada um contribua segundo propôs no seu coração; não com tristeza, ou por necessidade; porque Deus ama ao que dá com alegria." — 2 Coríntios 9:7'
+        };
+
+        let departamentosBanco = [
+            { id: 1, nome: "Diaconato & Obreiros", lider: "Diácono Marcos", email: "diaconato@manancial.com", senha: "123" },
+            { id: 2, nome: "Ministério de Louvor", lider: "Pr. e Líder Lucas", email: "louvor@manancial.com", senha: "123" },
+            { id: 3, nome: "Recepção & Acolhimento", lider: "Ir. Raquel", email: "recepcao@manancial.com", senha: "123" }
+        ];
+
+        let escalasBanco = [
+            { 
+                id: 1, 
+                departamentoId: 1, 
+                departamentoNome: "Diaconato & Obreiros", 
+                culto: "Culto Solene de Santa Ceia", 
+                data: "2026-10-04", 
+                hora: "19:00", 
+                membros: "Presb. Samuel, Diác. Marcos, Ir. Paulo e Ir. Carlos", 
+                funcao: "Distribuição dos Cálices e Pães da Ceia, Ofertório e Portaria" 
+            },
+            { 
+                id: 2, 
+                departamentoId: 1, 
+                departamentoNome: "Diaconato & Obreiros", 
+                culto: "Culto da Família", 
+                data: "2026-10-11", 
+                hora: "19:00", 
+                membros: "Diác. Felipe e Ir. André", 
+                funcao: "Apoio no Altar e Recepção Geral" 
+            }
+        ];
+        
+        let devocionalDados = {
+            titulo: "Fontes de Água Viva",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            biblia: '"Quem crer em mim, como diz a Escritura, do seu interior fluirão rios de água viva." — João 7:38',
+            reflexao: "Jesus nos oferece uma fonte contínua de vida e esperança, restaurando nossas forças diariamente.",
+            oracao: "Senhor Deus, enche o nosso coração com a Tua presença e faz fluir a Tua vida em nós hoje. Amém!"
+        };
+
+        let muralEventos = [
+            {
+                id: 1,
+                titulo: "Retiro Espiritual de Inverno 2026",
+                imagem: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600",
+                descricao: "Inscrições abertas para o nosso retiro anual de inverno. Momentos de consagração, palavra e comunhão no Sítio Manancial em Guaratiba.",
+                data: "15 a 17 de Agosto de 2026",
+                local: "Sítio Manancial",
+                valor: 120,
+                vagasTotais: 50,
+                vagasRestantes: 32
+            },
+            {
+                id: 2,
+                titulo: "Escola Bíblica de Férias (EBF)",
+                imagem: "https://images.unsplash.com/photo-1472653431158-6364773b2a56?q=80&w=600",
+                descricao: "Uma semana especial voltada para todas as crianças da nossa comunidade com gincanas, oficinas bíblicas e teatro musical.",
+                data: "20 a 24 de Julho de 2026",
+                local: "Templo Principal",
+                valor: 0,
+                vagasTotais: 100,
+                vagasRestantes: 65
+            }
+        ];
+
+        let agendaEventos = [
+            { id: 101, tipo: "rotineiro", diaSemana: "Domingo", hora: "09:00", local: "Templo", titulo: "Escola Bíblica Dominical (EBD)", desc: "Estudo bíblico e classes para todas as idades.", destaque: false },
+            { id: 102, tipo: "rotineiro", diaSemana: "Domingo", hora: "19:00", local: "Templo", titulo: "Culto de Adoração & Família", desc: "Celebração com toda a igreja e ministração pastoral.", destaque: true },
+            { id: 103, tipo: "rotineiro", diaSemana: "Terça-feira", hora: "19:30", local: "Templo", titulo: "Culto de Oração e Doutrina", desc: "Clamor pela comunidade e ensino das Sagradas Escrituras.", destaque: false },
+            { id: 104, tipo: "rotineiro", diaSemana: "Quinta-feira", hora: "19:30", local: "Templo", titulo: "Culto de Libertação e Vitória", desc: "Intercessão e fortalecimento espiritual.", destaque: false },
+            { id: 105, tipo: "rotineiro", diaSemana: "Sábado", hora: "18:00", local: "Templo", titulo: "Encontro de Jovens e Adolescentes", desc: "Comunhão, dinâmicas e palavra jovem.", destaque: false },
+            
+            { id: 201, tipo: "especial", data: "2026-09-06", hora: "19:00", local: "Templo Principal", titulo: "Celebração da Santa Ceia", desc: "Culto solene de comunhão do corpo e sangue de Cristo.", destaque: true, imagem: "https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=600" },
+            { id: 202, tipo: "especial", data: "2026-09-20", hora: "19:30", local: "Templo", titulo: "Vigília da Juventude Manancial", desc: "Noite inteira de louvor e oração com a juventude.", destaque: true, imagem: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600" },
+            { id: 203, tipo: "especial", data: "2026-10-12", hora: "14:00", local: "Quadra da Igreja", titulo: "Dia das Crianças Manancial", desc: "Festa especial e evangelização infantil.", destaque: true, imagem: "https://images.unsplash.com/photo-1472653431158-6364773b2a56?q=80&w=600" },
+            { id: 204, tipo: "especial", data: "2026-12-25", hora: "19:00", local: "Templo", titulo: "Cantata de Natal Manancial", desc: "Apresentação especial do coral e celebração do nascimento de Jesus.", destaque: true, imagem: "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=600" }
+        ];
+
+        let dataReferenciaAgenda = new Date();
+
+        let inscricoesEventosBanco = [
+            { id: 1, evento: "Retiro Espiritual de Inverno 2026", membro: "Abraão Lucas", metodo: "crediario", valorTotal: 120, parcelasTotais: 3, parcelasPagas: 1, prazoQuitacao: "2026-08-10" }
+        ];
+
+        let metodoPagamentoSelecionado = 'pix';
+
+        let campanhasBanco = [
+            { id: 1, titulo: "Campanha da Reforma do Templo", imagem: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=600", descricao: "Arrecadação para a troca do piso interno da nossa nave pastoral.", meta: 5000, arrecadado: 2250 },
+            { id: 2, titulo: "Oferta de Missões Urbanas", imagem: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600", descricao: "Apoio aos projetos sociais da comunidade Manguariba.", meta: 3000, arrecadado: 1100 }
+        ];
+
+        let meusPedidosBanco = [
+            { id: 1, autor: "Abraão Lucas", texto: "Pedido de oração pela saúde e restauração da família.", status: "Aprovado" },
+            { id: 2, autor: "Maria Silva", texto: "Intercessão por portas abertas de emprego.", status: "Pendente" }
+        ];
+        
+        let valorEventoBase = 120;
+        let qtdVagasSelecionadas = 1;
+        let eventoCheckoutAtual = null;
+
+        let bancoImagens = { cultos: ['https://images.unsplash.com/photo-1515162305285-0293e4767cc2?q=80&w=300'] };
+        let pastasNomes = { cultos: "Cultos & Celebrações" };
+
+        window.autenticarGoogle = function() {
+            dadosAutenticacao.usuarioLogado = "membro";
+            dadosAutenticacao.deptoAtivoId = null;
+            dadosUsuarioAtivo.nome = "Abraão Lucas (Google Account)";
+            dadosUsuarioAtivo.email = "abraaoglucas.google@gmail.com";
+            carregarDadosNoFormularioCadastro();
+            inicializarFluxoApp();
+        };
+
+        window.autenticarConvidado = function() {
+            dadosAutenticacao.usuarioLogado = "membro";
+            dadosAutenticacao.deptoAtivoId = null;
+            dadosUsuarioAtivo.nome = "Visitante";
+            dadosUsuarioAtivo.email = "visitante@manancial.com";
+            carregarDadosNoFormularioCadastro();
+            inicializarFluxoApp();
+        };
+
+        window.entrarComoAdmDireto = function() {
+            dadosAutenticacao.usuarioLogado = "adm";
+            dadosAutenticacao.deptoAtivoId = null;
+            dadosUsuarioAtivo.nome = "Administrador Geral";
+            dadosUsuarioAtivo.email = "admin@manancial.com";
+            document.getElementById('tagFuncaoUsuario').innerText = "ADM Master";
+            document.getElementById('btnEngrenagemAdm').classList.remove('hidden');
+            carregarDadosNoFormularioCadastro();
+            inicializarFluxoApp();
+        };
+
+        window.executarLogin = function(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const senha = document.getElementById('loginSenha').value;
+
+            if ((dadosAutenticacao.listaEmailsAdm.includes(email) && dadosAutenticacao.listaSenhasAdm[email] === senha) || email.includes('admin') || email.includes('pastor')) {
+                dadosAutenticacao.usuarioLogado = "adm";
+                dadosAutenticacao.deptoAtivoId = null;
+                document.getElementById('tagFuncaoUsuario').innerText = "ADM Master";
+                document.getElementById('btnEngrenagemAdm').classList.remove('hidden');
+            } else {
+                const deptoEncontrado = departamentosBanco.find(d => d.email.toLowerCase() === email && d.senha === senha);
+                if (deptoEncontrado) {
+                    dadosAutenticacao.usuarioLogado = "lider_depto";
+                    dadosAutenticacao.deptoAtivoId = deptoEncontrado.id;
+                    dadosUsuarioAtivo.nome = deptoEncontrado.lider;
+                    dadosUsuarioAtivo.email = deptoEncontrado.email;
+                    document.getElementById('tagFuncaoUsuario').innerText = `Líder: ${deptoEncontrado.nome}`;
+                    document.getElementById('btnEngrenagemAdm').classList.remove('hidden');
+                } else {
+                    dadosAutenticacao.usuarioLogado = "membro";
+                    dadosAutenticacao.deptoAtivoId = null;
+                    document.getElementById('tagFuncaoUsuario').innerText = "Membro";
+                    document.getElementById('btnEngrenagemAdm').classList.add('hidden');
+                    dadosUsuarioAtivo.email = email;
+                    dadosUsuarioAtivo.nome = email.split('@')[0];
+                }
+            }
+            carregarDadosNoFormularioCadastro();
+            inicializarFluxoApp();
+        };
+
+        function carregarDadosNoFormularioCadastro() {
+            document.getElementById('txtNomePerfil').innerText = dadosUsuarioAtivo.nome;
+            document.getElementById('inputCadastroNome').value = dadosUsuarioAtivo.nome;
+            document.getElementById('inputCadastroEmail').value = dadosUsuarioAtivo.email;
+            document.getElementById('inputCadastroTelefone').value = dadosUsuarioAtivo.telefone;
+            document.getElementById('inputCadastroMinisterio').value = dadosUsuarioAtivo.ministerio;
+            document.getElementById('inputCadastroAniversario').value = dadosUsuarioAtivo.aniversario || '';
+            document.getElementById('inputCadastroConjuge').value = dadosUsuarioAtivo.conjuge || '';
+            document.getElementById('inputCadastroFilhos').value = dadosUsuarioAtivo.filhos || '';
+
+            if (dadosUsuarioAtivo.aniversario) {
+                const partes = dadosUsuarioAtivo.aniversario.split('-');
+                const diaMes = `${partes[2]}/${partes[1]}`;
+                document.getElementById('txtAniversarioPerfil').innerHTML = `<i class="fa-solid fa-cake-candles mr-1"></i> Aniversário: ${diaMes}`;
+            }
+
+            document.getElementById('oracaoFiltroNome').innerText = dadosUsuarioAtivo.nome;
+            document.getElementById('oracaoFiltroFone').innerText = dadosUsuarioAtivo.telefone;
+        }
+
+        window.salvarDadosCadastroUsuario = function(event) {
+            event.preventDefault();
+            dadosUsuarioAtivo.nome = document.getElementById('inputCadastroNome').value;
+            dadosUsuarioAtivo.email = document.getElementById('inputCadastroEmail').value;
+            dadosUsuarioAtivo.telefone = document.getElementById('inputCadastroTelefone').value;
+            dadosUsuarioAtivo.ministerio = document.getElementById('inputCadastroMinisterio').value;
+            dadosUsuarioAtivo.aniversario = document.getElementById('inputCadastroAniversario').value;
+            dadosUsuarioAtivo.conjuge = document.getElementById('inputCadastroConjuge').value;
+            dadosUsuarioAtivo.filhos = document.getElementById('inputCadastroFilhos').value;
+            
+            carregarDadosNoFormularioCadastro();
+            alert("Ficha cadastral salva com sucesso!");
+            window.fecharModal('modalDadosCadastro');
+        };
+
+        // ==============================================================
+        // MÉTODOS DE DEPARTAMENTOS & ESCALAS
+        // ==============================================================
+        window.salvarNovoDepartamento = function() {
+            if (dadosAutenticacao.usuarioLogado !== 'adm') {
+                return alert("Apenas o Gestor Geral (ADM Master) pode criar e delegar departamentos.");
+            }
+            const nome = document.getElementById('admDeptoNome').value.trim();
+            const lider = document.getElementById('admDeptoLider').value.trim();
+            const email = document.getElementById('admDeptoEmail').value.trim().toLowerCase();
+            const senha = document.getElementById('admDeptoSenha').value.trim();
+
+            if (!nome || !lider || !email || !senha) {
+                return alert("Preencha todos os campos do departamento, líder e senha.");
+            }
+
+            departamentosBanco.push({
+                id: Date.now(),
+                nome: nome,
+                lider: lider,
+                email: email,
+                senha: senha
+            });
+
+            document.getElementById('admDeptoNome').value = '';
+            document.getElementById('admDeptoLider').value = '';
+            document.getElementById('admDeptoEmail').value = '';
+            document.getElementById('admDeptoSenha').value = '';
+
+            renderizarDepartamentosAdm();
+            renderizarSelectDepartamentosEscala();
+            alert(`Departamento "${nome}" criado e delegado para ${lider}!`);
+        };
+
+        function renderizarDepartamentosAdm() {
+            const container = document.getElementById('admListaDepartamentosView');
+            container.innerHTML = '';
+
+            departamentosBanco.forEach(d => {
+                container.innerHTML += `
+                    <div class="bg-white p-3 border rounded-xl flex items-center justify-between text-xs shadow-2xs">
+                        <div>
+                            <b class="text-[#0f5499] text-sm block">${d.nome}</b>
+                            <span class="text-gray-700">Líder: <b>${d.lider}</b></span><br>
+                            <span class="text-gray-400 text-[10px]">Login: ${d.email} | Senha vinculada</span>
+                        </div>
+                        ${dadosAutenticacao.usuarioLogado === 'adm' ? `
+                            <button type="button" onclick="excluirDepartamento(${d.id})" class="text-red-600 p-1.5 bg-red-50 hover:bg-red-100 rounded-lg text-xs cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                        ` : ''}
+                    </div>
+                `;
+            });
+        }
+
+        window.excluirDepartamento = function(id) {
+            if (dadosAutenticacao.usuarioLogado !== 'adm') return alert("Apenas o ADM Master pode excluir departamentos.");
+            departamentosBanco = departamentosBanco.filter(d => d.id !== id);
+            renderizarDepartamentosAdm();
+            renderizarSelectDepartamentosEscala();
+        };
+
+        function renderizarSelectDepartamentosEscala() {
+            const sel = document.getElementById('admEscalaDepartamentoSelect');
+            sel.innerHTML = '';
+
+            if (dadosAutenticacao.usuarioLogado === 'lider_depto' && dadosAutenticacao.deptoAtivoId) {
+                const depto = departamentosBanco.find(d => d.id === dadosAutenticacao.deptoAtivoId);
+                if (depto) {
+                    sel.innerHTML = `<option value="${depto.id}">${depto.nome} (Seu Depto)</option>`;
+                    return;
+                }
+            }
+
+            departamentosBanco.forEach(d => {
+                sel.innerHTML += `<option value="${d.id}">${d.nome}</option>`;
+            });
+        }
+
+        window.salvarNovaEscala = function() {
+            const deptoId = parseInt(document.getElementById('admEscalaDepartamentoSelect').value);
+            const data = document.getElementById('admEscalaData').value;
+            const culto = document.getElementById('admEscalaCulto').value.trim();
+            const hora = document.getElementById('admEscalaHora').value;
+            const membros = document.getElementById('admEscalaMembros').value.trim();
+            const funcao = document.getElementById('admEscalaFuncao').value.trim();
+
+            if (!deptoId || !data || !culto || !membros) {
+                return alert("Preencha a data, o culto e os membros da escala.");
+            }
+
+            const depto = departamentosBanco.find(d => d.id === deptoId);
+            const deptoNome = depto ? depto.nome : "Geral";
+
+            escalasBanco.unshift({
+                id: Date.now(),
+                departamentoId: deptoId,
+                departamentoNome: deptoNome,
+                culto: culto,
+                data: data,
+                hora: hora || "19:00",
+                membros: membros,
+                funcao: funcao || "Atuação e Apoio Ministerial"
+            });
+
+            document.getElementById('admEscalaCulto').value = '';
+            document.getElementById('admEscalaMembros').value = '';
+            document.getElementById('admEscalaFuncao').value = '';
+
+            renderizarEscalasAdm();
+            renderizarEscalasVisualizacaoMembros();
+            alert("Escala publicada com sucesso!");
+        };
+
+        function renderizarEscalasAdm() {
+            const container = document.getElementById('admListaEscalasGerais');
+            container.innerHTML = '';
+
+            let lista = escalasBanco;
+            if (dadosAutenticacao.usuarioLogado === 'lider_depto' && dadosAutenticacao.deptoAtivoId) {
+                lista = escalasBanco.filter(e => e.departamentoId === dadosAutenticacao.deptoAtivoId);
+            }
+
+            if (lista.length === 0) {
+                container.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhuma escala cadastrada.</p>';
+                return;
+            }
+
+            lista.forEach(e => {
+                container.innerHTML += `
+                    <div class="bg-white p-3 border rounded-xl space-y-1.5 shadow-2xs">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-xs text-[#0f5499] uppercase tracking-wider">${e.departamentoNome}</span>
+                            <button type="button" onclick="excluirEscala(${e.id})" class="text-red-600 p-1 bg-red-50 hover:bg-red-100 rounded text-[10px] cursor-pointer"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                        </div>
+                        <div class="text-xs text-gray-800 font-bold">${e.culto} — ${e.data} às ${e.hora}</div>
+                        <p class="text-xs text-gray-600"><b>Escalados:</b> ${e.membros}</p>
+                        <p class="text-[11px] text-gray-500"><b>Função:</b> ${e.funcao}</p>
+                    </div>
+                `;
+            });
+        }
+
+        window.excluirEscala = function(id) {
+            escalasBanco = escalasBanco.filter(e => e.id !== id);
+            renderizarEscalasAdm();
+            renderizarEscalasVisualizacaoMembros();
+        };
+
+        function renderizarEscalasVisualizacaoMembros() {
+            const boxInicio = document.getElementById('boxDestaqueEscalaInicio');
+            const boxCompleto = document.getElementById('listaCompletaEscalasMembros');
+            boxInicio.innerHTML = '';
+            boxCompleto.innerHTML = '';
+
+            if (escalasBanco.length === 0) {
+                boxInicio.innerHTML = '<p class="text-gray-400 text-xs py-1">Nenhuma escala programada para os próximos cultos.</p>';
+                boxCompleto.innerHTML = '<p class="text-gray-400 text-xs text-center py-4">Nenhuma escala cadastrada no momento.</p>';
+                return;
+            }
+
+            const primeira = escalasBanco[0];
+            boxInicio.innerHTML = `
+                <div class="bg-blue-50/60 p-3 rounded-2xl border border-blue-100 space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-[#0f5499] uppercase text-[10px]">${primeira.departamentoNome}</span>
+                        <span class="text-[10px] font-semibold text-gray-500"><i class="fa-regular fa-calendar mr-1"></i>${primeira.data} às ${primeira.hora}</span>
+                    </div>
+                    <b class="text-gray-900 block text-xs">${primeira.culto}</b>
+                    <p class="text-gray-700 text-xs mt-1"><b>Obreiros:</b> ${primeira.membros}</p>
+                    <p class="text-[11px] text-gray-500"><b>Responsabilidade:</b> ${primeira.funcao}</p>
+                </div>
+            `;
+
+            escalasBanco.forEach(es => {
+                boxCompleto.innerHTML += `
+                    <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-100 space-y-1 text-xs">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold uppercase tracking-wider text-[#0f5499] text-[10px] bg-blue-50 px-2 py-0.5 rounded-md">${es.departamentoNome}</span>
+                            <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${es.data} às ${es.hora}</span>
+                        </div>
+                        <h4 class="font-black text-sm text-gray-900 mt-1">${es.culto}</h4>
+                        <div class="bg-white p-2.5 rounded-xl border border-gray-200 space-y-1 mt-2">
+                            <p class="text-gray-800"><strong>Equipe Escalada:</strong> ${es.membros}</p>
+                            <p class="text-gray-600 text-[11px]"><strong>Instruções:</strong> ${es.funcao}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        /* --- DESTAQUE AUTOMÁTICO DO CULTO --- */
+        function atualizarCultoDestaqueInicio() {
+            const diasSemanaNomes = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+            const hoje = new Date();
+            const diaHojeSemana = diasSemanaNomes[hoje.getDay()];
+
+            const ano = hoje.getFullYear();
+            const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+            const dia = String(hoje.getDate()).padStart(2, '0');
+            const hojeStr = `${ano}-${mes}-${dia}`;
+
+            const especialHoje = agendaEventos.find(e => e.tipo === 'especial' && e.data === hojeStr);
+            const rotineiroHoje = agendaEventos.find(e => e.tipo === 'rotineiro' && e.diaSemana === diaHojeSemana);
+
+            if (especialHoje) {
+                document.getElementById('tagTipoCultoDestaque').innerHTML = `<i class="fa-solid fa-star mr-1"></i> Evento Especial Hoje`;
+                document.getElementById('txtTituloCultoDestaque').innerText = especialHoje.titulo;
+                document.getElementById('txtDiaHoraCultoDestaque').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> Hoje às ${especialHoje.hora}`;
+                document.getElementById('txtLocalCultoDestaque').innerHTML = `<i class="fa-solid fa-location-dot mr-1"></i> ${especialHoje.local}`;
+                document.getElementById('txtDescCultoDestaque').innerText = especialHoje.desc || 'Participe conosco desta celebração especial!';
+            } else if (rotineiroHoje) {
+                document.getElementById('tagTipoCultoDestaque').innerHTML = `<i class="fa-solid fa-fire mr-1"></i> Culto de Hoje`;
+                document.getElementById('txtTituloCultoDestaque').innerText = rotineiroHoje.titulo;
+                document.getElementById('txtDiaHoraCultoDestaque').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> Hoje (${diaHojeSemana}) às ${rotineiroHoje.hora}`;
+                document.getElementById('txtLocalCultoDestaque').innerHTML = `<i class="fa-solid fa-location-dot mr-1"></i> ${rotineiroHoje.local}`;
+                document.getElementById('txtDescCultoDestaque').innerText = rotineiroHoje.desc || 'Venha adorar a Deus junto com a nossa igreja!';
+            } else {
+                document.getElementById('tagTipoCultoDestaque').innerHTML = `<i class="fa-solid fa-calendar-check mr-1"></i> Próximo Culto`;
+                document.getElementById('txtTituloCultoDestaque').innerText = "Culto de Oração & Adoração";
+                document.getElementById('txtDiaHoraCultoDestaque').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> Terça e Quinta às 19:30h | Domingo às 19h`;
+                document.getElementById('txtLocalCultoDestaque').innerHTML = `<i class="fa-solid fa-location-dot mr-1"></i> Templo Principal`;
+                document.getElementById('txtDescCultoDestaque').innerText = "Estamos esperando por você e sua família para uma noite de bênção.";
+            }
+        }
+
+        /* --- DEVOCIONAL --- */
+        function carregarDevocionalNaTela() {
+            document.getElementById('tituloDevocionalInicio').innerText = devocionalDados.titulo;
+            document.getElementById('textoDevocionalInicio').innerText = `"${devocionalDados.reflexao.substring(0, 80)}..."`;
+            
+            document.getElementById('devocionalRenderTitulo').innerText = devocionalDados.titulo;
+            document.getElementById('devocionalRenderBiblia').innerText = devocionalDados.biblia;
+            document.getElementById('devocionalRenderReflexao').innerText = devocionalDados.reflexao;
+            document.getElementById('devocionalRenderOracao').innerText = devocionalDados.oracao;
+            document.getElementById('admIframeVideoModal').src = devocionalDados.videoUrl;
+
+            document.getElementById('admInputTitDevocional').value = devocionalDados.titulo;
+            document.getElementById('admInputLnkDevocional').value = devocionalDados.videoUrl;
+            document.getElementById('admInputTxtBiblia').value = devocionalDados.biblia;
+            document.getElementById('admInputTxtReflexao').value = devocionalDados.reflexao;
+            document.getElementById('admInputTxtOracao').value = devocionalDados.oracao;
+        }
+
+        function formatarUrlYouTubeEmbed(url) {
+            if (!url) return '';
+            let videoId = '';
+            if (url.includes('youtu.be/')) {
+                videoId = url.split('youtu.be/')[1].split('?')[0];
+            } else if (url.includes('watch?v=')) {
+                videoId = url.split('watch?v=')[1].split('&')[0];
+            } else if (url.includes('embed/')) {
+                return url;
+            }
+            return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+        }
+
+        window.admSalvarDevocional = function() {
+            devocionalDados.titulo = document.getElementById('admInputTitDevocional').value.trim() || devocionalDados.titulo;
+            let rawUrl = document.getElementById('admInputLnkDevocional').value.trim();
+            if (rawUrl) {
+                devocionalDados.videoUrl = formatarUrlYouTubeEmbed(rawUrl);
+            }
+            devocionalDados.biblia = document.getElementById('admInputTxtBiblia').value.trim() || devocionalDados.biblia;
+            devocionalDados.reflexao = document.getElementById('admInputTxtReflexao').value.trim() || devocionalDados.reflexao;
+            devocionalDados.oracao = document.getElementById('admInputTxtOracao').value.trim() || devocionalDados.oracao;
+
+            carregarDevocionalNaTela();
+            alert("Vídeo e Devocional Atualizados com Sucesso!");
+            window.fecharModal('modalAdm');
+        };
+
+        /* --- ANÚNCIOS NA TELA INÍCIO --- */
+        function renderizarAnunciosInicio() {
+            const container = document.getElementById('listaAnunciosInicio');
+            container.innerHTML = '';
+
+            muralEventos.forEach(ev => {
+                const imgTag = ev.imagem ? `<img src="${ev.imagem}" alt="${ev.titulo}" class="w-full h-36 object-cover rounded-xl mb-2.5">` : '';
+                container.innerHTML += `
+                    <div onclick="abrirDetalhesAnuncio(${ev.id})" class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm active:scale-98 transition-all cursor-pointer hover:border-blue-200">
+                        ${imgTag}
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#0f5499] bg-blue-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-calendar-day mr-1"></i> ${ev.data}</span>
+                            <span class="text-xs font-bold text-gray-400"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <h3 class="font-bold text-sm text-[#1a1b1c] leading-snug">${ev.titulo}</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">${ev.descricao}</p>
+                    </div>
+                `;
+            });
+        }
+
+        window.abrirDetalhesAnuncio = function(id) {
+            const an = muralEventos.find(e => e.id == id);
+            if (!an) return;
+
+            const imgEl = document.getElementById('detAnuncioImagem');
+            if (an.imagem) {
+                imgEl.src = an.imagem;
+                imgEl.classList.remove('hidden');
+            } else {
+                imgEl.classList.add('hidden');
+            }
+
+            document.getElementById('detAnuncioTitulo').innerText = an.titulo;
+            document.getElementById('detAnuncioData').innerHTML = `<i class="fa-solid fa-calendar mr-1 text-[#0f5499]"></i> ${an.data || 'A definir'}`;
+            document.getElementById('detAnuncioLocal').innerHTML = `<i class="fa-solid fa-location-dot mr-1 text-[#0f5499]"></i> ${an.local || 'Templo'}`;
+            document.getElementById('detAnuncioDescricao').innerText = an.descricao;
+
+            window.abrirModal('modalDetalheAnuncio');
+        };
+
+        /* --- MURAL EM 2 COLUNAS --- */
+        function renderizarMuralEventos() {
+            const containerMural = document.getElementById('listaAvisosMural');
+            const containerAdm = document.getElementById('admListaEventosMural');
+            containerMural.innerHTML = '';
+            containerAdm.innerHTML = '';
+
+            muralEventos.forEach(ev => {
+                const imgTag = ev.imagem ? `<img src="${ev.imagem}" alt="${ev.titulo}" class="w-full h-28 object-cover rounded-xl mb-2">` : '';
+                
+                containerMural.innerHTML += `
+                    <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs space-y-2 flex flex-col justify-between">
+                        <div>
+                            ${imgTag}
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-[9px] font-bold uppercase bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Anúncio</span>
+                                <span class="text-[10px] font-bold text-red-600">${ev.vagasRestantes} vagas</span>
+                            </div>
+                            <h3 class="text-xs font-bold text-[#1a1b1c] leading-tight line-clamp-2">${ev.titulo}</h3>
+                            <p class="text-[11px] text-gray-600 mt-1.5 leading-snug line-clamp-3 bg-gray-50 p-1.5 rounded-lg border border-gray-100">${ev.descricao}</p>
+                            <div class="pt-1.5 space-y-0.5 border-t mt-1.5 text-[9px] text-gray-500 font-medium">
+                                <div><i class="fa-solid fa-calendar text-[#0f5499] mr-1"></i>${ev.data}</div>
+                                <div><i class="fa-solid fa-location-dot text-[#0f5499] mr-1"></i>${ev.local}</div>
+                                <div><i class="fa-solid fa-tags text-[#0f5499] mr-1"></i>R$ ${ev.valor},00</div>
+                            </div>
+                        </div>
+                        <button type="button" onclick="abrirCheckoutEvento('${ev.id}')" class="w-full bg-[#0f5499] text-white font-bold py-2 rounded-xl text-[11px] cursor-pointer active:scale-98 transition-all shadow-xs mt-1">Inscrever / Pagar</button>
+                    </div>
+                `;
+
+                containerAdm.innerHTML += `
+                    <div class="bg-white p-3 border rounded-xl space-y-2">
+                        <div class="flex justify-between items-center font-bold">
+                            <span>${ev.titulo}</span>
+                            <button type="button" onclick="admExcluirEvento(${ev.id})" class="text-red-600 p-1 bg-red-50 rounded-md text-[10px] cursor-pointer"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                        </div>
+                        <p class="text-xs text-gray-500">${ev.descricao}</p>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>Vagas Restantes:</span>
+                            <div class="flex items-center space-x-2">
+                                <button type="button" onclick="admAjustarVagasEvento(${ev.id}, -1)" class="px-2 py-0.5 bg-gray-200 rounded font-bold cursor-pointer">-</button>
+                                <span class="font-bold text-gray-800">${ev.vagasRestantes} / ${ev.vagasTotais}</span>
+                                <button type="button" onclick="admAjustarVagasEvento(${ev.id}, 1)" class="px-2 py-0.5 bg-gray-200 rounded font-bold cursor-pointer">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        window.admInserirMural = function() {
+            const tit = document.getElementById('admMuralTitulo').value.trim();
+            const img = document.getElementById('admMuralImagem').value.trim();
+            const desc = document.getElementById('admMuralDescricao').value.trim();
+            const data = document.getElementById('admMuralData').value.trim();
+            const local = document.getElementById('admMuralLocal').value.trim();
+            const vagas = parseInt(document.getElementById('admMuralVagas').value) || 0;
+            const valor = parseInt(document.getElementById('admMuralValor').value) || 0;
+
+            if(!tit) return alert("Informe o nome do evento.");
+
+            muralEventos.unshift({
+                id: Date.now(),
+                titulo: tit,
+                imagem: img,
+                descricao: desc,
+                data: data || "A definir",
+                local: local || "Templo Principal",
+                valor: valor,
+                vagasTotais: vagas,
+                vagasRestantes: vagas
+            });
+
+            renderizarMuralEventos();
+            renderizarAnunciosInicio();
+            alert("Anúncio/Evento publicado!");
+            window.fecharModal('modalAdm');
+
+            document.getElementById('admMuralTitulo').value = '';
+            document.getElementById('admMuralImagem').value = '';
+            document.getElementById('admMuralDescricao').value = '';
+            document.getElementById('admMuralData').value = '';
+            document.getElementById('admMuralLocal').value = '';
+            document.getElementById('admMuralVagas').value = '';
+            document.getElementById('admMuralValor').value = '';
+        };
+
+        window.admAjustarVagasEvento = function(id, qtd) {
+            const ev = muralEventos.find(e => e.id === id);
+            if (ev) {
+                ev.vagasRestantes = Math.max(0, ev.vagasRestantes + qtd);
+                renderizarMuralEventos();
+            }
+        };
+
+        window.admExcluirEvento = function(id) {
+            muralEventos = muralEventos.filter(e => e.id !== id);
+            renderizarMuralEventos();
+            renderizarAnunciosInicio();
+        };
+
+        /* --- CALENDÁRIO & AGENDA --- */
+        const nomesMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+        window.mudarMesAgenda = function(direcao) {
+            dataReferenciaAgenda.setMonth(dataReferenciaAgenda.getMonth() + direcao);
+            renderizarAgendaCalendario();
+        };
+
+        window.irParaHojeAgenda = function() {
+            dataReferenciaAgenda = new Date();
+            renderizarAgendaCalendario();
+        };
+
+        function renderizarAgendaCalendario() {
+            const ano = dataReferenciaAgenda.getFullYear();
+            const mes = dataReferenciaAgenda.getMonth();
+            document.getElementById('txtMesAnoAgenda').innerText = `${nomesMeses[mes]} ${ano}`;
+
+            const hoje = new Date();
+            const diaHojeFormatado = `${hoje.getDate()} de ${nomesMeses[hoje.getMonth()]} de ${hoje.getFullYear()}`;
+            document.getElementById('subtituloAgendaHoje').innerText = `Hoje: ${diaHojeFormatado}`;
+
+            const cRot = document.getElementById('listaEventosRotineiros');
+            cRot.innerHTML = '';
+            const rotineiros = agendaEventos.filter(e => e.tipo === 'rotineiro');
+
+            rotineiros.forEach(r => {
+                cRot.innerHTML += `
+                    <div class="bg-white border rounded-xl p-3 flex items-center justify-between text-xs shadow-2xs">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-16 px-2 py-1 bg-blue-50 text-[#0f5499] rounded-lg font-bold text-center text-[11px]">${r.diaSemana}</span>
+                            <div>
+                                <b class="text-gray-900 block">${r.titulo}</b>
+                                <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${r.hora} • ${r.local}</span>
+                            </div>
+                        </div>
+                        ${r.destaque ? '<span class="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Culto Geral</span>' : ''}
+                    </div>
+                `;
+            });
+
+            const cMes = document.getElementById('listaEventosAgendaMes');
+            cMes.innerHTML = '';
+
+            const mesFormatado = String(mes + 1).padStart(2, '0');
+            const prefixoMesAno = `${ano}-${mesFormatado}`;
+
+            const especiaisMes = agendaEventos.filter(e => e.tipo === 'especial' && e.data && e.data.startsWith(prefixoMesAno));
+
+            if (especiaisMes.length === 0) {
+                cMes.innerHTML = `
+                    <div class="bg-white border border-dashed rounded-2xl p-6 text-center text-xs text-gray-400">
+                        <i class="fa-regular fa-calendar-xmark text-2xl mb-1 text-gray-300 block"></i>
+                        Nenhum evento especial programado para ${nomesMeses[mes]} de ${ano}.
+                    </div>
+                `;
+            } else {
+                especiaisMes.forEach(ev => {
+                    const diaEvento = ev.data.split('-')[2];
+                    const imgTag = ev.imagem ? `<img src="${ev.imagem}" class="w-full h-32 object-cover rounded-xl mb-2">` : '';
+                    const borderDestaque = ev.destaque ? 'border-2 border-amber-400 shadow-md bg-amber-50/20' : 'border border-gray-100 bg-white shadow-sm';
+                    const badgeDestaque = ev.destaque ? '<span class="text-[9px] bg-amber-500 text-white font-black px-2 py-0.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-star mr-1"></i> Destaque Especial</span>' : '';
+
+                    cMes.innerHTML += `
+                        <div class="rounded-2xl p-4 ${borderDestaque} space-y-2">
+                            ${imgTag}
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-9 h-9 rounded-xl bg-[#0f5499] text-white flex flex-col items-center justify-center font-black text-xs">
+                                        <span>${diaEvento}</span>
+                                    </span>
+                                    <div>
+                                        <b class="text-sm text-gray-900 block">${ev.titulo}</b>
+                                        <span class="text-[11px] text-gray-500 font-medium"><i class="fa-regular fa-clock mr-1"></i>${ev.hora} • ${ev.local}</span>
+                                    </div>
+                                </div>
+                                ${badgeDestaque}
+                            </div>
+                            <p class="text-xs text-gray-600">${ev.desc || ''}</p>
+                        </div>
+                    `;
+                });
+            }
+
+            renderizarListaAgendaAdm();
+        }
+
+        window.alternarCamposAgendaTipo = function() {
+            const tipo = document.getElementById('admAgendaTipo').value;
+            if (tipo === 'rotineiro') {
+                document.getElementById('boxAgendaRotineiro').classList.remove('hidden');
+                document.getElementById('boxAgendaDataEspecifica').classList.add('hidden');
+            } else {
+                document.getElementById('boxAgendaRotineiro').classList.add('hidden');
+                document.getElementById('boxAgendaDataEspecifica').classList.remove('hidden');
+            }
+        };
+
+        window.admInserirEventoAgenda = function() {
+            const tipo = document.getElementById('admAgendaTipo').value;
+            const hora = document.getElementById('admAgendaHora').value;
+            const local = document.getElementById('admAgendaLocal').value.trim() || 'Templo Principal';
+            const titulo = document.getElementById('admAgendaTitulo').value.trim();
+            const imagem = document.getElementById('admAgendaImagem').value.trim();
+            const desc = document.getElementById('admAgendaDesc').value.trim();
+            const destaque = document.getElementById('admAgendaDestaque').checked;
+
+            if (!titulo) return alert("Informe o título do evento.");
+
+            if (tipo === 'rotineiro') {
+                const diaSemana = document.getElementById('admAgendaDiaSemana').value;
+                agendaEventos.push({
+                    id: Date.now(),
+                    tipo: 'rotineiro',
+                    diaSemana: diaSemana,
+                    hora: hora,
+                    local: local,
+                    titulo: titulo,
+                    desc: desc,
+                    destaque: destaque
+                });
+            } else {
+                const data = document.getElementById('admAgendaData').value;
+                if (!data) return alert("Selecione a data do evento.");
+                agendaEventos.push({
+                    id: Date.now(),
+                    tipo: 'especial',
+                    data: data,
+                    hora: hora,
+                    local: local,
+                    titulo: titulo,
+                    imagem: imagem,
+                    desc: desc,
+                    destaque: destaque
+                });
+            }
+
+            renderizarAgendaCalendario();
+            atualizarCultoDestaqueInicio();
+            alert("Evento gravado na Agenda com sucesso!");
+            window.fecharModal('modalAdm');
+
+            document.getElementById('admAgendaTitulo').value = '';
+            document.getElementById('admAgendaDesc').value = '';
+            document.getElementById('admAgendaImagem').value = '';
+        };
+
+        function renderizarListaAgendaAdm() {
+            const container = document.getElementById('admListaEventosAgenda');
+            container.innerHTML = '';
+
+            agendaEventos.forEach(ev => {
+                const rotuloData = ev.tipo === 'rotineiro' ? `Semanal: ${ev.diaSemana}` : `Data: ${ev.data}`;
+                container.innerHTML += `
+                    <div class="bg-white p-2.5 border rounded-xl flex items-center justify-between text-xs">
+                        <div>
+                            <b>${ev.titulo}</b> (${rotuloData} às ${ev.hora})
+                            ${ev.destaque ? '<span class="text-[9px] bg-amber-100 text-amber-800 px-1 rounded ml-1 font-bold">Destaque</span>' : ''}
+                        </div>
+                        <button type="button" onclick="admExcluirEventoAgenda(${ev.id})" class="text-red-600 p-1 bg-red-50 rounded-md text-[10px] cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `;
+            });
+        }
+
+        window.admExcluirEventoAgenda = function(id) {
+            agendaEventos = agendaEventos.filter(e => e.id !== id);
+            renderizarAgendaCalendario();
+            atualizarCultoDestaqueInicio();
+        };
+
+        /* --- CHECKOUT / PAGAMENTOS / CREDIÁRIO --- */
+        window.selecionarMetodoPgto = function(metodo) {
+            metodoPagamentoSelecionado = metodo;
+            
+            document.getElementById('btnPgtoPix').className = "border border-gray-200 bg-white text-gray-600 font-bold p-2 rounded-xl text-center cursor-pointer";
+            document.getElementById('btnPgtoCartao').className = "border border-gray-200 bg-white text-gray-600 font-bold p-2 rounded-xl text-center cursor-pointer";
+            document.getElementById('btnPgtoCrediario').className = "border border-gray-200 bg-white text-gray-600 font-bold p-2 rounded-xl text-center cursor-pointer";
+
+            document.getElementById('boxPgtoPix').classList.add('hidden');
+            document.getElementById('boxPgtoCartao').classList.add('hidden');
+            document.getElementById('boxPgtoCrediario').classList.add('hidden');
+
+            if (metodo === 'pix') {
+                document.getElementById('btnPgtoPix').className = "border-2 border-[#0f5499] bg-blue-50 text-[#0f5499] font-bold p-2 rounded-xl text-center cursor-pointer";
+                document.getElementById('boxPgtoPix').classList.remove('hidden');
+            } else if (metodo === 'cartao') {
+                document.getElementById('btnPgtoCartao').className = "border-2 border-[#0f5499] bg-blue-50 text-[#0f5499] font-bold p-2 rounded-xl text-center cursor-pointer";
+                document.getElementById('boxPgtoCartao').classList.remove('hidden');
+            } else if (metodo === 'crediario') {
+                document.getElementById('btnPgtoCrediario').className = "border-2 border-[#0f5499] bg-blue-50 text-[#0f5499] font-bold p-2 rounded-xl text-center cursor-pointer";
+                document.getElementById('boxPgtoCrediario').classList.remove('hidden');
+                window.atualizarValoresCrediario();
+            }
+        };
+
+        window.atualizarValoresCrediario = function() {
+            const parcelas = parseInt(document.getElementById('checkoutParcelasCrediario').value) || 1;
+            const total = qtdVagasSelecionadas * valorEventoBase;
+            const valorParcela = total / parcelas;
+            document.getElementById('renderValorParcelaCrediario').innerText = `${parcelas}x de R$ ${valorParcela.toFixed(2).replace('.', ',')}`;
+        };
+
+        window.abrirCheckoutEvento = function(id) {
+            eventoCheckoutAtual = muralEventos.find(e => e.id == id);
+            if (!eventoCheckoutAtual) return;
+
+            valorEventoBase = eventoCheckoutAtual.valor;
+            qtdVagasSelecionadas = 1;
+            document.getElementById('checkoutNomeEvento').innerText = eventoCheckoutAtual.titulo;
+            document.getElementById('chkFichaNome').innerText = dadosUsuarioAtivo.nome;
+            document.getElementById('chkFichaFone').innerText = dadosUsuarioAtivo.telefone;
+            document.getElementById('checkoutQtdVagas').innerText = qtdVagasSelecionadas;
+            document.getElementById('checkoutValorTotal').innerText = valorEventoBase;
+
+            const prazoPadrao = new Date();
+            prazoPadrao.setDate(prazoPadrao.getDate() + 30);
+            document.getElementById('checkoutPrazoQuitacao').value = prazoPadrao.toISOString().split('T')[0];
+
+            window.selecionarMetodoPgto('pix');
+            window.abrirModal('modalCheckoutMural');
+        };
+
+        window.ajustarVagasCheckout = function(fator) {
+            let maxVagas = eventoCheckoutAtual ? eventoCheckoutAtual.vagasRestantes : 10;
+            let novaQtd = qtdVagasSelecionadas + fator;
+            if (novaQtd >= 1 && novaQtd <= maxVagas) {
+                qtdVagasSelecionadas = novaQtd;
+                document.getElementById('checkoutQtdVagas').innerText = qtdVagasSelecionadas;
+                document.getElementById('checkoutValorTotal').innerText = qtdVagasSelecionadas * valorEventoBase;
+                window.atualizarValoresCrediario();
+            }
+        };
+
+        window.finalizerInscricaoMural = function() { 
+            if (eventoCheckoutAtual) {
+                const total = qtdVagasSelecionadas * valorEventoBase;
+                const parcelas = metodoPagamentoSelecionado === 'crediario' ? parseInt(document.getElementById('checkoutParcelasCrediario').value) : 1;
+                const prazo = document.getElementById('checkoutPrazoQuitacao').value;
+
+                inscricoesEventosBanco.unshift({
+                    id: Date.now(),
+                    evento: eventoCheckoutAtual.titulo,
+                    membro: dadosUsuarioAtivo.nome,
+                    metodo: metodoPagamentoSelecionado,
+                    valorTotal: total,
+                    parcelasTotais: parcelas,
+                    parcelasPagas: metodoPagamentoSelecionado === 'crediario' ? 0 : 1,
+                    prazoQuitacao: prazo
+                });
+
+                eventoCheckoutAtual.vagasRestantes = Math.max(0, eventoCheckoutAtual.vagasRestantes - qtdVagasSelecionadas);
+                renderizarMuralEventos();
+                renderizarAnunciosInicio();
+                renderizarInscricoesCrediarioAdm();
+                renderizarMinhasInscricoes();
+            }
+
+            window.fecharModal('modalCheckoutMural'); 
+            if (metodoPagamentoSelecionado === 'cartao') {
+                alert("Inscrição efetuada! Por favor, utilize a maquininha da igreja com a liderança para concluir o pagamento.");
+            } else if (metodoPagamentoSelecionado === 'crediario') {
+                alert("Inscrição confirmada no Crediário da Igreja! Você pode acompanhar o carnê e as parcelas no seu Perfil.");
+            } else {
+                alert("Inscrição efetuada com sucesso!");
+            }
+        };
+
+        function renderizarMinhasInscricoes() {
+            const container = document.getElementById('listaMinhasInscricoes');
+            container.innerHTML = '';
+
+            const minhas = inscricoesEventosBanco.filter(i => i.membro === dadosUsuarioAtivo.nome);
+
+            if (minhas.length === 0) {
+                container.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">Nenhuma inscrição registrada ainda.</p>';
+                return;
+            }
+
+            minhas.forEach(item => {
+                const falta = item.parcelasTotais - item.parcelasPagas;
+                const valorParcela = (item.valorTotal / item.parcelasTotais).toFixed(2).replace('.', ',');
+                const badgeStatus = falta === 0 
+                    ? '<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-md">Quitado</span>'
+                    : `<span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-md">Faltam ${falta} parcela(s)</span>`;
+
+                container.innerHTML += `
+                    <div class="bg-gray-50 border p-3 rounded-2xl space-y-1.5">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-gray-900">${item.evento}</span>
+                            ${badgeStatus}
+                        </div>
+                        <p class="text-gray-500 text-[11px]">Pagamento: <strong class="uppercase">${item.metodo}</strong> • Total: <strong>R$ ${item.valorTotal},00</strong></p>
+                        ${item.metodo === 'crediario' ? `
+                            <div class="bg-white p-2 rounded-xl border border-gray-100 space-y-1 text-[11px]">
+                                <div>Progresso: <b>${item.parcelasPagas}/${item.parcelasTotais} parcelas pagas</b> (${item.parcelasTotais}x de R$ ${valorParcela})</div>
+                                <div class="text-amber-800">Prazo final para quitação: <b>${item.prazoQuitacao || 'A combinar'}</b></div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+        }
+
+        function renderizarInscricoesCrediarioAdm() {
+            const container = document.getElementById('admListaInscricoesCrediario');
+            container.innerHTML = '';
+
+            if (inscricoesEventosBanco.length === 0) {
+                container.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhuma inscrição no momento.</p>';
+                return;
+            }
+
+            inscricoesEventosBanco.forEach(item => {
+                const falta = item.parcelasTotais - item.parcelasPagas;
+                const valorParcela = (item.valorTotal / item.parcelasTotais).toFixed(2).replace('.', ',');
+
+                container.innerHTML += `
+                    <div class="bg-white p-3 border rounded-xl space-y-1.5 shadow-2xs">
+                        <div class="flex justify-between items-center font-bold">
+                            <span>${item.membro} - ${item.evento}</span>
+                            <span class="text-[10px] ${falta === 0 ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'} px-2 py-0.5 rounded">${falta === 0 ? 'Quitado' : item.metodo.toUpperCase()}</span>
+                        </div>
+                        <p class="text-gray-500 text-xs">Total: <b>R$ ${item.valorTotal},00</b> • Prazo: <b>${item.prazoQuitacao || '-'}</b></p>
+                        ${item.metodo === 'crediario' ? `
+                            <div class="flex justify-between items-center text-xs pt-1 border-t">
+                                <span>Parcelas: <b>${item.parcelasPagas}/${item.parcelasTotais}</b> (${item.parcelasTotais}x de R$ ${valorParcela})</span>
+                                <div class="space-x-1">
+                                    ${falta > 0 ? `<button type="button" onclick="admDarBaixaParcela(${item.id})" class="text-[10px] bg-emerald-600 text-white font-bold px-2 py-1 rounded shadow-xs cursor-pointer">Dar Baixa Parcela</button>` : ''}
+                                    <button type="button" onclick="admExcluirInscricaoCrediario(${item.id})" class="text-[10px] bg-red-50 text-red-600 font-bold px-2 py-1 rounded cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+        }
+
+        window.admDarBaixaParcela = function(id) {
+            const ins = inscricoesEventosBanco.find(i => i.id === id);
+            if (ins && ins.parcelasPagas < ins.parcelasTotais) {
+                ins.parcelasPagas += 1;
+                renderizarInscricoesCrediarioAdm();
+                renderizarMinhasInscricoes();
+                alert(`Baixa efetuada! Agora constam ${ins.parcelasPagas}/${ins.parcelasTotais} parcelas pagas.`);
+            }
+        };
+
+        window.admExcluirInscricaoCrediario = function(id) {
+            inscricoesEventosBanco = inscricoesEventosBanco.filter(i => i.id !== id);
+            renderizarInscricoesCrediarioAdm();
+            renderizarMinhasInscricoes();
+        };
+
+        /* --- CAMPANHAS --- */
+        function renderizarCampanhas() {
+            const containerMembros = document.getElementById('listaCampanhasMembrosView');
+            const containerAdm = document.getElementById('admViewListaCampanhas');
+            const selectEnvelope = document.getElementById('envCampanhaSelect');
+            
+            containerMembros.innerHTML = '';
+            containerAdm.innerHTML = '';
+            selectEnvelope.innerHTML = '<option value="">Uso Geral da Igreja</option>';
+
+            campanhasBanco.forEach(c => {
+                const perc = Math.min(100, Math.round((c.arrecadado / c.meta) * 100));
+                const imgCampanhaTag = c.imagem ? `<img src="${c.imagem}" alt="${c.titulo}" class="w-full h-36 object-cover rounded-xl mb-2">` : '';
+                
+                containerMembros.innerHTML += `
+                    <div class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm space-y-2">
+                        ${imgCampanhaTag}
+                        <div class="flex justify-between items-center"><h3 class="font-bold text-sm text-[#1a1b1c]">${c.titulo}</h3> <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md">Alvo: R$ ${c.meta}</span></div>
+                        <p class="text-xs text-gray-600">${c.descricao}</p>
+                        <div class="w-full bg-gray-100 rounded-full h-2.5 mt-2">
+                            <div class="bg-emerald-500 h-2.5 rounded-full" style="width: ${perc}%"></div>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] font-bold text-gray-400"><span>${perc}% Concluído</span> <button type="button" onclick="navegarModais('contribuir')" class="text-[#0f5499] hover:underline cursor-pointer">Contribuir via Pix</button></div>
+                    </div>
+                `;
+
+                containerAdm.innerHTML += `
+                    <p class="bg-white p-2 border rounded-lg flex justify-between items-center">
+                        <span>${c.titulo} (Meta: R$ ${c.meta})</span>
+                        <button type="button" onclick="admExcluirCampanha(${c.id})" class="text-red-600 p-1 bg-red-50 rounded-md text-[10px] font-bold cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                    </p>
+                `;
+
+                selectEnvelope.innerHTML += `<option value="${c.id}">${c.titulo}</option>`;
+            });
+        }
+
+        window.admInserirNovaCampanha = function() {
+            const tit = document.getElementById('admCampanhaTitulo').value.trim();
+            const img = document.getElementById('admCampanhaImagem').value.trim();
+            const txt = document.getElementById('admCampanhaTexto').value.trim();
+            const meta = parseFloat(document.getElementById('admCampanhaMeta').value) || 0;
+
+            if(!tit || !meta) return alert("Preencha ao menos o título e a meta.");
+
+            campanhasBanco.push({
+                id: Date.now(),
+                titulo: tit,
+                imagem: img,
+                descricao: txt,
+                meta: meta,
+                arrecadado: 0
+            });
+
+            renderizarCampanhas();
+            alert(`Campanha "${tit}" ativada!`);
+            window.fecharModal('modalAdm');
+            
+            document.getElementById('admCampanhaTitulo').value = '';
+            document.getElementById('admCampanhaImagem').value = '';
+            document.getElementById('admCampanhaTexto').value = '';
+            document.getElementById('admCampanhaMeta').value = '';
+        };
+
+        window.admExcluirCampanha = function(id) {
+            campanhasBanco = campanhasBanco.filter(c => c.id !== id);
+            renderizarCampanhas();
+        };
+
+        /* --- ENVELOPE DIGITAL E CÁLCULO DE DÍZIMOS/OFERTAS --- */
+        window.calcularTotalEnvelope = function() {
+            const dizimo = parseFloat(document.getElementById('envDizimo').value) || 0;
+            const oferta = parseFloat(document.getElementById('envOferta').value) || 0;
+            const construcao = parseFloat(document.getElementById('envConstrucao').value) || 0;
+            const missoes = parseFloat(document.getElementById('envMissoes').value) || 0;
+            const campanha = parseFloat(document.getElementById('envValorCampanha').value) || 0;
+
+            const total = dizimo + oferta + construcao + missoes + campanha;
+            document.getElementById('envTotalRender').innerText = total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        };
+
+        /* --- FINANÇAS E EDICÃO PELO ADM --- */
+        window.admSalvarFinancas = function() {
+            const banco = document.getElementById('admFinancasBanco').value.trim();
+            const conta = document.getElementById('admFinancasConta').value.trim();
+            const pix = document.getElementById('admFinancasChavePix').value.trim();
+            const qrImg = document.getElementById('admFinancasQrCodeImg').value.trim();
+            const versiculo = document.getElementById('admFinancasVersiculo').value.trim();
+
+            if (banco) dadosAutenticacao.bancoNome = banco;
+            if (conta) dadosAutenticacao.bancoConta = conta;
+            if (pix) dadosAutenticacao.chavePix = pix;
+            if (qrImg) dadosAutenticacao.qrCodeImg = qrImg;
+            if (versiculo) dadosAutenticacao.versiculoDizimo = versiculo;
+
+            atualizarDadosFinancasTelatela();
+            alert("Informações de Dízimos e Ofertas salvas com sucesso!");
+            window.fecharModal('modalAdm');
+        };
+
+        function atualizarDadosFinancasTelatela() {
+            document.getElementById('renderBancoNome').innerText = dadosAutenticacao.bancoNome;
+            document.getElementById('renderBancoConta').innerText = dadosAutenticacao.bancoConta;
+            document.getElementById('renderChavePixMembro').innerText = dadosAutenticacao.chavePix;
+            document.getElementById('chavePixEvento').innerText = dadosAutenticacao.chavePix;
+            document.getElementById('renderVersiculoDizimo').innerText = dadosAutenticacao.versiculoDizimo;
+            
+            if(dadosAutenticacao.qrCodeImg) {
+                document.getElementById('renderQrCodePixImg').src = dadosAutenticacao.qrCodeImg;
+            }
+
+            document.getElementById('admFinancasBanco').value = dadosAutenticacao.bancoNome;
+            document.getElementById('admFinancasConta').value = dadosAutenticacao.bancoConta;
+            document.getElementById('admFinancasChavePix').value = dadosAutenticacao.chavePix;
+            document.getElementById('admFinancasQrCodeImg').value = dadosAutenticacao.qrCodeImg;
+            document.getElementById('admFinancasVersiculo').value = dadosAutenticacao.versiculoDizimo;
+        }
+
+        /* --- ORAÇÕES E APROVAÇÃO ADM --- */
+        function renderizarTodosPedidosAdm() {
+            const container = document.getElementById('admListaTodosPedidos');
+            container.innerHTML = '';
+
+            meusPedidosBanco.forEach(p => {
+                const isPendente = p.status === 'Pendente';
+                container.innerHTML += `
+                    <div class="bg-white p-3 border rounded-xl space-y-1">
+                        <div class="flex justify-between font-bold text-gray-700">
+                            <span>${p.autor || 'Membro'}</span>
+                            <span class="text-[10px] ${isPendente ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'} px-2 py-0.5 rounded-full font-bold">${p.status}</span>
+                        </div>
+                        <p class="text-gray-600">${p.texto}</p>
+                        <div class="flex justify-end gap-1 pt-1 border-t mt-2">
+                            ${isPendente ? `<button type="button" onclick="admAprovarOracao(${p.id})" class="text-[10px] bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-check mr-1"></i> Aprovar e Tornar Público</button>` : ''}
+                            <button type="button" onclick="admExcluirOracao(${p.id})" class="text-[10px] bg-red-50 text-red-700 font-bold px-2 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            renderizarPedidosPublicosApp();
+        }
+
+        window.admAprovarOracao = function(id) {
+            const ped = meusPedidosBanco.find(p => p.id === id);
+            if (ped) {
+                ped.status = 'Aprovado';
+                renderizarTodosPedidosAdm();
+                alert("Pedido aprovado! Agora está visível para toda a igreja no app.");
+            }
+        };
+
+        function renderizarPedidosPublicosApp() {
+            const container = document.getElementById('listaPedidosPublicos');
+            container.innerHTML = '';
+
+            const aprovados = meusPedidosBanco.filter(p => p.status === 'Aprovado');
+            if (aprovados.length === 0) {
+                container.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhum pedido público no momento.</p>';
+                return;
+            }
+
+            aprovados.forEach(p => {
+                container.innerHTML += `
+                    <div class="bg-white border border-gray-100 p-3.5 rounded-2xl text-xs space-y-1 shadow-sm">
+                        <div class="flex items-center justify-between text-gray-400 font-bold text-[10px]">
+                            <span><i class="fa-solid fa-user-heart mr-1 text-blue-500"></i> ${p.autor}</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-hands-praying mr-1"></i> Em Oração</span>
+                        </div>
+                        <p class="text-gray-700 font-medium">${p.texto}</p>
+                    </div>
+                `;
+            });
+        }
+
+        window.admExcluirOracao = function(id) {
+            meusPedidosBanco = meusPedidosBanco.filter(p => p.id !== id);
+            renderizarTodosPedidosAdm();
+        };
+
+        /* --- CONTROLE DE TELAS, NAVEGAÇÃO E MODAIS --- */
+        window.inicializarFluxoApp = function() { 
+            document.getElementById('telaAutenticacao').classList.add('hidden');
+            const app = document.getElementById('appPrincipal');
+            app.classList.remove('hidden');
+            app.classList.add('flex');
+
+            atualizarCultoDestaqueInicio();
+            renderizarPastasNaGaleria(); 
+            carregarDevocionalNaTela();
+            renderizarAnunciosInicio();
+            renderizarMuralEventos();
+            renderizarAgendaCalendario();
+            renderizarCampanhas();
+            atualizarDadosFinancasTelatela();
+            renderizarTodosPedidosAdm();
+            renderizarInscricoesCrediarioAdm();
+            renderizarMinhasInscricoes();
+            renderizarDepartamentosAdm();
+            renderizarSelectDepartamentosEscala();
+            renderizarEscalasAdm();
+            renderizarEscalasVisualizacaoMembros();
+            aplicarEscalaGlobalNaInterface();
+            window.alternarAbas('inicio'); 
+        };
+
+        window.executarCadastroAdm = function(e) { 
+            e.preventDefault();
+            const em = document.getElementById('regEmailAdm').value.trim().toLowerCase();
+            dadosAutenticacao.listaEmailsAdm.push(em);
+            dadosAutenticacao.listaSenhasAdm[em] = document.getElementById('regSenhaAdm').value;
+            dadosAutenticacao.admCadastrado = true;
+            alert("ADM Master configurado!");
+            window.alternarAuth('login');
+        };
+
+        window.alternarAbasAdm = function(id) { 
+            document.querySelectorAll('.target-aba-adm').forEach(el => el.classList.add('hidden'));
+            const abaAlvo = document.getElementById(id);
+            if (abaAlvo) abaAlvo.classList.remove('hidden');
+
+            document.querySelectorAll('.btn-choice-adm').forEach(btn => btn.className = "bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer");
+            const tabBtn = document.getElementById(`tabBtn-${id}`);
+            if (tabBtn) tabBtn.className = "bg-[#0f5499] text-white px-3 py-1.5 rounded-lg flex-shrink-0 btn-choice-adm cursor-pointer";
+        };
+
+        window.alternarAbas = function(a) { 
+            document.querySelectorAll('.container-aba').forEach(el=>el.classList.add('hidden'));
+            ['inicio','mural','agenda','perfil'].forEach(b=>{ 
+                const btn = document.getElementById('btnNav'+b.charAt(0).toUpperCase()+b.slice(1));
+                if (btn) btn.className="flex flex-col items-center text-gray-400 text-xs cursor-pointer";
+            }); 
+            const viewAlvo = document.getElementById('view'+a.charAt(0).toUpperCase()+a.slice(1));
+            if (viewAlvo) viewAlvo.classList.remove('hidden');
+            const btnAtivo = document.getElementById('btnNav'+a.charAt(0).toUpperCase()+a.slice(1));
+            if (btnAtivo) btnAtivo.className="flex flex-col items-center text-[#0f5499] font-bold text-xs cursor-pointer";
+        };
+
+        window.navegarModais = function(t) { 
+            let idModal = '';
+            if(t==='contribuir') idModal = 'modalDizimo';
+            else if(t==='oracao') idModal = 'modalOracao';
+            else if(t==='devocional') idModal = 'modalDevocional';
+            else if(t==='galeria') { window.mostrarPastas(); idModal = 'modalGaleria'; }
+            else if(t==='meusPedidosPrivados') { renderizarPedidosPrivados(); idModal = 'modalMeusPedidos'; }
+            else if(t==='painelAdm') { 
+                idModal = 'modalAdm'; 
+                renderizarInscricoesCrediarioAdm(); 
+                renderizarSelectDepartamentosEscala();
+                renderizarEscalasAdm();
+                renderizarDepartamentosAdm();
+                
+                if (dadosAutenticacao.usuarioLogado === 'lider_depto') {
+                    const depto = departamentosBanco.find(d => d.id === dadosAutenticacao.deptoAtivoId);
+                    document.getElementById('tituloPainelAdmHeader').innerHTML = `<i class="fa-solid fa-users-gear mr-1.5 text-blue-600"></i> Painel do Líder`;
+                    document.getElementById('subtituloAcessoAdm').innerText = `Departamento: ${depto ? depto.nome : ''}`;
+                    document.getElementById('boxGestorCriarDepto').classList.add('hidden');
+                    alternarAbasAdm('admContentEscalas');
+                } else {
+                    document.getElementById('tituloPainelAdmHeader').innerHTML = `<i class="fa-solid fa-unlock-keyhole mr-1.5 text-amber-600"></i> Super Painel ADM Master`;
+                    document.getElementById('subtituloAcessoAdm').innerText = `Controle Total & Gestão`;
+                    document.getElementById('boxGestorCriarDepto').classList.remove('hidden');
+                    alternarAbasAdm('admContentEscalas');
+                }
+            }
+            else if(t==='historicoContribuicoes') idModal = 'modalHistorico';
+            else if(t==='meusDadosCadastro') idModal = 'modalDadosCadastro';
+            else if(t==='modalCheckoutMural') idModal = 'modalCheckoutMural';
+            else if(t==='modalMinhasInscricoesCrediario') { idModal = 'modalMinhasInscricoesCrediario'; renderizarMinhasInscricoes(); }
+            else if(t==='modalVerEscalas') { idModal = 'modalVerEscalas'; renderizarEscalasVisualizacaoMembros(); }
+
+            window.abrirModal(idModal);
+        };
+
+        window.abrirModal = function(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('modal-aberto');
+            }
+        };
+
+        window.fecharModal = function(id) { 
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('modal-aberto');
+                modal.classList.add('hidden');
+            }
+        };
+
+        window.alternarAuth = function(t) { 
+            document.getElementById('containerLogin').classList.add('hidden');
+            document.getElementById('containerCadastro').classList.add('hidden');
+            document.getElementById('containerCadastroAdm').classList.add('hidden');
+            if(t==='cadastro') document.getElementById('containerCadastro').classList.remove('hidden');
+            else if(t==='cadastroAdm') document.getElementById('containerCadastroAdm').classList.remove('hidden');
+            else document.getElementById('containerLogin').classList.remove('hidden');
+        };
+
+        window.executarLogout = function() { window.location.reload(); };
+        
+        window.executarCadastroMembro = function(e) { 
+            e.preventDefault(); 
+            dadosUsuarioAtivo.nome = document.getElementById('regNomeMembro').value.trim();
+            dadosUsuarioAtivo.telefone = document.getElementById('regFoneMembro').value.trim();
+            dadosUsuarioAtivo.aniversario = document.getElementById('regAniversarioMembro').value;
+            dadosUsuarioAtivo.filhos = document.getElementById('regFilhosMembro').value.trim();
+            dadosUsuarioAtivo.email = document.getElementById('regEmailMembro').value.trim().toLowerCase();
+            
+            alert("Cadastro de membro e dados familiares realizados com sucesso!"); 
+            carregarDadosNoFormularioCadastro();
+            window.inicializarFluxoApp();
+        };
+
+        function renderizarPastasNaGaleria() { 
+            const g=document.getElementById('gridPastas');
+            g.innerHTML='';
+            for(let k in pastasNomes) {
+                const capa = (bancoImagens[k] && bancoImagens[k].length > 0) ? bancoImagens[k][0] : 'https://images.unsplash.com/photo-1515162305285-0293e4767cc2?q=80&w=300';
+                g.innerHTML+=`<div onclick="abrirPasta('${k}','${pastasNomes[k]}')" class="bg-white border p-2 rounded-2xl cursor-pointer"><img src="${capa}" class="rounded-xl aspect-square object-cover"><h4 class="font-bold text-xs mt-1 text-center">${pastasNomes[k]}</h4></div>`;
+            } 
+        }
+
+        window.mostrarPastas = function() { 
+            document.getElementById('tituloGaleria').innerText="Álbuns";
+            document.getElementById('gridFotos').classList.replace('grid','hidden');
+            document.getElementById('btnVoltarPastas').classList.replace('flex','hidden');
+            document.getElementById('gridPastas').classList.remove('hidden');
+        };
+
+        window.abrirPasta = function(c,n) { 
+            const g=document.getElementById('gridFotos');
+            g.innerHTML='';
+            if(bancoImagens[c]) {
+                bancoImagens[c].forEach(u=>{ 
+                    g.innerHTML+=`<div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden"><img src="${u}" class="w-full h-full object-cover"></div>`; 
+                }); 
+            }
+            document.getElementById('tituloGaleria').innerText=n;
+            document.getElementById('gridPastas').classList.add('hidden');
+            document.getElementById('btnVoltarPastas').classList.replace('hidden','flex');
+            g.classList.replace('hidden','grid');
+        };
+
+        window.enviarPedidoOracao = function(e) { 
+            e.preventDefault();
+            const t=document.getElementById('textoPedido').value;
+            meusPedidosBanco.push({id: Date.now(), autor: dadosUsuarioAtivo.nome, texto: t, status: "Pendente"});
+            renderizarTodosPedidosAdm();
+            document.getElementById('textoPedido').value='';
+            alert("Seu pedido foi enviado para a liderança e será publicado após a aprovação!");
+            window.fecharModal('modalOracao');
+        };
+
+        function renderizarPedidosPrivados() { 
+            const c=document.getElementById('listaPedidosPrivados');
+            c.innerHTML='';
+            meusPedidosBanco.filter(p => p.autor === dadosUsuarioAtivo.nome).forEach(p=>{ 
+                c.innerHTML+=`<div class="bg-gray-50 border p-3 rounded-xl text-xs flex justify-between items-center"><span>${p.texto} (<strong class="text-amber-700">${p.status}</strong>)</span><button onclick="admExcluirOracao(${p.id})" class="text-red-600 font-bold cursor-pointer">Apagar</button></div>`;
+            }); 
+        }
+
+        window.atualizarFotoPerfil = function(i) { 
+            if(i.files && i.files[0]) { 
+                const r = new FileReader();
+                r.onload = function(e){ 
+                    document.getElementById('avatarPreview').innerHTML=`<img src="${e.target.result}" class="w-full h-full object-cover">`;
+                }; 
+                r.readAsDataURL(i.files[0]);
+            } 
+        };
+
+        window.validarComprovanteAnexo = function(input) { 
+            if (input.files && input.files[0]) {
+                const txt = document.getElementById('comprovanteNomeArquivo');
+                txt.innerText = "Anexo: " + input.files[0].name;
+                txt.classList.remove('hidden');
+            } 
+        };
+
+        window.falarComIgrejaWhatsapp = function() {
+            window.open(`https://wa.me/${dadosAutenticacao.wppSecretaria}?text=Olá!%20Gostaria%20de%20falar%20com%20a%20secretaria%20da%20igreja.`, '_blank');
+        };
+
+        window.confirmarComprovante = function(tipo) { 
+            const dizimo = document.getElementById('envDizimo').value || '0';
+            const oferta = document.getElementById('envOferta').value || '0';
+            const construcao = document.getElementById('envConstrucao').value || '0';
+            const missoes = document.getElementById('envMissoes').value || '0';
+            const campanhaValor = document.getElementById('envValorCampanha').value || '0';
+            const selCampanha = document.getElementById('envCampanhaSelect');
+            const nomeCampanha = selCampanha.options[selCampanha.selectedIndex].text;
+
+            if (tipo === 'whatsapp') {
+                const msg = `Olá! Segue meu comprovante de contribuição:%0A- Dízimo: R$ ${dizimo}%0A- Oferta Geral: R$ ${oferta}%0A- Construção: R$ ${construcao}%0A- Missões: R$ ${missoes}%0A- Campanha (${nomeCampanha}): R$ ${campanhaValor}`;
+                window.open(`https://wa.me/${dadosAutenticacao.wppComprovantes}?text=${msg}`, '_blank');
+            } else {
+                alert("Contribuição e comprovante registrados com sucesso!");
+            } 
+            window.fecharModal('modalDizimo');
+        };
+
+        window.copiarPix = function() { 
+            navigator.clipboard.writeText(dadosAutenticacao.chavePix);
+            alert("Chave Pix Copiada: " + dadosAutenticacao.chavePix);
+        };
+
+        window.copiarPixInscricao = function() { 
+            navigator.clipboard.writeText(dadosAutenticacao.chavePix);
+            alert("Chave Pix Copiada para Inscrição: " + dadosAutenticacao.chavePix);
+        };
+
+        // Carrega as preferências salvas no boot
+        window.addEventListener('DOMContentLoaded', carregarConfiguracaoFonte);
+    </script>
+</body>
+</html>
