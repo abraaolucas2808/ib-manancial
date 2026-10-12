@@ -9,8 +9,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Supabase JS SDK Oficial -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         @keyframes slideUp {
             from { transform: translateY(100%); }
@@ -185,21 +183,6 @@
                     <div id="boxDestaqueEscalaInicio" class="space-y-2 text-xs"></div>
                 </section>
 
-                <!-- NOVO CARD NA TELA PRINCIPAL: MURAL DE ORAÇÃO DA IGREJA -->
-                <section class="bg-white border border-blue-100 rounded-3xl p-4 shadow-sm space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-hands-praying"></i></span>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-800">Oração da Igreja (Mural)</h4>
-                                <p class="text-[10px] text-gray-500">Motivos compartilhados para intercessão</p>
-                            </div>
-                        </div>
-                        <button type="button" onclick="navegarModais('oracao')" class="text-xs font-bold text-[#0f5499] hover:underline cursor-pointer">Pedir Oração</button>
-                    </div>
-                    <div id="boxOracaoTelaPrincipal" class="space-y-2 text-xs"></div>
-                </section>
-
                 <!-- PALAVRA DO DIA -->
                 <section class="bg-[#1a1b1c] text-white rounded-2xl p-5 shadow-md border-l-4 border-amber-500">
                     <div class="flex items-center justify-between mb-2">
@@ -210,31 +193,27 @@
                     <p id="refDevocionalInicio" class="text-right text-xs mt-2 text-gray-400">— João 7:38</p>
                 </section>
 
-                <!-- VITRINE DO MENU (PEDIDOS, DÍZIMOS, GALERIA, DEVOCIONAIS) -->
+                <!-- VITRINE DO MENU -->
                 <section class="grid grid-cols-2 gap-4">
                     <button type="button" onclick="navegarModais('oracao')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
                         <div class="w-14 h-14 bg-blue-50 text-[#0f5499] rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-hands-praying text-2xl"></i></div>
                         <span class="font-bold text-sm block">Pedidos de Oração</span>
-                        <span class="text-[10px] text-gray-400 font-semibold block mt-0.5">Igreja ou Pastor</span>
                     </button>
                     <button type="button" onclick="navegarModais('contribuir')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
                         <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-heart text-2xl"></i></div>
                         <span class="font-bold text-sm block">Dízimos e Ofertas</span>
-                        <span class="text-[10px] text-gray-400 font-semibold block mt-0.5">Pix & Envelope</span>
                     </button>
                     <button type="button" onclick="navegarModais('galeria')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
                         <div class="w-14 h-14 bg-sky-50 text-[#3b9cd7] rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-images text-2xl"></i></div>
                         <span class="font-bold text-sm block">Galeria de Fotos</span>
-                        <span class="text-[10px] text-gray-400 font-semibold block mt-0.5">Álbuns e Cultos</span>
                     </button>
                     <button type="button" onclick="navegarModais('devocional')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
                         <div class="w-14 h-14 bg-gray-50 text-gray-700 rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-book-open text-2xl"></i></div>
                         <span class="font-bold text-sm block">Devocionais</span>
-                        <span class="text-[10px] text-gray-400 font-semibold block mt-0.5">Vídeos & Reflexão</span>
                     </button>
                 </section>
 
-                <!-- ANÚNCIOS COM FOTOS (NA PARTE DE BAIXO APÓS O MENU) -->
+                <!-- ANÚNCIOS COM FOTOS -->
                 <section class="space-y-2">
                     <div class="flex justify-between items-center">
                         <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-bullhorn mr-1 text-[#0f5499]"></i> Anúncios & Destaques</h4>
@@ -243,14 +222,14 @@
                     <div id="listaAnunciosInicio" class="space-y-3"></div>
                 </section>
 
-                <!-- EXIBIÇÃO DE CAMPANHAS ATIVAS -->
+                <!-- CAMPANHAS -->
                 <section class="space-y-2">
                     <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Campanhas e Alvos Ativos</h4>
                     <div id="listaCampanhasMembrosView" class="space-y-3"></div>
                 </section>
             </main>
 
-            <!-- ABA 2: MURAL DIVIDIDO EM 2 COLUNAS COM DESCRIÇÃO -->
+            <!-- ABA 2: MURAL -->
             <section id="viewMural" class="px-4 py-6 space-y-4 hidden container-aba">
                 <div class="flex justify-between items-center">
                     <div>
@@ -259,11 +238,10 @@
                     </div>
                     <span class="text-xs bg-blue-50 text-[#0f5499] px-2.5 py-1 rounded-xl font-bold">2 Colunas</span>
                 </div>
-                
                 <div id="listaAvisosMural" class="grid grid-cols-2 gap-3"></div>
             </section>
 
-            <!-- ABA 3: AGENDA / CALENDÁRIO COM DIA ATUAL SINCRONIZADO -->
+            <!-- ABA 3: AGENDA -->
             <section id="viewAgenda" class="px-4 py-6 space-y-5 hidden container-aba">
                 <div class="flex items-center justify-between">
                     <div>
@@ -319,13 +297,6 @@
                         </div>
                         <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
                     </div>
-                    <div onclick="navegarModais('meusPedidosPrivados')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center space-x-3 text-gray-700">
-                            <i class="fa-solid fa-heart-pulse text-lg text-blue-500 w-5"></i>
-                            <span class="font-bold">Meus Pedidos de Oração Enviados</span>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
-                    </div>
                     <div onclick="navegarModais('modalMinhasInscricoesCrediario')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
                         <div class="flex items-center space-x-3 text-gray-700">
                             <i class="fa-solid fa-file-invoice-dollar text-lg text-blue-600 w-5"></i>
@@ -337,6 +308,13 @@
                         <div class="flex items-center space-x-3 text-gray-700">
                             <i class="fa-solid fa-receipt text-lg text-amber-500 w-5"></i>
                             <span class="font-bold">Minhas Contribuições</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                    </div>
+                    <div onclick="navegarModais('meusPedidosPrivados')" class="p-4 flex items-center justify-between border-b cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-heart-pulse text-lg text-blue-500 w-5"></i>
+                            <span class="font-bold">Meus Pedidos de Oração Enviados</span>
                         </div>
                         <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
                     </div>
@@ -385,11 +363,11 @@
                 </div>
                 <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-sm text-gray-700 leading-relaxed whitespace-pre-line" id="detAnuncioDescricao"></div>
             </div>
-            <button type="button" onclick="fecharModal('modalDetalheAnuncio')" class="w-full bg-[#0f5499] text-white font-bold py-3 rounded-xl text-sm cursor-pointer">Fechar</button>
+            <button type="button" onclick="fecharModal('modalDetalheAnuncio')" class="w-full bg-[#0f5499] text-white font-bold py-3 rounded-xl text-sm">Fechar</button>
         </div>
     </div>
 
-    <!-- MODAL MEMBRO: VER TODAS AS ESCALAS -->
+    <!-- MODAL VER ESCALAS -->
     <div id="modalVerEscalas" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[88vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2">
@@ -404,69 +382,58 @@
     </div>
 
     <!-- ============================================================== -->
-    <!-- MODAL PEDIDOS DE ORAÇÃO: ESCOLHA PÚBLICO (IGREJA) OU PRIVADO (PASTOR) -->
+    <!-- MODAL PEDIDOS DE ORAÇÃO (SELEÇÃO: IGREJA OU PASTOR/LÍDER)       -->
     <!-- ============================================================== -->
     <div id="modalOracao" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2">
                 <div class="flex items-center space-x-2">
                     <div class="w-9 h-9 bg-blue-50 text-[#0f5499] rounded-full flex items-center justify-center"><i class="fa-solid fa-hands-praying"></i></div>
-                    <div>
-                        <h2 class="text-base font-bold text-gray-900 leading-tight">Pedidos de Oração</h2>
-                        <span class="text-[10px] text-gray-500 font-semibold">Defina o destino do seu pedido</span>
-                    </div>
+                    <h2 class="text-base font-bold text-gray-900 leading-tight">Mural de Oração</h2>
                 </div>
                 <button type="button" onclick="fecharModal('modalOracao')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
             </div>
-
-            <!-- FORMULÁRIO COM SELEÇÃO EXPLÍCITA -->
-            <form onsubmit="enviarPedidoOracao(event)" class="space-y-3.5 bg-gray-50 p-4 border border-gray-200 rounded-2xl">
+            
+            <form onsubmit="enviarPedidoOracao(event)" class="space-y-3 bg-gray-50 p-3.5 border border-gray-200 rounded-2xl">
+                <span class="text-xs font-bold text-gray-500 uppercase block"><i class="fa-solid fa-pen mr-1"></i> Fazer Pedido de Oração</span>
                 <div class="bg-white p-2.5 border rounded-xl space-y-1 text-xs text-gray-500">
                     <p>Membro: <span id="oracaoFiltroNome" class="font-bold text-[#1a1b1c]">-</span></p>
                     <p>Contato: <span id="oracaoFiltroFone" class="font-bold text-[#1a1b1c]">-</span></p>
                 </div>
 
-                <!-- CAMPO DE ESCOLHA DO DESTINO DA ORAÇÃO -->
-                <div class="space-y-1.5">
-                    <label class="text-[11px] font-bold text-gray-600 uppercase block tracking-wider">Para quem você quer enviar este pedido?</label>
+                <!-- CAMPO DE ESCOLHA EXCLUSIVO: IGREJA OU PASTOR -->
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-500 uppercase block">Para quem deseja enviar?</label>
                     <div class="grid grid-cols-2 gap-2 text-xs">
-                        <label class="flex flex-col justify-between bg-white p-3 rounded-xl border-2 border-blue-300 cursor-pointer hover:border-blue-600 transition-all">
-                            <div class="flex items-center space-x-2 mb-1">
-                                <input type="radio" name="tipoVisibilidadeOracao" value="publico" checked class="text-[#0f5499] focus:ring-0">
-                                <strong class="text-gray-900 text-xs">Para a Igreja</strong>
+                        <label class="flex items-center space-x-2 bg-white p-2.5 rounded-xl border border-gray-200 cursor-pointer hover:border-blue-400">
+                            <input type="radio" name="tipoVisibilidadeOracao" value="publico" checked class="text-[#0f5499]">
+                            <div>
+                                <strong class="block text-gray-800 text-xs">Para a Igreja</strong>
+                                <span class="text-[9px] text-gray-400 block leading-tight">Fica visível no mural</span>
                             </div>
-                            <span class="text-[10px] text-gray-500 leading-tight">Aparece na tela principal para toda a comunidade interceder.</span>
                         </label>
-
-                        <label class="flex flex-col justify-between bg-white p-3 rounded-xl border-2 border-amber-300 cursor-pointer hover:border-amber-600 transition-all">
-                            <div class="flex items-center space-x-2 mb-1">
-                                <input type="radio" name="tipoVisibilidadeOracao" value="privado" class="text-amber-600 focus:ring-0">
-                                <strong class="text-amber-900 text-xs"><i class="fa-solid fa-lock text-[10px] mr-0.5 text-amber-600"></i> Pastor / Líder</strong>
+                        <label class="flex items-center space-x-2 bg-white p-2.5 rounded-xl border border-gray-200 cursor-pointer hover:border-amber-400">
+                            <input type="radio" name="tipoVisibilidadeOracao" value="privado" class="text-amber-600">
+                            <div>
+                                <strong class="block text-amber-800 text-xs"><i class="fa-solid fa-lock text-[9px] mr-0.5"></i> Pastor / Líder</strong>
+                                <span class="text-[9px] text-gray-400 block leading-tight">Totalmente sigiloso</span>
                             </div>
-                            <span class="text-[10px] text-gray-500 leading-tight">Totalmente reservado: apenas o pastor/líder lerá em sigilo.</span>
                         </label>
                     </div>
                 </div>
 
-                <div class="space-y-1">
-                    <label class="text-[10px] font-bold text-gray-500 uppercase">Motivo / Causa da Oração</label>
-                    <textarea id="textoPedido" required rows="3" class="w-full bg-white border rounded-xl p-3 text-xs focus:outline-none" placeholder="Descreva aqui o seu motivo de oração..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-[#0f5499] hover:bg-[#0b427a] text-white font-bold py-3.5 rounded-xl text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center">
-                    <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Pedido
-                </button>
+                <textarea id="textoPedido" required class="w-full bg-white border rounded-xl p-3 text-xs focus:outline-none" placeholder="Escreva seu motivo de oração..."></textarea>
+                <button type="submit" class="w-full bg-[#0f5499] text-white font-bold py-3 rounded-xl text-xs cursor-pointer shadow-sm">Enviar Pedido de Oração</button>
             </form>
 
-            <!-- LISTAGEM DOS MOTIVOS PÚBLICOS NO PRÓPRIO MODAL -->
-            <div class="space-y-2 pt-2 border-t">
-                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-church mr-1 text-[#0f5499]"></i> Motivos de Oração da Igreja</h3>
-                <div id="listaPedidosPublicosModal" class="space-y-2"></div>
+            <div class="space-y-2">
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Pedidos da Igreja para Intercessão</h3>
+                <div id="listaPedidosPublicos" class="space-y-2"></div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL DO PERFIL: MEUS DADOS E FICHA FAMILIAR -->
+    <!-- MODAIS RESTANTES -->
     <div id="modalDadosCadastro" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b border-gray-100 pb-3">
@@ -521,7 +488,7 @@
         </div>
     </div>
 
-    <!-- MODAL DE INSCRICAO -->
+    <!-- MODAL DE CHECKOUT -->
     <div id="modalCheckoutMural" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[94vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2">
@@ -611,7 +578,7 @@
         </div>
     </div>
 
-    <!-- MODAL MINHAS INSCRIÇÕES & CARNÊ CREDIÁRIO -->
+    <!-- MODAL MINHAS INSCRIÇÕES -->
     <div id="modalMinhasInscricoesCrediario" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2">
@@ -625,7 +592,7 @@
         </div>
     </div>
 
-    <!-- MODAL DE DÍZIMOS E OFERTAS -->
+    <!-- MODAL DÍZIMOS -->
     <div id="modalDizimo" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2">
@@ -746,7 +713,7 @@
 
             <div class="flex-1 overflow-y-auto space-y-4 pr-1 text-sm">
                 
-                <!-- ADM ABA: ESCALAS PARA OBREIROS, CULTOS E CEIAS -->
+                <!-- ADM ABA: ESCALAS -->
                 <div id="admContentEscalas" class="space-y-3 target-aba-adm">
                     <div class="bg-white border p-3.5 rounded-xl space-y-2.5">
                         <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-user-clock mr-1 text-[#0f5499]"></i> Montar Nova Escala Departamental</span>
@@ -792,7 +759,7 @@
                     </div>
                 </div>
 
-                <!-- ADM ABA: GESTÃO E DELEGAÇÃO DE DEPARTAMENTOS -->
+                <!-- ADM ABA: DEPARTAMENTOS -->
                 <div id="admContentDeptos" class="space-y-3 target-aba-adm hidden">
                     <div id="boxGestorCriarDepto" class="bg-white border p-3.5 rounded-xl space-y-2.5">
                         <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-user-shield mr-1 text-amber-600"></i> Criar Departamento & Vincular Líder</span>
@@ -827,7 +794,7 @@
                     </div>
                 </div>
 
-                <!-- ADM: ORAÇÕES (MODERAÇÃO PÚBLICA E CONFIDENCIAL) -->
+                <!-- ADM: ORAÇÕES -->
                 <div id="admContentOracoes" class="space-y-3 target-aba-adm hidden">
                     <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
                         <h4 class="text-[10px] font-bold text-gray-400 uppercase"><i class="fa-solid fa-hands-praying mr-1"></i> Moderação de Pedidos</h4>
@@ -835,7 +802,7 @@
                     </div>
                 </div>
 
-                <!-- ADM: GESTÃO DO CREDIÁRIO DA IGREJA -->
+                <!-- ADM: CREDIÁRIO -->
                 <div id="admContentCrediario" class="space-y-3 target-aba-adm hidden">
                     <div class="bg-white border p-3.5 rounded-xl space-y-2">
                         <div class="flex justify-between items-center">
@@ -846,7 +813,7 @@
                     </div>
                 </div>
 
-                <!-- ADM ABA: AGENDA ANUAL & EVENTOS ROTINEIROS -->
+                <!-- ADM: AGENDA -->
                 <div id="admContentAgenda" class="space-y-3 target-aba-adm hidden">
                     <div class="bg-white border p-3.5 rounded-xl space-y-2.5">
                         <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-calendar-plus mr-1 text-[#0f5499]"></i> Postar Evento na Agenda Anual</span>
@@ -917,7 +884,7 @@
                     </div>
                 </div>
 
-                <!-- ADM: MURAL E ANÚNCIOS COM DESCRIÇÃO -->
+                <!-- ADM: MURAL -->
                 <div id="admContentMural" class="space-y-3 target-aba-adm hidden">
                     <div class="space-y-2 bg-white border p-3.5 rounded-xl">
                         <span class="text-[10px] font-bold text-gray-400 uppercase block">Cadastrar Novo Evento / Anúncio com Imagem & Descrição</span>
@@ -970,7 +937,7 @@
                     </div>
                 </div>
 
-                <!-- ADM: DEVOCIONAL COM OPÇÃO DE POSTAR VÍDEO -->
+                <!-- ADM: DEVOCIONAL -->
                 <div id="admContentDevocional" class="space-y-3 target-aba-adm hidden">
                     <div class="space-y-2 bg-white border p-3.5 rounded-xl">
                         <span class="text-[10px] font-bold text-gray-400 uppercase block"><i class="fa-solid fa-video mr-1 text-[#0f5499]"></i> Postar / Editar Vídeo do Devocional</span>
@@ -989,7 +956,7 @@
         </div>
     </div>
 
-    <!-- MODAL HISTÓRICO DE PEDIDOS PRIVADOS ENVIADOS PELO MEMBRO -->
+    <!-- MODAIS RESTANTES -->
     <div id="modalMeusPedidos" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2">
@@ -1000,7 +967,6 @@
         </div>
     </div>
 
-    <!-- MODAL DEVOCIONAL -->
     <div id="modalDevocional" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2"><h2>Devocional</h2><button type="button" onclick="fecharModal('modalDevocional')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div>
@@ -1014,7 +980,6 @@
         </div>
     </div>
 
-    <!-- MODAL GALERIA -->
     <div id="modalGaleria" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
             <div class="flex items-center justify-between border-b pb-2"><h2 id="tituloGaleria">Álbuns</h2><button type="button" onclick="fecharModal('modalGaleria')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div>
@@ -1024,28 +989,12 @@
         </div>
     </div>
 
-    <!-- MODAL HISTÓRICO CONTRIBUIÇÕES -->
     <div id="modalHistorico" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 shadow-2xl"><div class="flex justify-between border-b pb-2"><h2>Histórico</h2><button type="button" onclick="fecharModal('modalHistorico')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div></div>
     </div>
 
-    <!-- CORE ENGINE JAVASCRIPT CORRIGIDO E TOTALMENTE RESILIENTE -->
+    <!-- CORE ENGINE JAVASCRIPT CORRIGIDO -->
     <script>
-        // ==============================================================
-        // SUPABASE CLIENT (INICIALIZAÇÃO SEGURA)
-        // ==============================================================
-        const SUPABASE_URL = "https://uawdifqmfrnmtfivkpcn.supabase.co";
-        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVhd2RpZnFtZnJubXRmaXZrcGNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3Mjk2NzEsImV4cCI6MjEwNDMwNTY3MX0.hjaVZql3ywAnpwIFdvxliNNta1htR3xiwaPMk3YI-mo";
-
-        let supabase = null;
-        try {
-            if (window.supabase) {
-                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            }
-        } catch (e) {
-            console.warn("Supabase local fallback:", e);
-        }
-
         // ACESSIBILIDADE LOCALSTORAGE
         if (localStorage.getItem('manancial_fonte_grande') === 'true') {
             document.getElementById('bodyApp').classList.add('fonte-ampliada');
@@ -1090,7 +1039,6 @@
             deptoAtivoId: null,
             wppComprovantes: "5521999999999", 
             wppSecretaria: "5521988888888",
-            wppPastor: "5521988888888",
             chavePix: "34.605.648/0001-03",
             bancoNome: "ITAÚ • AG: 5577",
             bancoConta: "C/C: 30213-5",
@@ -1100,14 +1048,15 @@
 
         let departamentosBanco = [
             { id: 1, nome: "Diaconato & Obreiros", lider: "Diácono Marcos", email: "diaconato@manancial.com", senha: "123" },
-            { id: 2, nome: "Ministério de Louvor", lider: "Pr. e Líder Lucas", email: "louvor@manancial.com", senha: "123" }
+            { id: 2, nome: "Ministério de Louvor", lider: "Pr. e Líder Lucas", email: "louvor@manancial.com", senha: "123" },
+            { id: 3, nome: "Recepção & Acolhimento", lider: "Ir. Raquel", email: "recepcao@manancial.com", senha: "123" }
         ];
 
         let escalasBanco = [
             { 
                 id: 1, 
-                departamento_id: 1, 
-                departamento_nome: "Diaconato & Obreiros", 
+                departamentoId: 1, 
+                departamentoNome: "Diaconato & Obreiros", 
                 culto: "Culto Solene de Santa Ceia", 
                 data: "2026-10-04", 
                 hora: "19:00", 
@@ -1116,10 +1065,9 @@
             }
         ];
 
-        // DADOS LOCAIS INICIAIS DE ORAÇÃO (SEPARANDO PÚBLICO E PRIVADO)
         let meusPedidosBanco = [
-            { id: 1, autor: "Abraão Lucas", telefone: "(21) 98765-4321", texto: "Intercessão pela cura e restauração da minha família.", tipo: "publico", status: "Aprovado" },
-            { id: 2, autor: "Maria Silva", telefone: "(21) 99999-1111", texto: "Orar por portas abertas de emprego e provisão.", tipo: "publico", status: "Aprovado" }
+            { id: 1, autor: "Abraão Lucas", texto: "Pedido de oração pela saúde e restauração da família.", tipo: "publico", status: "Aprovado" },
+            { id: 2, autor: "Maria Silva", texto: "Intercessão por portas abertas de emprego.", tipo: "publico", status: "Aprovado" }
         ];
         
         let devocionalDados = {
@@ -1172,7 +1120,7 @@
             dadosUsuarioAtivo.nome = "Abraão Lucas (Google Account)";
             dadosUsuarioAtivo.email = "abraaoglucas.google@gmail.com";
             carregarDadosNoFormularioCadastro();
-            inicializarFluxoApp();
+            window.inicializarFluxoApp();
         };
 
         window.autenticarConvidado = function() {
@@ -1181,7 +1129,7 @@
             dadosUsuarioAtivo.nome = "Visitante";
             dadosUsuarioAtivo.email = "visitante@manancial.com";
             carregarDadosNoFormularioCadastro();
-            inicializarFluxoApp();
+            window.inicializarFluxoApp();
         };
 
         window.entrarComoAdmDireto = function() {
@@ -1192,7 +1140,7 @@
             document.getElementById('tagFuncaoUsuario').innerText = "ADM Master";
             document.getElementById('btnEngrenagemAdm').classList.remove('hidden');
             carregarDadosNoFormularioCadastro();
-            inicializarFluxoApp();
+            window.inicializarFluxoApp();
         };
 
         window.executarLogin = function(event) {
@@ -1224,7 +1172,7 @@
                 }
             }
             carregarDadosNoFormularioCadastro();
-            inicializarFluxoApp();
+            window.inicializarFluxoApp();
         };
 
         function carregarDadosNoFormularioCadastro() {
@@ -1263,143 +1211,68 @@
         };
 
         // ==============================================================
-        // CARREGAMENTO SEGURO DO SUPABASE EM SEGUNDO PLANO
+        // GESTÃO DE ORAÇÃO (SELEÇÃO: IGREJA OU PASTOR/LÍDER)
         // ==============================================================
-        async function carregarDadosDoSupabase() {
-            if (!supabase) return;
-            try {
-                const { data: escData } = await supabase.from('escalas').select('*').order('data', { ascending: true });
-                if (escData && escData.length > 0) {
-                    escalasBanco = escData;
-                    renderizarEscalasVisualizacaoMembros();
-                    renderizarEscalasAdm();
-                }
-
-                const { data: depData } = await supabase.from('departamentos').select('*').order('nome', { ascending: true });
-                if (depData && depData.length > 0) {
-                    departamentosBanco = depData;
-                    renderizarDepartamentosAdm();
-                    renderizarSelectDepartamentosEscala();
-                }
-
-                const { data: orData } = await supabase.from('pedidos_oracao').select('*').order('created_at', { ascending: false });
-                if (orData && orData.length > 0) {
-                    meusPedidosBanco = orData;
-                    renderizarPedidosPublicosApp();
-                    renderizarTodosPedidosAdm();
-                }
-            } catch(e) {
-                console.warn("Sincronização Supabase operando offline/fallback:", e);
-            }
-        }
-
-        // ==============================================================
-        // GESTÃO DE ORAÇÃO: ESCOLHA ENTRE IGREJA (MURAL) OU PASTOR (SIGILO)
-        // ==============================================================
-        window.enviarPedidoOracao = async function(e) {
+        window.enviarPedidoOracao = function(e) { 
             e.preventDefault();
-            const texto = document.getElementById('textoPedido').value.trim();
-            if (!texto) return;
+            const t = document.getElementById('textoPedido').value.trim();
+            if(!t) return;
 
             const radio = document.querySelector('input[name="tipoVisibilidadeOracao"]:checked');
-            const tipoVisibilidade = radio ? radio.value : 'publico';
+            const tipo = radio ? radio.value : 'publico';
 
-            // Pedido para a igreja já entra aprovado para exibição comunitária imediata
-            const statusInicial = (tipoVisibilidade === 'publico') ? 'Aprovado' : 'Pendente';
+            meusPedidosBanco.unshift({
+                id: Date.now(), 
+                autor: dadosUsuarioAtivo.nome, 
+                texto: t, 
+                tipo: tipo, 
+                status: (tipo === 'publico') ? 'Aprovado' : 'Pendente'
+            });
 
-            const novoPedido = {
-                autor: dadosUsuarioAtivo.nome,
-                telefone: dadosUsuarioAtivo.telefone,
-                email: dadosUsuarioAtivo.email,
-                texto: texto,
-                tipo: tipoVisibilidade,
-                status: statusInicial
-            };
-
-            if (supabase) {
-                try {
-                    const { data } = await supabase.from('pedidos_oracao').insert([novoPedido]).select();
-                    if (data && data[0]) novoPedido.id = data[0].id;
-                    else novoPedido.id = Date.now();
-                } catch(err) {
-                    novoPedido.id = Date.now();
-                }
-            } else {
-                novoPedido.id = Date.now();
-            }
-
-            meusPedidosBanco.unshift(novoPedido);
             document.getElementById('textoPedido').value = '';
-            
             renderizarPedidosPublicosApp();
             renderizarTodosPedidosAdm();
 
-            if (tipoVisibilidade === 'publico') {
-                alert("Seu pedido de oração foi publicado com sucesso! Ele já está visível na tela principal para toda a igreja interceder com você.");
+            if(tipo === 'publico') {
+                alert("Seu pedido foi publicado para toda a igreja interceder no mural!");
             } else {
-                alert("Seu pedido confidencial foi enviado diretamente ao Pastor e à liderança! Ele permanecerá em sigilo e NUNCA aparecerá no mural da igreja.");
+                alert("Seu pedido confidencial foi enviado diretamente ao Pastor/Líder e não aparecerá no mural da igreja.");
             }
 
             window.fecharModal('modalOracao');
         };
 
-        // Renderiza os pedidos no card da tela principal e na lista do modal
         function renderizarPedidosPublicosApp() {
-            const cardInicio = document.getElementById('boxOracaoTelaPrincipal');
-            const listaModal = document.getElementById('listaPedidosPublicosModal');
-            
-            if (cardInicio) cardInicio.innerHTML = '';
-            if (listaModal) listaModal.innerHTML = '';
+            const container = document.getElementById('listaPedidosPublicos');
+            if(!container) return;
+            container.innerHTML = '';
 
-            const publicos = meusPedidosBanco.filter(p => p.status === 'Aprovado' && p.tipo === 'publico');
-
-            if (publicos.length === 0) {
-                if (cardInicio) cardInicio.innerHTML = '<p class="text-xs text-gray-400 py-1">Nenhum pedido no mural ainda. Seja o primeiro a pedir oração!</p>';
-                if (listaModal) listaModal.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhum motivo no mural comunitário.</p>';
+            const aprovados = meusPedidosBanco.filter(p => p.status === 'Aprovado' && p.tipo === 'publico');
+            if (aprovados.length === 0) {
+                container.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhum pedido público no momento.</p>';
                 return;
             }
 
-            // Na tela inicial, exibe os 3 pedidos mais recentes
-            publicos.slice(0, 3).forEach(p => {
-                if (cardInicio) {
-                    cardInicio.innerHTML += `
-                        <div class="bg-emerald-50/60 p-2.5 rounded-xl border border-emerald-100 space-y-1">
-                            <div class="flex items-center justify-between">
-                                <span class="font-bold text-emerald-800 text-[11px]"><i class="fa-solid fa-user-heart mr-1"></i> ${p.autor}</span>
-                                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded-md">Em Oração</span>
-                            </div>
-                            <p class="text-gray-700 text-xs font-medium leading-relaxed">${p.texto}</p>
+            aprovados.forEach(p => {
+                container.innerHTML += `
+                    <div class="bg-white border border-gray-100 p-3.5 rounded-2xl text-xs space-y-1 shadow-sm">
+                        <div class="flex items-center justify-between text-gray-400 font-bold text-[10px]">
+                            <span><i class="fa-solid fa-user-heart mr-1 text-blue-500"></i> ${p.autor}</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-hands-praying mr-1"></i> Igreja Orando</span>
                         </div>
-                    `;
-                }
-            });
-
-            // No modal de pedidos, exibe todos
-            publicos.forEach(p => {
-                if (listaModal) {
-                    listaModal.innerHTML += `
-                        <div class="bg-white border border-gray-100 p-3 rounded-xl text-xs space-y-1 shadow-2xs">
-                            <div class="flex items-center justify-between text-gray-400 font-bold text-[10px]">
-                                <span class="text-gray-800 font-bold"><i class="fa-solid fa-hands-praying mr-1 text-emerald-600"></i> ${p.autor}</span>
-                                <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-bold">Igreja Orando</span>
-                            </div>
-                            <p class="text-gray-700 font-medium">${p.texto}</p>
-                        </div>
-                    `;
-                }
+                        <p class="text-gray-700 font-medium">${p.texto}</p>
+                    </div>
+                `;
             });
         }
 
-        // ADM: Visualização com distinção entre pedidos da Igreja e do Pastor
         function renderizarTodosPedidosAdm() {
             const container = document.getElementById('admListaTodosPedidos');
-            if (!container) return;
+            if(!container) return;
             container.innerHTML = '';
 
             meusPedidosBanco.forEach(p => {
                 const isPrivado = p.tipo === 'privado';
-                const isPendente = p.status === 'Pendente';
-
                 container.innerHTML += `
                     <div class="bg-white p-3 border rounded-xl space-y-1 ${isPrivado ? 'border-amber-300 bg-amber-50/20' : ''}">
                         <div class="flex justify-between font-bold text-gray-700">
@@ -1409,14 +1282,10 @@
                                     ${isPrivado ? '🔒 SIGILO PASTOR / LÍDER' : '📢 MURAL DA IGREJA'}
                                 </span>
                             </div>
-                            <span class="text-[10px] ${isPendente ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'} px-2 py-0.5 rounded-full font-bold">${p.status}</span>
+                            <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full font-bold">${p.status}</span>
                         </div>
-                        <p class="text-gray-700 text-xs">${p.texto}</p>
-                        <div class="text-[10px] text-gray-400">Contato: ${p.telefone || '-'}</div>
+                        <p class="text-gray-600">${p.texto}</p>
                         <div class="flex justify-end gap-1 pt-1 border-t mt-2">
-                            ${(isPendente) ? `
-                                <button type="button" onclick="admAprovarOracao(${p.id})" class="text-[10px] bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-check mr-1"></i> Marcar Lido / Orando</button>
-                            ` : ''}
                             <button type="button" onclick="admExcluirOracao(${p.id})" class="text-[10px] bg-red-50 text-red-700 font-bold px-2 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-trash-can"></i> Excluir</button>
                         </div>
                     </div>
@@ -1424,27 +1293,7 @@
             });
         }
 
-        window.admAprovarOracao = async function(id) {
-            const ped = meusPedidosBanco.find(p => p.id === id);
-            if (ped) {
-                ped.status = 'Aprovado';
-                if (supabase) {
-                    try {
-                        await supabase.from('pedidos_oracao').update({ status: 'Aprovado' }).eq('id', id);
-                    } catch(e) {}
-                }
-                renderizarTodosPedidosAdm();
-                renderizarPedidosPublicosApp();
-                alert("Pedido atualizado com sucesso!");
-            }
-        };
-
-        window.admExcluirOracao = async function(id) {
-            if (supabase) {
-                try {
-                    await supabase.from('pedidos_oracao').delete().eq('id', id);
-                } catch(e) {}
-            }
+        window.admExcluirOracao = function(id) {
             meusPedidosBanco = meusPedidosBanco.filter(p => p.id !== id);
             renderizarTodosPedidosAdm();
             renderizarPedidosPublicosApp();
@@ -1452,16 +1301,9 @@
 
         function renderizarPedidosPrivados() { 
             const c = document.getElementById('listaPedidosPrivados');
-            if (!c) return;
+            if(!c) return;
             c.innerHTML = '';
-            const meus = meusPedidosBanco.filter(p => p.autor === dadosUsuarioAtivo.nome);
-
-            if (meus.length === 0) {
-                c.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">Você ainda não enviou nenhum pedido de oração.</p>';
-                return;
-            }
-
-            meus.forEach(p => { 
+            meusPedidosBanco.filter(p => p.autor === dadosUsuarioAtivo.nome).forEach(p => { 
                 c.innerHTML += `
                     <div class="bg-gray-50 border p-3 rounded-xl text-xs space-y-1">
                         <div class="flex justify-between items-center font-bold">
@@ -1480,9 +1322,9 @@
         }
 
         // ==============================================================
-        // MÉTODOS DE DEPARTAMENTOS & ESCALAS
+        // DEPARTAMENTOS & ESCALAS
         // ==============================================================
-        window.salvarNovoDepartamento = async function() {
+        window.salvarNovoDepartamento = function() {
             if (dadosAutenticacao.usuarioLogado !== 'adm') return alert("Apenas o ADM Master pode criar departamentos.");
             const nome = document.getElementById('admDeptoNome').value.trim();
             const lider = document.getElementById('admDeptoLider').value.trim();
@@ -1491,21 +1333,7 @@
 
             if (!nome || !lider || !email || !senha) return alert("Preencha todos os campos.");
 
-            const novoDepto = { nome, lider, email, senha };
-
-            if (supabase) {
-                try {
-                    const { data } = await supabase.from('departamentos').insert([novoDepto]).select();
-                    if (data && data[0]) novoDepto.id = data[0].id;
-                    else novoDepto.id = Date.now();
-                } catch(e) {
-                    novoDepto.id = Date.now();
-                }
-            } else {
-                novoDepto.id = Date.now();
-            }
-
-            departamentosBanco.push(novoDepto);
+            departamentosBanco.push({ id: Date.now(), nome, lider, email, senha });
             document.getElementById('admDeptoNome').value = '';
             document.getElementById('admDeptoLider').value = '';
             document.getElementById('admDeptoEmail').value = '';
@@ -1518,7 +1346,7 @@
 
         function renderizarDepartamentosAdm() {
             const container = document.getElementById('admListaDepartamentosView');
-            if (!container) return;
+            if(!container) return;
             container.innerHTML = '';
 
             departamentosBanco.forEach(d => {
@@ -1537,13 +1365,8 @@
             });
         }
 
-        window.excluirDepartamento = async function(id) {
+        window.excluirDepartamento = function(id) {
             if (dadosAutenticacao.usuarioLogado !== 'adm') return alert("Apenas o ADM Master pode excluir departamentos.");
-            if (supabase) {
-                try {
-                    await supabase.from('departamentos').delete().eq('id', id);
-                } catch(e) {}
-            }
             departamentosBanco = departamentosBanco.filter(d => d.id !== id);
             renderizarDepartamentosAdm();
             renderizarSelectDepartamentosEscala();
@@ -1551,7 +1374,7 @@
 
         function renderizarSelectDepartamentosEscala() {
             const sel = document.getElementById('admEscalaDepartamentoSelect');
-            if (!sel) return;
+            if(!sel) return;
             sel.innerHTML = '';
 
             if (dadosAutenticacao.usuarioLogado === 'lider_depto' && dadosAutenticacao.deptoAtivoId) {
@@ -1567,7 +1390,7 @@
             });
         }
 
-        window.salvarNovaEscala = async function() {
+        window.salvarNovaEscala = function() {
             const deptoId = parseInt(document.getElementById('admEscalaDepartamentoSelect').value);
             const data = document.getElementById('admEscalaData').value;
             const culto = document.getElementById('admEscalaCulto').value.trim();
@@ -1582,29 +1405,16 @@
             const depto = departamentosBanco.find(d => d.id === deptoId);
             const deptoNome = depto ? depto.nome : "Geral";
 
-            const novaEscala = {
-                departamento_id: deptoId,
-                departamento_nome: deptoNome,
+            escalasBanco.unshift({
+                id: Date.now(),
+                departamentoId: deptoId,
+                departamentoNome: deptoNome,
                 culto: culto,
                 data: data,
                 hora: hora || "19:00",
                 membros: membros,
                 funcao: funcao || "Atuação e Apoio Ministerial"
-            };
-
-            if (supabase) {
-                try {
-                    const { data: resData } = await supabase.from('escalas').insert([novaEscala]).select();
-                    if (resData && resData[0]) novaEscala.id = resData[0].id;
-                    else novaEscala.id = Date.now();
-                } catch(e) {
-                    novaEscala.id = Date.now();
-                }
-            } else {
-                novaEscala.id = Date.now();
-            }
-
-            escalasBanco.unshift(novaEscala);
+            });
 
             document.getElementById('admEscalaCulto').value = '';
             document.getElementById('admEscalaMembros').value = '';
@@ -1617,12 +1427,12 @@
 
         function renderizarEscalasAdm() {
             const container = document.getElementById('admListaEscalasGerais');
-            if (!container) return;
+            if(!container) return;
             container.innerHTML = '';
 
             let lista = escalasBanco;
             if (dadosAutenticacao.usuarioLogado === 'lider_depto' && dadosAutenticacao.deptoAtivoId) {
-                lista = escalasBanco.filter(e => (e.departamento_id || e.departamentoId) === dadosAutenticacao.deptoAtivoId);
+                lista = escalasBanco.filter(e => e.departamentoId === dadosAutenticacao.deptoAtivoId);
             }
 
             if (lista.length === 0) {
@@ -1631,11 +1441,10 @@
             }
 
             lista.forEach(e => {
-                const deptoNome = e.departamento_nome || e.departamentoNome || "Departamento";
                 container.innerHTML += `
                     <div class="bg-white p-3 border rounded-xl space-y-1.5 shadow-2xs">
                         <div class="flex justify-between items-center font-bold">
-                            <span class="text-xs text-[#0f5499] uppercase tracking-wider">${deptoNome}</span>
+                            <span class="text-xs text-[#0f5499] uppercase tracking-wider">${e.departamentoNome}</span>
                             <button type="button" onclick="excluirEscala(${e.id})" class="text-red-600 p-1 bg-red-50 hover:bg-red-100 rounded text-[10px] cursor-pointer"><i class="fa-solid fa-trash-can"></i> Excluir</button>
                         </div>
                         <div class="text-xs text-gray-800 font-bold">${e.culto} — ${e.data} às ${e.hora}</div>
@@ -1646,12 +1455,7 @@
             });
         }
 
-        window.excluirEscala = async function(id) {
-            if (supabase) {
-                try {
-                    await supabase.from('escalas').delete().eq('id', id);
-                } catch(e) {}
-            }
+        window.excluirEscala = function(id) {
             escalasBanco = escalasBanco.filter(e => e.id !== id);
             renderizarEscalasAdm();
             renderizarEscalasVisualizacaoMembros();
@@ -1660,22 +1464,21 @@
         function renderizarEscalasVisualizacaoMembros() {
             const boxInicio = document.getElementById('boxDestaqueEscalaInicio');
             const boxCompleto = document.getElementById('listaCompletaEscalasMembros');
-            if (boxInicio) boxInicio.innerHTML = '';
-            if (boxCompleto) boxCompleto.innerHTML = '';
+            if(boxInicio) boxInicio.innerHTML = '';
+            if(boxCompleto) boxCompleto.innerHTML = '';
 
             if (escalasBanco.length === 0) {
-                if (boxInicio) boxInicio.innerHTML = '<p class="text-gray-400 text-xs py-1">Nenhuma escala programada para os próximos cultos.</p>';
-                if (boxCompleto) boxCompleto.innerHTML = '<p class="text-gray-400 text-xs text-center py-4">Nenhuma escala cadastrada no momento.</p>';
+                if(boxInicio) boxInicio.innerHTML = '<p class="text-gray-400 text-xs py-1">Nenhuma escala programada para os próximos cultos.</p>';
+                if(boxCompleto) boxCompleto.innerHTML = '<p class="text-gray-400 text-xs text-center py-4">Nenhuma escala cadastrada no momento.</p>';
                 return;
             }
 
             const primeira = escalasBanco[0];
-            const primeiroDepto = primeira.departamento_nome || primeira.departamentoNome || "Departamento";
-            if (boxInicio) {
+            if(boxInicio) {
                 boxInicio.innerHTML = `
                     <div class="bg-blue-50/60 p-3 rounded-2xl border border-blue-100 space-y-1">
                         <div class="flex justify-between items-center">
-                            <span class="font-bold text-[#0f5499] uppercase text-[10px]">${primeiroDepto}</span>
+                            <span class="font-bold text-[#0f5499] uppercase text-[10px]">${primeira.departamentoNome}</span>
                             <span class="text-[10px] font-semibold text-gray-500"><i class="fa-regular fa-calendar mr-1"></i>${primeira.data} às ${primeira.hora}</span>
                         </div>
                         <b class="text-gray-900 block text-xs">${primeira.culto}</b>
@@ -1685,13 +1488,12 @@
                 `;
             }
 
-            if (boxCompleto) {
+            if(boxCompleto) {
                 escalasBanco.forEach(es => {
-                    const deptoNome = es.departamento_nome || es.departamentoNome || "Departamento";
                     boxCompleto.innerHTML += `
                         <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-100 space-y-1 text-xs">
                             <div class="flex justify-between items-center">
-                                <span class="font-bold uppercase tracking-wider text-[#0f5499] text-[10px] bg-blue-50 px-2 py-0.5 rounded-md">${deptoNome}</span>
+                                <span class="font-bold uppercase tracking-wider text-[#0f5499] text-[10px] bg-blue-50 px-2 py-0.5 rounded-md">${es.departamentoNome}</span>
                                 <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${es.data} às ${es.hora}</span>
                             </div>
                             <h4 class="font-black text-sm text-gray-900 mt-1">${es.culto}</h4>
@@ -1782,7 +1584,7 @@
         /* --- ANÚNCIOS --- */
         function renderizarAnunciosInicio() {
             const container = document.getElementById('listaAnunciosInicio');
-            if (!container) return;
+            if(!container) return;
             container.innerHTML = '';
 
             muralEventos.forEach(ev => {
@@ -1825,12 +1627,12 @@
         function renderizarMuralEventos() {
             const containerMural = document.getElementById('listaAvisosMural');
             const containerAdm = document.getElementById('admListaEventosMural');
-            if (containerMural) containerMural.innerHTML = '';
-            if (containerAdm) containerAdm.innerHTML = '';
+            if(containerMural) containerMural.innerHTML = '';
+            if(containerAdm) containerAdm.innerHTML = '';
 
             muralEventos.forEach(ev => {
                 const imgTag = ev.imagem ? `<img src="${ev.imagem}" alt="${ev.titulo}" class="w-full h-28 object-cover rounded-xl mb-2">` : '';
-                if (containerMural) {
+                if(containerMural) {
                     containerMural.innerHTML += `
                         <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs space-y-2 flex flex-col justify-between">
                             <div>
@@ -1847,7 +1649,7 @@
                     `;
                 }
 
-                if (containerAdm) {
+                if(containerAdm) {
                     containerAdm.innerHTML += `
                         <div class="bg-white p-3 border rounded-xl space-y-2">
                             <div class="flex justify-between items-center font-bold">
@@ -1919,7 +1721,7 @@
             document.getElementById('subtituloAgendaHoje').innerText = `Hoje: ${diaHojeFormatado}`;
 
             const cRot = document.getElementById('listaEventosRotineiros');
-            if (cRot) {
+            if(cRot) {
                 cRot.innerHTML = '';
                 const rotineiros = agendaEventos.filter(e => e.tipo === 'rotineiro');
 
@@ -1940,7 +1742,7 @@
             }
 
             const cMes = document.getElementById('listaEventosAgendaMes');
-            if (cMes) {
+            if(cMes) {
                 cMes.innerHTML = '';
                 const mesFormatado = String(mes + 1).padStart(2, '0');
                 const prefixoMesAno = `${ano}-${mesFormatado}`;
@@ -2043,7 +1845,7 @@
 
         function renderizarListaAgendaAdm() {
             const container = document.getElementById('admListaEventosAgenda');
-            if (!container) return;
+            if(!container) return;
             container.innerHTML = '';
 
             agendaEventos.forEach(ev => {
@@ -2159,7 +1961,7 @@
 
         function renderizarMinhasInscricoes() {
             const container = document.getElementById('listaMinhasInscricoes');
-            if (!container) return;
+            if(!container) return;
             container.innerHTML = '';
 
             const minhas = inscricoesEventosBanco.filter(i => i.membro === dadosUsuarioAtivo.nome);
@@ -2188,7 +1990,7 @@
 
         function renderizarInscricoesCrediarioAdm() {
             const container = document.getElementById('admListaInscricoesCrediario');
-            if (!container) return;
+            if(!container) return;
             container.innerHTML = '';
 
             if (inscricoesEventosBanco.length === 0) {
@@ -2215,15 +2017,15 @@
             const containerAdm = document.getElementById('admViewListaCampanhas');
             const selectEnvelope = document.getElementById('envCampanhaSelect');
             
-            if (containerMembros) containerMembros.innerHTML = '';
-            if (containerAdm) containerAdm.innerHTML = '';
-            if (selectEnvelope) selectEnvelope.innerHTML = '<option value="">Uso Geral da Igreja</option>';
+            if(containerMembros) containerMembros.innerHTML = '';
+            if(containerAdm) containerAdm.innerHTML = '';
+            if(selectEnvelope) selectEnvelope.innerHTML = '<option value="">Uso Geral da Igreja</option>';
 
             campanhasBanco.forEach(c => {
                 const perc = Math.min(100, Math.round((c.arrecadado / c.meta) * 100));
                 const imgCampanhaTag = c.imagem ? `<img src="${c.imagem}" alt="${c.titulo}" class="w-full h-36 object-cover rounded-xl mb-2">` : '';
                 
-                if (containerMembros) {
+                if(containerMembros) {
                     containerMembros.innerHTML += `
                         <div class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm space-y-2">
                             ${imgCampanhaTag}
@@ -2237,7 +2039,7 @@
                     `;
                 }
 
-                if (containerAdm) {
+                if(containerAdm) {
                     containerAdm.innerHTML += `
                         <p class="bg-white p-2 border rounded-lg flex justify-between items-center">
                             <span>${c.titulo} (Meta: R$ ${c.meta})</span>
@@ -2246,7 +2048,7 @@
                     `;
                 }
 
-                if (selectEnvelope) selectEnvelope.innerHTML += `<option value="${c.id}">${c.titulo}</option>`;
+                if(selectEnvelope) selectEnvelope.innerHTML += `<option value="${c.id}">${c.titulo}</option>`;
             });
         }
 
@@ -2324,14 +2126,13 @@
             document.getElementById('admFinancasVersiculo').value = dadosAutenticacao.versiculoDizimo;
         }
 
-        // INICIALIZAÇÃO INSTANTÂNEA E SEGURA (NÃO TRAVA)
+        // INICIALIZAÇÃO SEGURA
         window.inicializarFluxoApp = function() { 
             document.getElementById('telaAutenticacao').classList.add('hidden');
             const app = document.getElementById('appPrincipal');
             app.classList.remove('hidden');
             app.classList.add('flex');
 
-            // Renderiza imediatamente com dados locais garantidos
             atualizarCultoDestaqueInicio();
             renderizarPastasNaGaleria(); 
             carregarDevocionalNaTela();
@@ -2349,9 +2150,6 @@
             renderizarEscalasVisualizacaoMembros();
             renderizarPedidosPublicosApp();
             window.alternarAbas('inicio'); 
-
-            // Puxa do Supabase em segundo plano sem travar a tela
-            carregarDadosDoSupabase();
         };
 
         window.executarCadastroAdm = function(e) { 
@@ -2468,7 +2266,7 @@
 
         function renderizarPastasNaGaleria() { 
             const g = document.getElementById('gridPastas');
-            if (!g) return;
+            if(!g) return;
             g.innerHTML = '';
             for(let k in pastasNomes) {
                 const capa = (bancoImagens[k] && bancoImagens[k].length > 0) ? bancoImagens[k][0] : 'https://images.unsplash.com/photo-1515162305285-0293e4767cc2?q=80&w=300';
@@ -2485,7 +2283,7 @@
 
         window.abrirPasta = function(c,n) { 
             const g = document.getElementById('gridFotos');
-            if (!g) return;
+            if(!g) return;
             g.innerHTML = '';
             if(bancoImagens[c]) {
                 bancoImagens[c].forEach(u => { 
