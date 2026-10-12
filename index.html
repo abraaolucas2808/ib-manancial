@@ -185,6 +185,21 @@
                     <div id="boxDestaqueEscalaInicio" class="space-y-2 text-xs"></div>
                 </section>
 
+                <!-- NOVO CARD NA TELA PRINCIPAL: MURAL DE ORAÇÃO DA IGREJA -->
+                <section class="bg-white border border-blue-100 rounded-3xl p-4 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-hands-praying"></i></span>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-800">Oração da Igreja (Mural)</h4>
+                                <p class="text-[10px] text-gray-500">Motivos compartilhados para intercessão</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="navegarModais('oracao')" class="text-xs font-bold text-[#0f5499] hover:underline cursor-pointer">Pedir Oração</button>
+                    </div>
+                    <div id="boxOracaoTelaPrincipal" class="space-y-2 text-xs"></div>
+                </section>
+
                 <!-- PALAVRA DO DIA -->
                 <section class="bg-[#1a1b1c] text-white rounded-2xl p-5 shadow-md border-l-4 border-amber-500">
                     <div class="flex items-center justify-between mb-2">
@@ -200,7 +215,7 @@
                     <button type="button" onclick="navegarModais('oracao')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
                         <div class="w-14 h-14 bg-blue-50 text-[#0f5499] rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-hands-praying text-2xl"></i></div>
                         <span class="font-bold text-sm block">Pedidos de Oração</span>
-                        <span class="text-[10px] text-gray-400 font-semibold block mt-0.5">Público ou Privado</span>
+                        <span class="text-[10px] text-gray-400 font-semibold block mt-0.5">Igreja ou Pastor</span>
                     </button>
                     <button type="button" onclick="navegarModais('contribuir')" class="bg-white border-2 border-gray-100 p-5 rounded-2xl text-center active:scale-98 transition-all cursor-pointer shadow-sm">
                         <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-3 mx-auto"><i class="fa-solid fa-heart text-2xl"></i></div>
@@ -389,7 +404,7 @@
     </div>
 
     <!-- ============================================================== -->
-    <!-- MODAL PEDIDOS DE ORAÇÃO: SELETOR DE VISIBILIDADE (PÚBLICO / PRIVADO) -->
+    <!-- MODAL PEDIDOS DE ORAÇÃO: ESCOLHA PÚBLICO (IGREJA) OU PRIVADO (PASTOR) -->
     <!-- ============================================================== -->
     <div id="modalOracao" class="fixed inset-0 bg-[#1a1b1c]/80 z-50 hidden items-end justify-center backdrop-blur-sm">
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto animate-slide-up">
@@ -398,55 +413,55 @@
                     <div class="w-9 h-9 bg-blue-50 text-[#0f5499] rounded-full flex items-center justify-center"><i class="fa-solid fa-hands-praying"></i></div>
                     <div>
                         <h2 class="text-base font-bold text-gray-900 leading-tight">Pedidos de Oração</h2>
-                        <span class="text-[10px] text-gray-500 font-semibold">Escolha como deseja enviar seu pedido</span>
+                        <span class="text-[10px] text-gray-500 font-semibold">Defina o destino do seu pedido</span>
                     </div>
                 </div>
                 <button type="button" onclick="fecharModal('modalOracao')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
-            <!-- FORMULÁRIO COM CAMPO DE SELEÇÃO: PÚBLICO OU PRIVADO -->
+            <!-- FORMULÁRIO COM SELEÇÃO EXPLÍCITA -->
             <form onsubmit="enviarPedidoOracao(event)" class="space-y-3.5 bg-gray-50 p-4 border border-gray-200 rounded-2xl">
                 <div class="bg-white p-2.5 border rounded-xl space-y-1 text-xs text-gray-500">
                     <p>Membro: <span id="oracaoFiltroNome" class="font-bold text-[#1a1b1c]">-</span></p>
                     <p>Contato: <span id="oracaoFiltroFone" class="font-bold text-[#1a1b1c]">-</span></p>
                 </div>
 
-                <!-- CAMPO DE VISIBILIDADE EXCLUSIVO -->
+                <!-- CAMPO DE ESCOLHA DO DESTINO DA ORAÇÃO -->
                 <div class="space-y-1.5">
-                    <label class="text-[11px] font-bold text-gray-600 uppercase block tracking-wider">Como deseja enviar o seu pedido?</label>
+                    <label class="text-[11px] font-bold text-gray-600 uppercase block tracking-wider">Para quem você quer enviar este pedido?</label>
                     <div class="grid grid-cols-2 gap-2 text-xs">
-                        <label class="flex flex-col justify-between bg-white p-3 rounded-xl border-2 border-blue-200 cursor-pointer hover:border-blue-500 transition-all">
+                        <label class="flex flex-col justify-between bg-white p-3 rounded-xl border-2 border-blue-300 cursor-pointer hover:border-blue-600 transition-all">
                             <div class="flex items-center space-x-2 mb-1">
                                 <input type="radio" name="tipoVisibilidadeOracao" value="publico" checked class="text-[#0f5499] focus:ring-0">
-                                <strong class="text-gray-900 text-xs">Mural Público</strong>
+                                <strong class="text-gray-900 text-xs">Para a Igreja</strong>
                             </div>
-                            <span class="text-[10px] text-gray-500 leading-tight">Será compartilhado no mural para a igreja inteira orar junto.</span>
+                            <span class="text-[10px] text-gray-500 leading-tight">Aparece na tela principal para toda a comunidade interceder.</span>
                         </label>
 
-                        <label class="flex flex-col justify-between bg-white p-3 rounded-xl border-2 border-amber-200 cursor-pointer hover:border-amber-500 transition-all">
+                        <label class="flex flex-col justify-between bg-white p-3 rounded-xl border-2 border-amber-300 cursor-pointer hover:border-amber-600 transition-all">
                             <div class="flex items-center space-x-2 mb-1">
                                 <input type="radio" name="tipoVisibilidadeOracao" value="privado" class="text-amber-600 focus:ring-0">
-                                <strong class="text-amber-900 text-xs"><i class="fa-solid fa-lock text-[10px] mr-0.5 text-amber-600"></i> Privado</strong>
+                                <strong class="text-amber-900 text-xs"><i class="fa-solid fa-lock text-[10px] mr-0.5 text-amber-600"></i> Pastor / Líder</strong>
                             </div>
-                            <span class="text-[10px] text-gray-500 leading-tight">Sigilo total: apenas o pastor e liderança terão acesso.</span>
+                            <span class="text-[10px] text-gray-500 leading-tight">Totalmente reservado: apenas o pastor/líder lerá em sigilo.</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="space-y-1">
                     <label class="text-[10px] font-bold text-gray-500 uppercase">Motivo / Causa da Oração</label>
-                    <textarea id="textoPedido" required rows="3" class="w-full bg-white border rounded-xl p-3 text-xs focus:outline-none" placeholder="Escreva aqui seu motivo de oração com detalhes..."></textarea>
+                    <textarea id="textoPedido" required rows="3" class="w-full bg-white border rounded-xl p-3 text-xs focus:outline-none" placeholder="Descreva aqui o seu motivo de oração..."></textarea>
                 </div>
 
                 <button type="submit" class="w-full bg-[#0f5499] hover:bg-[#0b427a] text-white font-bold py-3.5 rounded-xl text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center">
-                    <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Pedido de Oração
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Pedido
                 </button>
             </form>
 
-            <!-- LISTAGEM DOS MOTIVOS PÚBLICOS DA IGREJA -->
+            <!-- LISTAGEM DOS MOTIVOS PÚBLICOS NO PRÓPRIO MODAL -->
             <div class="space-y-2 pt-2 border-t">
-                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-bullhorn mr-1 text-[#0f5499]"></i> Motivos Públicos da Comunidade</h3>
-                <div id="listaPedidosPublicos" class="space-y-2"></div>
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-church mr-1 text-[#0f5499]"></i> Motivos de Oração da Igreja</h3>
+                <div id="listaPedidosPublicosModal" class="space-y-2"></div>
             </div>
         </div>
     </div>
@@ -1014,10 +1029,10 @@
         <div class="bg-white w-full max-w-md rounded-t-3xl p-6 shadow-2xl"><div class="flex justify-between border-b pb-2"><h2>Histórico</h2><button type="button" onclick="fecharModal('modalHistorico')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button></div></div>
     </div>
 
-    <!-- CORE ENGINE JAVASCRIPT COM INTEGRAÇÃO TOTAL AO SUPABASE -->
+    <!-- CORE ENGINE JAVASCRIPT CORRIGIDO E TOTALMENTE RESILIENTE -->
     <script>
         // ==============================================================
-        // SUPABASE CLIENT (INICIALIZAÇÃO REAL)
+        // SUPABASE CLIENT (INICIALIZAÇÃO SEGURA)
         // ==============================================================
         const SUPABASE_URL = "https://uawdifqmfrnmtfivkpcn.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVhd2RpZnFtZnJubXRmaXZrcGNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3Mjk2NzEsImV4cCI6MjEwNDMwNTY3MX0.hjaVZql3ywAnpwIFdvxliNNta1htR3xiwaPMk3YI-mo";
@@ -1101,9 +1116,10 @@
             }
         ];
 
+        // DADOS LOCAIS INICIAIS DE ORAÇÃO (SEPARANDO PÚBLICO E PRIVADO)
         let meusPedidosBanco = [
             { id: 1, autor: "Abraão Lucas", telefone: "(21) 98765-4321", texto: "Intercessão pela cura e restauração da minha família.", tipo: "publico", status: "Aprovado" },
-            { id: 2, autor: "Maria Silva", telefone: "(21) 99999-1111", texto: "Orar por portas abertas de emprego e provisão.", tipo: "publico", status: "Pendente" }
+            { id: 2, autor: "Maria Silva", telefone: "(21) 99999-1111", texto: "Orar por portas abertas de emprego e provisão.", tipo: "publico", status: "Aprovado" }
         ];
         
         let devocionalDados = {
@@ -1247,64 +1263,64 @@
         };
 
         // ==============================================================
-        // CARREGAMENTO REAL DO SUPABASE (BANCO DE DADOS)
+        // CARREGAMENTO SEGURO DO SUPABASE EM SEGUNDO PLANO
         // ==============================================================
         async function carregarDadosDoSupabase() {
             if (!supabase) return;
-
             try {
-                // 1. Puxar Escalas
-                const { data: escData, error: escErr } = await supabase.from('escalas').select('*').order('data', { ascending: true });
-                if (!escErr && escData && escData.length > 0) {
+                const { data: escData } = await supabase.from('escalas').select('*').order('data', { ascending: true });
+                if (escData && escData.length > 0) {
                     escalasBanco = escData;
+                    renderizarEscalasVisualizacaoMembros();
+                    renderizarEscalasAdm();
                 }
 
-                // 2. Puxar Departamentos
-                const { data: depData, error: depErr } = await supabase.from('departamentos').select('*').order('nome', { ascending: true });
-                if (!depErr && depData && depData.length > 0) {
+                const { data: depData } = await supabase.from('departamentos').select('*').order('nome', { ascending: true });
+                if (depData && depData.length > 0) {
                     departamentosBanco = depData;
+                    renderizarDepartamentosAdm();
+                    renderizarSelectDepartamentosEscala();
                 }
 
-                // 3. Puxar Pedidos de Oração
-                const { data: orData, error: orErr } = await supabase.from('pedidos_oracao').select('*').order('created_at', { ascending: false });
-                if (!orErr && orData && orData.length > 0) {
+                const { data: orData } = await supabase.from('pedidos_oracao').select('*').order('created_at', { ascending: false });
+                if (orData && orData.length > 0) {
                     meusPedidosBanco = orData;
+                    renderizarPedidosPublicosApp();
+                    renderizarTodosPedidosAdm();
                 }
             } catch(e) {
-                console.warn("Erro ao buscar dados do Supabase:", e);
+                console.warn("Sincronização Supabase operando offline/fallback:", e);
             }
         }
 
         // ==============================================================
-        // GESTÃO DE ORAÇÃO (SELEÇÃO NO MESMO CAMPO: PÚBLICO OU PRIVADO)
+        // GESTÃO DE ORAÇÃO: ESCOLHA ENTRE IGREJA (MURAL) OU PASTOR (SIGILO)
         // ==============================================================
         window.enviarPedidoOracao = async function(e) {
             e.preventDefault();
             const texto = document.getElementById('textoPedido').value.trim();
             if (!texto) return;
 
-            // Obtém o valor selecionado (publico ou privado)
-            const radioSelecionado = document.querySelector('input[name="tipoVisibilidadeOracao"]:checked');
-            const tipoVisibilidade = radioSelecionado ? radioSelecionado.value : 'publico';
+            const radio = document.querySelector('input[name="tipoVisibilidadeOracao"]:checked');
+            const tipoVisibilidade = radio ? radio.value : 'publico';
+
+            // Pedido para a igreja já entra aprovado para exibição comunitária imediata
+            const statusInicial = (tipoVisibilidade === 'publico') ? 'Aprovado' : 'Pendente';
 
             const novoPedido = {
                 autor: dadosUsuarioAtivo.nome,
                 telefone: dadosUsuarioAtivo.telefone,
                 email: dadosUsuarioAtivo.email,
                 texto: texto,
-                tipo: tipoVisibilidade, // 'publico' ou 'privado'
-                status: "Pendente"
+                tipo: tipoVisibilidade,
+                status: statusInicial
             };
 
-            // Envia para o Supabase
             if (supabase) {
                 try {
-                    const { data, error } = await supabase.from('pedidos_oracao').insert([novoPedido]).select();
-                    if (!error && data && data[0]) {
-                        novoPedido.id = data[0].id;
-                    } else {
-                        novoPedido.id = Date.now();
-                    }
+                    const { data } = await supabase.from('pedidos_oracao').insert([novoPedido]).select();
+                    if (data && data[0]) novoPedido.id = data[0].id;
+                    else novoPedido.id = Date.now();
                 } catch(err) {
                     novoPedido.id = Date.now();
                 }
@@ -1315,43 +1331,69 @@
             meusPedidosBanco.unshift(novoPedido);
             document.getElementById('textoPedido').value = '';
             
-            renderizarTodosPedidosAdm();
             renderizarPedidosPublicosApp();
+            renderizarTodosPedidosAdm();
 
-            if (tipoVisibilidade === 'privado') {
-                alert("Seu pedido confidencial foi enviado diretamente ao Pastor e à liderança! Ele permanecerá em sigilo e NUNCA aparecerá no mural aberto da igreja.");
+            if (tipoVisibilidade === 'publico') {
+                alert("Seu pedido de oração foi publicado com sucesso! Ele já está visível na tela principal para toda a igreja interceder com você.");
             } else {
-                alert("Seu pedido de oração foi enviado para o Mural da Igreja! Ele será compartilhado para toda a congregação interceder após a aprovação.");
+                alert("Seu pedido confidencial foi enviado diretamente ao Pastor e à liderança! Ele permanecerá em sigilo e NUNCA aparecerá no mural da igreja.");
             }
 
             window.fecharModal('modalOracao');
         };
 
+        // Renderiza os pedidos no card da tela principal e na lista do modal
         function renderizarPedidosPublicosApp() {
-            const container = document.getElementById('listaPedidosPublicos');
-            container.innerHTML = '';
+            const cardInicio = document.getElementById('boxOracaoTelaPrincipal');
+            const listaModal = document.getElementById('listaPedidosPublicosModal');
+            
+            if (cardInicio) cardInicio.innerHTML = '';
+            if (listaModal) listaModal.innerHTML = '';
 
-            const publicosAprovados = meusPedidosBanco.filter(p => p.status === 'Aprovado' && p.tipo === 'publico');
-            if (publicosAprovados.length === 0) {
-                container.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhum pedido público no mural no momento.</p>';
+            const publicos = meusPedidosBanco.filter(p => p.status === 'Aprovado' && p.tipo === 'publico');
+
+            if (publicos.length === 0) {
+                if (cardInicio) cardInicio.innerHTML = '<p class="text-xs text-gray-400 py-1">Nenhum pedido no mural ainda. Seja o primeiro a pedir oração!</p>';
+                if (listaModal) listaModal.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Nenhum motivo no mural comunitário.</p>';
                 return;
             }
 
-            publicosAprovados.forEach(p => {
-                container.innerHTML += `
-                    <div class="bg-white border border-gray-100 p-3.5 rounded-2xl text-xs space-y-1 shadow-sm">
-                        <div class="flex items-center justify-between text-gray-400 font-bold text-[10px]">
-                            <span><i class="fa-solid fa-user-heart mr-1 text-blue-500"></i> ${p.autor}</span>
-                            <span class="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md"><i class="fa-solid fa-hands-praying mr-1"></i> Em Oração</span>
+            // Na tela inicial, exibe os 3 pedidos mais recentes
+            publicos.slice(0, 3).forEach(p => {
+                if (cardInicio) {
+                    cardInicio.innerHTML += `
+                        <div class="bg-emerald-50/60 p-2.5 rounded-xl border border-emerald-100 space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-emerald-800 text-[11px]"><i class="fa-solid fa-user-heart mr-1"></i> ${p.autor}</span>
+                                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded-md">Em Oração</span>
+                            </div>
+                            <p class="text-gray-700 text-xs font-medium leading-relaxed">${p.texto}</p>
                         </div>
-                        <p class="text-gray-700 font-medium">${p.texto}</p>
-                    </div>
-                `;
+                    `;
+                }
+            });
+
+            // No modal de pedidos, exibe todos
+            publicos.forEach(p => {
+                if (listaModal) {
+                    listaModal.innerHTML += `
+                        <div class="bg-white border border-gray-100 p-3 rounded-xl text-xs space-y-1 shadow-2xs">
+                            <div class="flex items-center justify-between text-gray-400 font-bold text-[10px]">
+                                <span class="text-gray-800 font-bold"><i class="fa-solid fa-hands-praying mr-1 text-emerald-600"></i> ${p.autor}</span>
+                                <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-bold">Igreja Orando</span>
+                            </div>
+                            <p class="text-gray-700 font-medium">${p.texto}</p>
+                        </div>
+                    `;
+                }
             });
         }
 
+        // ADM: Visualização com distinção entre pedidos da Igreja e do Pastor
         function renderizarTodosPedidosAdm() {
             const container = document.getElementById('admListaTodosPedidos');
+            if (!container) return;
             container.innerHTML = '';
 
             meusPedidosBanco.forEach(p => {
@@ -1364,7 +1406,7 @@
                             <div>
                                 <span>${p.autor}</span>
                                 <span class="text-[9px] px-1.5 py-0.5 rounded ml-1 font-bold ${isPrivado ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-blue-100 text-blue-800'}">
-                                    ${isPrivado ? '🔒 CONFIDENCIAL PASTORAL' : '📢 MURAL PÚBLICO'}
+                                    ${isPrivado ? '🔒 SIGILO PASTOR / LÍDER' : '📢 MURAL DA IGREJA'}
                                 </span>
                             </div>
                             <span class="text-[10px] ${isPendente ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'} px-2 py-0.5 rounded-full font-bold">${p.status}</span>
@@ -1372,19 +1414,14 @@
                         <p class="text-gray-700 text-xs">${p.texto}</p>
                         <div class="text-[10px] text-gray-400">Contato: ${p.telefone || '-'}</div>
                         <div class="flex justify-end gap-1 pt-1 border-t mt-2">
-                            ${(!isPrivado && isPendente) ? `
-                                <button type="button" onclick="admAprovarOracao(${p.id})" class="text-[10px] bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-check mr-1"></i> Aprovar p/ Mural</button>
-                            ` : ''}
-                            ${(isPrivado && isPendente) ? `
-                                <button type="button" onclick="admAprovarOracao(${p.id})" class="text-[10px] bg-amber-600 text-white font-bold px-2.5 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-check mr-1"></i> Marcar Lido/Em Oração</button>
+                            ${(isPendente) ? `
+                                <button type="button" onclick="admAprovarOracao(${p.id})" class="text-[10px] bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-check mr-1"></i> Marcar Lido / Orando</button>
                             ` : ''}
                             <button type="button" onclick="admExcluirOracao(${p.id})" class="text-[10px] bg-red-50 text-red-700 font-bold px-2 py-1 rounded-lg cursor-pointer"><i class="fa-solid fa-trash-can"></i> Excluir</button>
                         </div>
                     </div>
                 `;
             });
-
-            renderizarPedidosPublicosApp();
         }
 
         window.admAprovarOracao = async function(id) {
@@ -1397,7 +1434,8 @@
                     } catch(e) {}
                 }
                 renderizarTodosPedidosAdm();
-                alert(ped.tipo === 'privado' ? "Pedido confidencial marcado como lido/em oração pastoral!" : "Pedido aprovado! Agora está visível para toda a igreja no mural.");
+                renderizarPedidosPublicosApp();
+                alert("Pedido atualizado com sucesso!");
             }
         };
 
@@ -1409,10 +1447,12 @@
             }
             meusPedidosBanco = meusPedidosBanco.filter(p => p.id !== id);
             renderizarTodosPedidosAdm();
+            renderizarPedidosPublicosApp();
         };
 
         function renderizarPedidosPrivados() { 
             const c = document.getElementById('listaPedidosPrivados');
+            if (!c) return;
             c.innerHTML = '';
             const meus = meusPedidosBanco.filter(p => p.autor === dadosUsuarioAtivo.nome);
 
@@ -1426,7 +1466,7 @@
                     <div class="bg-gray-50 border p-3 rounded-xl text-xs space-y-1">
                         <div class="flex justify-between items-center font-bold">
                             <span class="${p.tipo === 'privado' ? 'text-amber-800' : 'text-[#0f5499]'} font-black text-[10px] uppercase">
-                                ${p.tipo === 'privado' ? '🔒 Confidencial ao Pastor' : '📢 Mural Público'}
+                                ${p.tipo === 'privado' ? '🔒 Confidencial ao Pastor' : '📢 Mural da Igreja'}
                             </span>
                             <span class="text-gray-500 font-bold text-[10px]">Status: ${p.status}</span>
                         </div>
@@ -1440,7 +1480,7 @@
         }
 
         // ==============================================================
-        // MÉTODOS DE DEPARTAMENTOS & ESCALAS (INTEGRADOS AO SUPABASE)
+        // MÉTODOS DE DEPARTAMENTOS & ESCALAS
         // ==============================================================
         window.salvarNovoDepartamento = async function() {
             if (dadosAutenticacao.usuarioLogado !== 'adm') return alert("Apenas o ADM Master pode criar departamentos.");
@@ -1455,12 +1495,9 @@
 
             if (supabase) {
                 try {
-                    const { data, error } = await supabase.from('departamentos').insert([novoDepto]).select();
-                    if (!error && data && data[0]) {
-                        novoDepto.id = data[0].id;
-                    } else {
-                        novoDepto.id = Date.now();
-                    }
+                    const { data } = await supabase.from('departamentos').insert([novoDepto]).select();
+                    if (data && data[0]) novoDepto.id = data[0].id;
+                    else novoDepto.id = Date.now();
                 } catch(e) {
                     novoDepto.id = Date.now();
                 }
@@ -1481,6 +1518,7 @@
 
         function renderizarDepartamentosAdm() {
             const container = document.getElementById('admListaDepartamentosView');
+            if (!container) return;
             container.innerHTML = '';
 
             departamentosBanco.forEach(d => {
@@ -1513,6 +1551,7 @@
 
         function renderizarSelectDepartamentosEscala() {
             const sel = document.getElementById('admEscalaDepartamentoSelect');
+            if (!sel) return;
             sel.innerHTML = '';
 
             if (dadosAutenticacao.usuarioLogado === 'lider_depto' && dadosAutenticacao.deptoAtivoId) {
@@ -1555,12 +1594,9 @@
 
             if (supabase) {
                 try {
-                    const { data: resData, error } = await supabase.from('escalas').insert([novaEscala]).select();
-                    if (!error && resData && resData[0]) {
-                        novaEscala.id = resData[0].id;
-                    } else {
-                        novaEscala.id = Date.now();
-                    }
+                    const { data: resData } = await supabase.from('escalas').insert([novaEscala]).select();
+                    if (resData && resData[0]) novaEscala.id = resData[0].id;
+                    else novaEscala.id = Date.now();
                 } catch(e) {
                     novaEscala.id = Date.now();
                 }
@@ -1581,6 +1617,7 @@
 
         function renderizarEscalasAdm() {
             const container = document.getElementById('admListaEscalasGerais');
+            if (!container) return;
             container.innerHTML = '';
 
             let lista = escalasBanco;
@@ -1623,48 +1660,52 @@
         function renderizarEscalasVisualizacaoMembros() {
             const boxInicio = document.getElementById('boxDestaqueEscalaInicio');
             const boxCompleto = document.getElementById('listaCompletaEscalasMembros');
-            boxInicio.innerHTML = '';
-            boxCompleto.innerHTML = '';
+            if (boxInicio) boxInicio.innerHTML = '';
+            if (boxCompleto) boxCompleto.innerHTML = '';
 
             if (escalasBanco.length === 0) {
-                boxInicio.innerHTML = '<p class="text-gray-400 text-xs py-1">Nenhuma escala programada para os próximos cultos.</p>';
-                boxCompleto.innerHTML = '<p class="text-gray-400 text-xs text-center py-4">Nenhuma escala cadastrada no momento.</p>';
+                if (boxInicio) boxInicio.innerHTML = '<p class="text-gray-400 text-xs py-1">Nenhuma escala programada para os próximos cultos.</p>';
+                if (boxCompleto) boxCompleto.innerHTML = '<p class="text-gray-400 text-xs text-center py-4">Nenhuma escala cadastrada no momento.</p>';
                 return;
             }
 
             const primeira = escalasBanco[0];
             const primeiroDepto = primeira.departamento_nome || primeira.departamentoNome || "Departamento";
-            boxInicio.innerHTML = `
-                <div class="bg-blue-50/60 p-3 rounded-2xl border border-blue-100 space-y-1">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-[#0f5499] uppercase text-[10px]">${primeiroDepto}</span>
-                        <span class="text-[10px] font-semibold text-gray-500"><i class="fa-regular fa-calendar mr-1"></i>${primeira.data} às ${primeira.hora}</span>
-                    </div>
-                    <b class="text-gray-900 block text-xs">${primeira.culto}</b>
-                    <p class="text-gray-700 text-xs mt-1"><b>Obreiros:</b> ${primeira.membros}</p>
-                    <p class="text-[11px] text-gray-500"><b>Responsabilidade:</b> ${primeira.funcao}</p>
-                </div>
-            `;
-
-            escalasBanco.forEach(es => {
-                const deptoNome = es.departamento_nome || es.departamentoNome || "Departamento";
-                boxCompleto.innerHTML += `
-                    <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-100 space-y-1 text-xs">
+            if (boxInicio) {
+                boxInicio.innerHTML = `
+                    <div class="bg-blue-50/60 p-3 rounded-2xl border border-blue-100 space-y-1">
                         <div class="flex justify-between items-center">
-                            <span class="font-bold uppercase tracking-wider text-[#0f5499] text-[10px] bg-blue-50 px-2 py-0.5 rounded-md">${deptoNome}</span>
-                            <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${es.data} às ${es.hora}</span>
+                            <span class="font-bold text-[#0f5499] uppercase text-[10px]">${primeiroDepto}</span>
+                            <span class="text-[10px] font-semibold text-gray-500"><i class="fa-regular fa-calendar mr-1"></i>${primeira.data} às ${primeira.hora}</span>
                         </div>
-                        <h4 class="font-black text-sm text-gray-900 mt-1">${es.culto}</h4>
-                        <div class="bg-white p-2.5 rounded-xl border border-gray-200 space-y-1 mt-2">
-                            <p class="text-gray-800"><strong>Equipe Escalada:</strong> ${es.membros}</p>
-                            <p class="text-gray-600 text-[11px]"><strong>Instruções:</strong> ${es.funcao}</p>
-                        </div>
+                        <b class="text-gray-900 block text-xs">${primeira.culto}</b>
+                        <p class="text-gray-700 text-xs mt-1"><b>Obreiros:</b> ${primeira.membros}</p>
+                        <p class="text-[11px] text-gray-500"><b>Responsabilidade:</b> ${primeira.funcao}</p>
                     </div>
                 `;
-            });
+            }
+
+            if (boxCompleto) {
+                escalasBanco.forEach(es => {
+                    const deptoNome = es.departamento_nome || es.departamentoNome || "Departamento";
+                    boxCompleto.innerHTML += `
+                        <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-100 space-y-1 text-xs">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold uppercase tracking-wider text-[#0f5499] text-[10px] bg-blue-50 px-2 py-0.5 rounded-md">${deptoNome}</span>
+                                <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${es.data} às ${es.hora}</span>
+                            </div>
+                            <h4 class="font-black text-sm text-gray-900 mt-1">${es.culto}</h4>
+                            <div class="bg-white p-2.5 rounded-xl border border-gray-200 space-y-1 mt-2">
+                                <p class="text-gray-800"><strong>Equipe Escalada:</strong> ${es.membros}</p>
+                                <p class="text-gray-600 text-[11px]"><strong>Instruções:</strong> ${es.funcao}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
         }
 
-        /* --- DESTAQUE AUTOMÁTICO: CULTO DO DIA OU PRÓXIMO CULTO --- */
+        /* --- DESTAQUE AUTOMÁTICO DE CULTO --- */
         function atualizarCultoDestaqueInicio() {
             const diasSemanaNomes = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
             const hoje = new Date();
@@ -1703,7 +1744,6 @@
         function carregarDevocionalNaTela() {
             document.getElementById('tituloDevocionalInicio').innerText = devocionalDados.titulo;
             document.getElementById('textoDevocionalInicio').innerText = `"${devocionalDados.reflexao.substring(0, 80)}..."`;
-            
             document.getElementById('devocionalRenderTitulo').innerText = devocionalDados.titulo;
             document.getElementById('devocionalRenderBiblia').innerText = devocionalDados.biblia;
             document.getElementById('devocionalRenderReflexao').innerText = devocionalDados.reflexao;
@@ -1720,13 +1760,9 @@
         function formatarUrlYouTubeEmbed(url) {
             if (!url) return '';
             let videoId = '';
-            if (url.includes('youtu.be/')) {
-                videoId = url.split('youtu.be/')[1].split('?')[0];
-            } else if (url.includes('watch?v=')) {
-                videoId = url.split('watch?v=')[1].split('&')[0];
-            } else if (url.includes('embed/')) {
-                return url;
-            }
+            if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
+            else if (url.includes('watch?v=')) videoId = url.split('watch?v=')[1].split('&')[0];
+            else if (url.includes('embed/')) return url;
             return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
         }
 
@@ -1739,13 +1775,14 @@
             devocionalDados.oracao = document.getElementById('admInputTxtOracao').value.trim() || devocionalDados.oracao;
 
             carregarDevocionalNaTela();
-            alert("Vídeo e Devocional Atualizados com Sucesso!");
+            alert("Devocional Atualizado com Sucesso!");
             window.fecharModal('modalAdm');
         };
 
         /* --- ANÚNCIOS --- */
         function renderizarAnunciosInicio() {
             const container = document.getElementById('listaAnunciosInicio');
+            if (!container) return;
             container.innerHTML = '';
 
             muralEventos.forEach(ev => {
@@ -1788,36 +1825,39 @@
         function renderizarMuralEventos() {
             const containerMural = document.getElementById('listaAvisosMural');
             const containerAdm = document.getElementById('admListaEventosMural');
-            containerMural.innerHTML = '';
-            containerAdm.innerHTML = '';
+            if (containerMural) containerMural.innerHTML = '';
+            if (containerAdm) containerAdm.innerHTML = '';
 
             muralEventos.forEach(ev => {
                 const imgTag = ev.imagem ? `<img src="${ev.imagem}" alt="${ev.titulo}" class="w-full h-28 object-cover rounded-xl mb-2">` : '';
-                
-                containerMural.innerHTML += `
-                    <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs space-y-2 flex flex-col justify-between">
-                        <div>
-                            ${imgTag}
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-[9px] font-bold uppercase bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Anúncio</span>
-                                <span class="text-[10px] font-bold text-red-600">${ev.vagasRestantes} vagas</span>
+                if (containerMural) {
+                    containerMural.innerHTML += `
+                        <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs space-y-2 flex flex-col justify-between">
+                            <div>
+                                ${imgTag}
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[9px] font-bold uppercase bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Anúncio</span>
+                                    <span class="text-[10px] font-bold text-red-600">${ev.vagasRestantes} vagas</span>
+                                </div>
+                                <h3 class="text-xs font-bold text-[#1a1b1c] leading-tight line-clamp-2">${ev.titulo}</h3>
+                                <p class="text-[11px] text-gray-600 mt-1.5 leading-snug line-clamp-3 bg-gray-50 p-1.5 rounded-lg border border-gray-100">${ev.descricao}</p>
                             </div>
-                            <h3 class="text-xs font-bold text-[#1a1b1c] leading-tight line-clamp-2">${ev.titulo}</h3>
-                            <p class="text-[11px] text-gray-600 mt-1.5 leading-snug line-clamp-3 bg-gray-50 p-1.5 rounded-lg border border-gray-100">${ev.descricao}</p>
+                            <button type="button" onclick="abrirCheckoutEvento('${ev.id}')" class="w-full bg-[#0f5499] text-white font-bold py-2 rounded-xl text-[11px] cursor-pointer active:scale-98 transition-all shadow-xs mt-1">Inscrever / Pagar</button>
                         </div>
-                        <button type="button" onclick="abrirCheckoutEvento('${ev.id}')" class="w-full bg-[#0f5499] text-white font-bold py-2 rounded-xl text-[11px] cursor-pointer active:scale-98 transition-all shadow-xs mt-1">Inscrever / Pagar</button>
-                    </div>
-                `;
+                    `;
+                }
 
-                containerAdm.innerHTML += `
-                    <div class="bg-white p-3 border rounded-xl space-y-2">
-                        <div class="flex justify-between items-center font-bold">
-                            <span>${ev.titulo}</span>
-                            <button type="button" onclick="admExcluirEvento(${ev.id})" class="text-red-600 p-1 bg-red-50 rounded-md text-[10px]"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                if (containerAdm) {
+                    containerAdm.innerHTML += `
+                        <div class="bg-white p-3 border rounded-xl space-y-2">
+                            <div class="flex justify-between items-center font-bold">
+                                <span>${ev.titulo}</span>
+                                <button type="button" onclick="admExcluirEvento(${ev.id})" class="text-red-600 p-1 bg-red-50 rounded-md text-[10px]"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                            </div>
+                            <p class="text-xs text-gray-500">${ev.descricao}</p>
                         </div>
-                        <p class="text-xs text-gray-500">${ev.descricao}</p>
-                    </div>
-                `;
+                    `;
+                }
             });
         }
 
@@ -1879,65 +1919,67 @@
             document.getElementById('subtituloAgendaHoje').innerText = `Hoje: ${diaHojeFormatado}`;
 
             const cRot = document.getElementById('listaEventosRotineiros');
-            cRot.innerHTML = '';
-            const rotineiros = agendaEventos.filter(e => e.tipo === 'rotineiro');
+            if (cRot) {
+                cRot.innerHTML = '';
+                const rotineiros = agendaEventos.filter(e => e.tipo === 'rotineiro');
 
-            rotineiros.forEach(r => {
-                cRot.innerHTML += `
-                    <div class="bg-white border rounded-xl p-3 flex items-center justify-between text-xs shadow-2xs">
-                        <div class="flex items-center space-x-3">
-                            <span class="w-16 px-2 py-1 bg-blue-50 text-[#0f5499] rounded-lg font-bold text-center text-[11px]">${r.diaSemana}</span>
-                            <div>
-                                <b class="text-gray-900 block">${r.titulo}</b>
-                                <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${r.hora} • ${r.local}</span>
-                            </div>
-                        </div>
-                        ${r.destaque ? '<span class="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Culto Geral</span>' : ''}
-                    </div>
-                `;
-            });
-
-            const cMes = document.getElementById('listaEventosAgendaMes');
-            cMes.innerHTML = '';
-
-            const mesFormatado = String(mes + 1).padStart(2, '0');
-            const prefixoMesAno = `${ano}-${mesFormatado}`;
-
-            const especiaisMes = agendaEventos.filter(e => e.tipo === 'especial' && e.data && e.data.startsWith(prefixoMesAno));
-
-            if (especiaisMes.length === 0) {
-                cMes.innerHTML = `
-                    <div class="bg-white border border-dashed rounded-2xl p-6 text-center text-xs text-gray-400">
-                        <i class="fa-regular fa-calendar-xmark text-2xl mb-1 text-gray-300 block"></i>
-                        Nenhum evento especial programado para ${nomesMeses[mes]} de ${ano}.
-                    </div>
-                `;
-            } else {
-                especiaisMes.forEach(ev => {
-                    const diaEvento = ev.data.split('-')[2];
-                    const imgTag = ev.imagem ? `<img src="${ev.imagem}" class="w-full h-32 object-cover rounded-xl mb-2">` : '';
-                    const borderDestaque = ev.destaque ? 'border-2 border-amber-400 shadow-md bg-amber-50/20' : 'border border-gray-100 bg-white shadow-sm';
-                    const badgeDestaque = ev.destaque ? '<span class="text-[9px] bg-amber-500 text-white font-black px-2 py-0.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-star mr-1"></i> Destaque Especial</span>' : '';
-
-                    cMes.innerHTML += `
-                        <div class="rounded-2xl p-4 ${borderDestaque} space-y-2">
-                            ${imgTag}
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center space-x-2">
-                                    <span class="w-9 h-9 rounded-xl bg-[#0f5499] text-white flex flex-col items-center justify-center font-black text-xs">
-                                        <span>${diaEvento}</span>
-                                    </span>
-                                    <div>
-                                        <b class="text-sm text-gray-900 block">${ev.titulo}</b>
-                                        <span class="text-[11px] text-gray-500 font-medium"><i class="fa-regular fa-clock mr-1"></i>${ev.hora} • ${ev.local}</span>
-                                    </div>
+                rotineiros.forEach(r => {
+                    cRot.innerHTML += `
+                        <div class="bg-white border rounded-xl p-3 flex items-center justify-between text-xs shadow-2xs">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-16 px-2 py-1 bg-blue-50 text-[#0f5499] rounded-lg font-bold text-center text-[11px]">${r.diaSemana}</span>
+                                <div>
+                                    <b class="text-gray-900 block">${r.titulo}</b>
+                                    <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${r.hora} • ${r.local}</span>
                                 </div>
-                                ${badgeDestaque}
                             </div>
-                            <p class="text-xs text-gray-600">${ev.desc || ''}</p>
+                            ${r.destaque ? '<span class="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Culto Geral</span>' : ''}
                         </div>
                     `;
                 });
+            }
+
+            const cMes = document.getElementById('listaEventosAgendaMes');
+            if (cMes) {
+                cMes.innerHTML = '';
+                const mesFormatado = String(mes + 1).padStart(2, '0');
+                const prefixoMesAno = `${ano}-${mesFormatado}`;
+                const especiaisMes = agendaEventos.filter(e => e.tipo === 'especial' && e.data && e.data.startsWith(prefixoMesAno));
+
+                if (especiaisMes.length === 0) {
+                    cMes.innerHTML = `
+                        <div class="bg-white border border-dashed rounded-2xl p-6 text-center text-xs text-gray-400">
+                            <i class="fa-regular fa-calendar-xmark text-2xl mb-1 text-gray-300 block"></i>
+                            Nenhum evento especial programado para ${nomesMeses[mes]} de ${ano}.
+                        </div>
+                    `;
+                } else {
+                    especiaisMes.forEach(ev => {
+                        const diaEvento = ev.data.split('-')[2];
+                        const imgTag = ev.imagem ? `<img src="${ev.imagem}" class="w-full h-32 object-cover rounded-xl mb-2">` : '';
+                        const borderDestaque = ev.destaque ? 'border-2 border-amber-400 shadow-md bg-amber-50/20' : 'border border-gray-100 bg-white shadow-sm';
+                        const badgeDestaque = ev.destaque ? '<span class="text-[9px] bg-amber-500 text-white font-black px-2 py-0.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-star mr-1"></i> Destaque Especial</span>' : '';
+
+                        cMes.innerHTML += `
+                            <div class="rounded-2xl p-4 ${borderDestaque} space-y-2">
+                                ${imgTag}
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="w-9 h-9 rounded-xl bg-[#0f5499] text-white flex flex-col items-center justify-center font-black text-xs">
+                                            <span>${diaEvento}</span>
+                                        </span>
+                                        <div>
+                                            <b class="text-sm text-gray-900 block">${ev.titulo}</b>
+                                            <span class="text-[11px] text-gray-500 font-medium"><i class="fa-regular fa-clock mr-1"></i>${ev.hora} • ${ev.local}</span>
+                                        </div>
+                                    </div>
+                                    ${badgeDestaque}
+                                </div>
+                                <p class="text-xs text-gray-600">${ev.desc || ''}</p>
+                            </div>
+                        `;
+                    });
+                }
             }
 
             renderizarListaAgendaAdm();
@@ -2001,6 +2043,7 @@
 
         function renderizarListaAgendaAdm() {
             const container = document.getElementById('admListaEventosAgenda');
+            if (!container) return;
             container.innerHTML = '';
 
             agendaEventos.forEach(ev => {
@@ -2116,6 +2159,7 @@
 
         function renderizarMinhasInscricoes() {
             const container = document.getElementById('listaMinhasInscricoes');
+            if (!container) return;
             container.innerHTML = '';
 
             const minhas = inscricoesEventosBanco.filter(i => i.membro === dadosUsuarioAtivo.nome);
@@ -2144,6 +2188,7 @@
 
         function renderizarInscricoesCrediarioAdm() {
             const container = document.getElementById('admListaInscricoesCrediario');
+            if (!container) return;
             container.innerHTML = '';
 
             if (inscricoesEventosBanco.length === 0) {
@@ -2170,34 +2215,38 @@
             const containerAdm = document.getElementById('admViewListaCampanhas');
             const selectEnvelope = document.getElementById('envCampanhaSelect');
             
-            containerMembros.innerHTML = '';
-            containerAdm.innerHTML = '';
-            selectEnvelope.innerHTML = '<option value="">Uso Geral da Igreja</option>';
+            if (containerMembros) containerMembros.innerHTML = '';
+            if (containerAdm) containerAdm.innerHTML = '';
+            if (selectEnvelope) selectEnvelope.innerHTML = '<option value="">Uso Geral da Igreja</option>';
 
             campanhasBanco.forEach(c => {
                 const perc = Math.min(100, Math.round((c.arrecadado / c.meta) * 100));
                 const imgCampanhaTag = c.imagem ? `<img src="${c.imagem}" alt="${c.titulo}" class="w-full h-36 object-cover rounded-xl mb-2">` : '';
                 
-                containerMembros.innerHTML += `
-                    <div class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm space-y-2">
-                        ${imgCampanhaTag}
-                        <div class="flex justify-between items-center"><h3 class="font-bold text-sm text-[#1a1b1c]">${c.titulo}</h3> <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md">Alvo: R$ ${c.meta}</span></div>
-                        <p class="text-xs text-gray-600">${c.descricao}</p>
-                        <div class="w-full bg-gray-100 rounded-full h-2.5 mt-2">
-                            <div class="bg-emerald-500 h-2.5 rounded-full" style="width: ${perc}%"></div>
+                if (containerMembros) {
+                    containerMembros.innerHTML += `
+                        <div class="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm space-y-2">
+                            ${imgCampanhaTag}
+                            <div class="flex justify-between items-center"><h3 class="font-bold text-sm text-[#1a1b1c]">${c.titulo}</h3> <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md">Alvo: R$ ${c.meta}</span></div>
+                            <p class="text-xs text-gray-600">${c.descricao}</p>
+                            <div class="w-full bg-gray-100 rounded-full h-2.5 mt-2">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: ${perc}%"></div>
+                            </div>
+                            <div class="flex justify-between items-center text-[10px] font-bold text-gray-400"><span>${perc}% Concluído</span> <button type="button" onclick="navegarModais('contribuir')" class="text-[#0f5499] hover:underline cursor-pointer">Contribuir via Pix</button></div>
                         </div>
-                        <div class="flex justify-between items-center text-[10px] font-bold text-gray-400"><span>${perc}% Concluído</span> <button type="button" onclick="navegarModais('contribuir')" class="text-[#0f5499] hover:underline cursor-pointer">Contribuir via Pix</button></div>
-                    </div>
-                `;
+                    `;
+                }
 
-                containerAdm.innerHTML += `
-                    <p class="bg-white p-2 border rounded-lg flex justify-between items-center">
-                        <span>${c.titulo} (Meta: R$ ${c.meta})</span>
-                        <button type="button" onclick="admExcluirCampanha(${c.id})" class="text-red-600 p-1 bg-red-50 rounded-md text-[10px] font-bold cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
-                    </p>
-                `;
+                if (containerAdm) {
+                    containerAdm.innerHTML += `
+                        <p class="bg-white p-2 border rounded-lg flex justify-between items-center">
+                            <span>${c.titulo} (Meta: R$ ${c.meta})</span>
+                            <button type="button" onclick="admExcluirCampanha(${c.id})" class="text-red-600 p-1 bg-red-50 rounded-md text-[10px] font-bold cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                        </p>
+                    `;
+                }
 
-                selectEnvelope.innerHTML += `<option value="${c.id}">${c.titulo}</option>`;
+                if (selectEnvelope) selectEnvelope.innerHTML += `<option value="${c.id}">${c.titulo}</option>`;
             });
         }
 
@@ -2275,15 +2324,14 @@
             document.getElementById('admFinancasVersiculo').value = dadosAutenticacao.versiculoDizimo;
         }
 
-        window.inicializarFluxoApp = async function() { 
+        // INICIALIZAÇÃO INSTANTÂNEA E SEGURA (NÃO TRAVA)
+        window.inicializarFluxoApp = function() { 
             document.getElementById('telaAutenticacao').classList.add('hidden');
             const app = document.getElementById('appPrincipal');
             app.classList.remove('hidden');
             app.classList.add('flex');
 
-            // Carrega os dados reais do Supabase
-            await carregarDadosDoSupabase();
-
+            // Renderiza imediatamente com dados locais garantidos
             atualizarCultoDestaqueInicio();
             renderizarPastasNaGaleria(); 
             carregarDevocionalNaTela();
@@ -2301,6 +2349,9 @@
             renderizarEscalasVisualizacaoMembros();
             renderizarPedidosPublicosApp();
             window.alternarAbas('inicio'); 
+
+            // Puxa do Supabase em segundo plano sem travar a tela
+            carregarDadosDoSupabase();
         };
 
         window.executarCadastroAdm = function(e) { 
@@ -2338,7 +2389,10 @@
         window.navegarModais = function(t) { 
             let idModal = '';
             if(t==='contribuir') idModal = 'modalDizimo';
-            else if(t==='oracao') idModal = 'modalOracao';
+            else if(t==='oracao') {
+                idModal = 'modalOracao';
+                renderizarPedidosPublicosApp();
+            }
             else if(t==='devocional') idModal = 'modalDevocional';
             else if(t==='galeria') { window.mostrarPastas(); idModal = 'modalGaleria'; }
             else if(t==='meusPedidosPrivados') { renderizarPedidosPrivados(); idModal = 'modalMeusPedidos'; }
@@ -2414,6 +2468,7 @@
 
         function renderizarPastasNaGaleria() { 
             const g = document.getElementById('gridPastas');
+            if (!g) return;
             g.innerHTML = '';
             for(let k in pastasNomes) {
                 const capa = (bancoImagens[k] && bancoImagens[k].length > 0) ? bancoImagens[k][0] : 'https://images.unsplash.com/photo-1515162305285-0293e4767cc2?q=80&w=300';
@@ -2430,6 +2485,7 @@
 
         window.abrirPasta = function(c,n) { 
             const g = document.getElementById('gridFotos');
+            if (!g) return;
             g.innerHTML = '';
             if(bancoImagens[c]) {
                 bancoImagens[c].forEach(u => { 
